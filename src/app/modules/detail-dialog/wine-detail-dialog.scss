@@ -1,0 +1,162 @@
+.mat-dialog-title {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+        font-size: 3.4rem;
+        line-height: 3.6rem;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        letter-spacing: -1px;
+    }
+    .close-x{
+        position: absolute;
+        right: 2rem;
+        font-size: 3.5rem;
+        font-weight: 300;
+        cursor: pointer;
+    }
+    .subtitle {
+        font-size: 2rem;
+        font-weight: 400;
+    }
+}
+.mat-dialog-content {
+    min-width: 40rem;
+    display: flex;
+
+    .image {
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        img {
+            width: 80%;
+            margin: auto;
+        }
+    }
+
+    .details {
+        width: 60%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+
+        .line {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+
+            .label {
+                flex: 1;
+                font-weight: 700;
+                text-align: end;
+            }
+            .info {
+                flex: 2;
+                margin-left: 1rem;
+                text-align: start;
+            }
+        }
+    }
+}
+
+.mat-dialog-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .prices-info {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #86303b;
+    }
+
+    .bottom-line {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+        &__button{
+            flex: 1;
+            text-align: end;
+        }
+
+        &__right {
+            flex: 1;
+            text-align: end;
+            .qty {
+                width: 3rem;
+                margin-right: 1rem;
+            }
+
+            .add-button {
+                min-width: auto; 
+                line-height: normal; 
+                padding: 2px;
+                background-color: #86303b;
+                color: white;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .mat-dialog-title {
+        .title {
+            font-size: 2.2rem;
+            font-weight: 500;
+            width: 75%;
+        }
+        .subtitle{
+            font-size: 1.8rem;
+        }
+    }
+    .mat-dialog-content {
+        display: flex;
+        flex-direction: column;
+
+        .image {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+
+            img {
+                width: 80%;
+                margin: auto;
+            }
+        }
+
+        .details {
+            width: 100%;
+            margin: auto;
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+
+            .line {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin-top: 2rem;
+
+                .label {
+                    flex: 1;
+                    font-weight: 700;
+                    text-align: end;
+                }
+                .info {
+                    flex: 2;
+                    margin-left: 1rem;
+                    text-align: start;
+                }
+            }
+        }
+    }
+}

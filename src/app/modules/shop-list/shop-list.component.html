@@ -1,0 +1,85 @@
+<div class="container">
+    <h2 class="title">mijn wagen</h2>
+    <h3 class="subtitle">best wijnen</h3>
+
+    <section class="empty-cart" *ngIf="!(cart.length>0)">
+        <p>Ups! Het ziet ernaar uit dat uw winkelwagen leeg is!        
+        </p>
+        <p>
+            <mat-icon class="empty-cart-icon">shopping_cart</mat-icon>
+        </p>
+        <p>
+            <button mat-flat-button color="accent" routerLink="/">Blijf kopen</button>
+        </p>
+        
+
+    </section>
+
+
+    <div class="list" *ngIf="cart.length>0">
+        <div class="list-header">
+            <div class="list-header-leftvoid">
+                &nbsp;
+            </div>
+            <div class="list-header-unitprice">
+                stuksprijs
+            </div>
+            <div class="list-header-actionsvoid">
+                &nbsp;
+            </div>
+            <div class="list-header-totalprice">
+                prijs
+            </div>
+            <div class="list-header-rightvoid">
+                &nbsp;
+            </div>
+        </div>
+        <div *ngFor="let line of cart">
+            <div class="list-line">
+                <div class="list-line-picture" (click)="showDetail(line)">
+                    <img class="list-line-picture__img" src="./assets/{{line.photobottle}}" alt="wine bottle picture">
+                </div>
+                
+                <div class="list-line-text">
+                    <div class="list-line-text__title">{{line.name}}</div>
+                    <div class="list-line-text__subtitle">{{line.subtitle}}</div>
+                    <div class="list-line-text__type">{{line.winetype}}</div>
+                </div>
+                <div class="list-line__price">
+                    {{line.pricesell}}€
+                </div>
+                <div class="list-line-actions">
+                    <mat-icon class="list-line-actions__button" (click)="line.qty>0 ? line.qty = line.qty-1 : line.qty=0; updateTotal(line);">indeterminate_check_box</mat-icon>
+                    <input class="list-line-actions__qty" min="0" name="qty" type="number" [(ngModel)]="line.qty" (change)="updateTotal(line)" >
+                    <mat-icon class="list-line-actions__button" (click)="line.qty = line.qty+1; updateTotal(line);">add_box</mat-icon>
+                </div>
+                <div class="list-line__price">
+                    {{line.pricesell * line.qty | number: '1.2-2'}}€
+                </div>
+                <mat-icon class="remove-button" color="warn" (click)="removeLine(line)">close</mat-icon>  
+            </div>
+            <hr>
+        </div>
+        
+
+
+        <div class="list-footer">
+            <div class="list-footer-leftvoid">
+                totale prijs:
+            </div>
+            <div class="list-footer-totalprice">
+                <span>{{total$ | async | number: '1.2-2'}}€</span> 
+            </div>
+            <div class="list-footer-rightvoid">
+                &nbsp;
+            </div>
+        </div>
+
+        <div class="finalize">
+
+            <button mat-stroked-button color="default" (click)="clearShoppingCart()">Schone lijst</button>
+            <button mat-stroked-button color="default" routerLink="/">Blijf kopen</button>
+            <button mat-flat-button color="accent">Aankoop</button>
+        </div>
+    </div>
+</div>

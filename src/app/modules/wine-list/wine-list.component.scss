@@ -1,0 +1,21 @@
+.container{
+    width: 86%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    .wine-card{
+        margin: 2rem auto;
+    }
+}
+
+
+@media only screen and (max-width: 600px){
+    .container{
+        width: 96%;
+    }
+    .wine-card{
+        margin: 1rem auto;
+    }
+}

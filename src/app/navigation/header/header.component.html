@@ -1,0 +1,43 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <a routerLink="/dash">
+          <div class="logo" >
+            <img class="logo-image" src="./assets/logo.png">
+            <div class="logo-title">
+              <span class="logo-title__top">FB</span>
+              <hr/>
+              <span class="logo-title__bottom">representações</span>
+            </div>
+          </div>
+        </a>
+      <span class="spacer"></span>
+      <div class="menu" fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.lt-sm>
+        <ul fxLayout fxLayoutGap="15px">
+          <li><a routerLink="/winelist">wijnen</a></li>
+          <li><a routerLink="/other">andere produten</a></li>
+          <li><a routerLink="/shopcart">shoppcart</a></li>
+          <li><a routerLink="/contacts">opmerkingen</a></li>
+          <li><img class="flag" src="./assets/img/flagBE.png" alt="Belgiun flag"></li>
+          <li><img class="flag" src="./assets/img/flagPT.jpg" alt="Portugal flag"></li>
+          <li>
+            <a routerLink="/shopcart">
+              <div class="shopcart">
+                <mat-icon class="shopcart-icon">shopping_cart</mat-icon>
+                <span class="shopcart-load" *ngIf="shopcartLoad>0">{{shopcartLoad}}</span>
+              </div>
+              
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div fxHide.gt-xs>
+        <mat-icon class="menu" fxLayout fxShow.xs (click)="ToggleSidenav()" aria-hidden="false" aria-label="menu icon">menu</mat-icon>
+      </div>
+    </mat-toolbar-row>
+    <mat-toolbar-row>
+      <div class="header-title">
+        <h1>Wijnen van Portugal</h1>
+        <h2>kwaliteit voor de beste prijs!</h2>
+      </div>
+    </mat-toolbar-row>
+</mat-toolbar>

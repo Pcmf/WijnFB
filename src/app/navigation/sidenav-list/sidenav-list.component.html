@@ -1,0 +1,18 @@
+<mat-nav-list class="sidenav">
+  <a mat-list-item (click)="CloseSidenav()" routerLink="wines" >
+    <mat-icon>wine_bar</mat-icon> Wijnen
+  </a>
+  <a mat-list-item (click)="CloseSidenav()" routerLink="other">
+    <mat-icon>tapas</mat-icon> Anderen Produten
+  </a>
+  <a mat-list-item (click)="CloseSidenav()" routerLink="/shopcart">
+    <mat-icon>local_grocery_store</mat-icon> Shoppcart
+  </a>
+  <a mat-list-item (click)="CloseSidenav()" routerLink="talk">
+    <mat-icon>support_agent</mat-icon> Opmerkingen
+  </a>
+  <mat-list-item>
+    <mat-icon>logout</mat-icon>
+    <button (click)="logout(); CloseSidenav()">Uitloggen</button>
+  </mat-list-item>
+</mat-nav-list>

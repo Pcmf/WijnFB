@@ -1,0 +1,24 @@
+<mat-card [class]="selected ? 'card-selected' : ''">
+    <mat-card-header (click)="onSelect()">
+        <mat-card-title>
+            <mat-icon [class]="wine.winetype=='Branco' ? 'glass-white' : wine.winetype=='Rosé' ? 'glass-rose' : 'glass-red'">wine_bar</mat-icon>
+            <span>{{wine.name}}</span>
+        </mat-card-title>
+        <mat-card-subtitle>{{wine.subtitle}}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="image" (click)="onSelect()">
+        <img *ngIf="wine.photobottle" mat-card-image src="./assets/{{wine.photobottle}}">
+        <img *ngIf="!wine.photobottle" mat-card-image src="./assets/bottle.png">
+        <span>{{wine.region}}</span>
+    </div>
+    
+    <mat-card-footer >
+        
+        <div class="price">{{wine.pricesell}}€</div>
+        <!-- <button mat-mini-fab color="default"> -->
+        <mat-icon color="primary" (click)="addToCart()">add_shopping_cart</mat-icon>
+    <!-- </button> -->
+        <div class="favorite"><mat-icon>favorite_border</mat-icon></div>
+
+    </mat-card-footer>
+</mat-card>

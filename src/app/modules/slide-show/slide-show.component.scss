@@ -1,0 +1,31 @@
+
+::ng-deep{
+
+    .carousel{
+        height: 280px !important;
+        padding-bottom: 2rem;
+
+    }
+
+
+    .carousel-slide{
+        background-size: contain !important;
+        height: 260px !important;
+    }
+
+
+}
+
+h2 {
+    text-transform: uppercase;
+    color: #3D6C8D;
+    font-weight: 500;
+    text-align: center;
+    padding-top: 3rem;
+}
+
+@media only screen and (max-width: 600px) {
+    h2{
+        font-size: 1.2rem;
+    }
+}

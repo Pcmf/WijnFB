@@ -1,0 +1,84 @@
+<div mat-dialog-title>
+    <div class="title">
+        {{data.name}}
+        <mat-icon class="close-x" (click)="onNoClick()">close</mat-icon>
+    </div>
+    
+    <div class="subtitle">
+        {{data.subtitle}}
+    </div>
+</div>
+<hr>
+<div mat-dialog-content>
+    <div class="image">
+        <img src="./assets/{{data.photobottle}}">
+    </div>
+    <div class="details">
+        <div class="line">
+            <div class="label">Jaar:</div>
+            <div class="info">{{data.year}}</div>
+        </div>
+        <div class="line">
+            <div class="label">Soort wijn:</div>
+            <div class="info">{{data.winetype_be}}</div>
+        </div>
+        <div class="line">
+            <div class="label">Regio:</div>
+            <div class="info">{{data.region}}</div>
+        </div>
+        <div class="line">
+            <div class="label">Wijndruiven:</div>
+            <div class="info">{{data.grapescoll}}</div>
+        </div>
+        <div class="line">
+            <div class="label">Bodem:</div>
+            <div class="info">{{data.soil_be}}</div>
+        </div>
+        <div class="line">
+            <div class="label">Proefnotities:</div>
+            <div class="info">{{data.tasting_be}}</div>
+        </div>
+        <div class="line">
+            <div class="label">Alcoholgehalte:</div>
+            <div class="info">{{data.alcohol}}% vol.</div>
+        </div>
+        <div class="line">
+            <div class="label">Service:</div>
+            <div class="info">{{data?.service_be}}</div>
+        </div>
+        <div class="line">
+            <div class="label">Wijnmaker:</div>
+            <div class="info">{{data.oenologiste}}</div>
+        </div>
+        <div class="line">
+            <div class="label">Producent:</div>
+            <div class="info">{{data.producer}}</div>
+        </div>
+        <div class="line">
+            <div class="label">Verpakking:</div>
+            <div class="info">{{data.packing}}</div>
+        </div>
+        
+    </div>
+
+</div>
+<hr>
+<div mat-dialog-actions>
+
+    <div class="prices-info">
+        {{data.pricesell}}€
+    </div>
+
+    <div class="bottom-line">
+        <button mat-stroked-button color="primary" (click)="onNoClick()">Cancel</button>
+        <div class="bottom-line__right">
+            <form #f="ngForm">
+                <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
+                <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add <mat-icon>add_shopping_cart</mat-icon></button>
+            </form>
+        </div>
+    </div>
+   
+
+   
+</div>

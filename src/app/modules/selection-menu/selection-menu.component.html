@@ -1,0 +1,76 @@
+<div class="container">
+    <h2>Bekijk meer</h2>
+
+    <div class="container-content">
+        <form #f="ngForm">
+            <div class="container-content-block">
+                <div class="sparator-line">
+                    <hr /> 
+                    <span>soort wijn</span>
+                    <hr />
+                </div>
+
+                <div class="menus">
+                    <mat-button-toggle-group type="submit" name="winetype" ngModel (click)="winetypeChanged(f.value)" aria-label="Wine Type">
+                        <mat-button-toggle value="0">all</mat-button-toggle>
+                        <mat-button-toggle value="8">porto</mat-button-toggle>
+                        <mat-button-toggle value="1">rood</mat-button-toggle>
+                        <mat-button-toggle value="2">wit</mat-button-toggle>
+                        <mat-button-toggle value="3">rosé</mat-button-toggle>
+                        <mat-button-toggle value="7">mousserend</mat-button-toggle>
+                    </mat-button-toggle-group>
+                </div>
+            </div>
+
+            <div class="container-content-block">
+                <div class="sparator-line">
+                    <hr />
+                    <span>regio</span>
+                    <hr />
+                </div>
+
+                <div class="menus">
+                    <mat-button-toggle-group name="region" ngModel  (click)="winetypeChanged(f.value)" aria-label="Wine Region">
+                        <mat-button-toggle [checked]="f.value.winetype==7"  value="0">all</mat-button-toggle>
+                        <mat-button-toggle [disabled]="f.value.winetype==8 || f.value.winetype==7" value="7">alentejo</mat-button-toggle>
+                        <mat-button-toggle [disabled]="f.value.winetype==8 || f.value.winetype==7" value="8">bairrada</mat-button-toggle>
+                        <mat-button-toggle [disabled]="f.value.winetype==8 || f.value.winetype==7" value="4">beiras</mat-button-toggle>
+                        <mat-button-toggle [disabled]="f.value.winetype==8 || f.value.winetype==7" value="3">dão</mat-button-toggle>
+                        <mat-button-toggle [checked]="f.value.winetype==8" [disabled]="f.value.winetype==7" value="1">douro</mat-button-toggle>
+                        <mat-button-toggle [disabled]="f.value.winetype==8 || f.value.winetype==7" value="2">verdes</mat-button-toggle>
+                    </mat-button-toggle-group>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container-content-mobile">
+        <form #f2="ngForm">
+        <mat-form-field appearance="fill">
+            <mat-label>soort wijn</mat-label>
+            <mat-select name="winetype" ngModel (selectionChange)="winetypeChanged(f2.value)" placeholder="wijn type">
+              <mat-option value="0">all</mat-option>
+              <mat-option [disabled]="f.value.winetype==8 || f.value.winetype==7" value="8">porto</mat-option>
+              <mat-option value="1">rood</mat-option>
+              <mat-option value="2">wit</mat-option> 
+              <mat-option value="3">rosé</mat-option>
+              <mat-option value="7">mousserend</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>regio</mat-label>
+            <mat-select  [disabled]="f2.value.winetype==8 || f2.value.winetype==7" name="region" ngModel  (selectionChange)="winetypeChanged(f2.value)">
+              <mat-option value="0">all</mat-option>
+              <mat-option value="7">alentejo</mat-option>
+              <mat-option value="8">bairrada</mat-option>
+              <mat-option value="4">beiras</mat-option> 
+              <mat-option value="3">dão</mat-option>
+              <mat-option value="1">douro</mat-option>
+              <mat-option value="2">verdes</mat-option>
+            </mat-select>
+          </mat-form-field>
+          </form>
+    </div>
+</div>

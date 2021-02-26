@@ -1,0 +1,17 @@
+<div mat-dialog-title>
+    <div class="title">
+        {{data.title}}
+        <mat-icon class="close-x" (click)="onNoClick()">close</mat-icon>
+    </div>
+    
+<!--     <div class="subtitle">
+        {{data.subtitle}}
+    </div> -->
+</div>
+<div mat-dialog-content>
+    {{data.subtitle}}
+</div>
+<div mat-dialog-actions>
+        <button mat-flat-button color="primary" (click)="onNoClick()">NO</button>
+        <button mat-flat-button color="default" [mat-dialog-close]="true">YES</button>
+</div>
