@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderImageService } from './../services/header-image.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private headerImageService: HeaderImageService
+  ) { }
 
   ngOnInit(): void {
+    this.headerImageService.setImage('douro1.jpg');
   }
 
 }

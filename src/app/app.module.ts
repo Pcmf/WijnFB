@@ -26,6 +26,7 @@ import { FormsModule } from '@angular/forms';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { WineDetailDialog } from './modules/detail-dialog/wine-detail-dialog';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { OliveOillComponent } from './modules/olive-oill/olive-oill.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     SupportComponent,
     WineDetailDialog,
     ShopListComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    OliveOillComponent
   ],
   imports: [
     BrowserModule,

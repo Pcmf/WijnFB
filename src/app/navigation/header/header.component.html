@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar style='background-image: url("./../../../assets/{{backgroundImage}}");'>
     <mat-toolbar-row>
         <a routerLink="/dash">
           <div class="logo" >
@@ -14,7 +14,16 @@
       <div class="menu" fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.lt-sm>
         <ul fxLayout fxLayoutGap="15px">
           <li><a routerLink="/winelist">wijnen</a></li>
-          <li><a routerLink="/other">andere produten</a></li>
+   <!--        <li><a routerLink="/other">andere produten</a></li> -->
+          <li>
+            <button mat-button [matMenuTriggerFor]="menu">andere produten</button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item routerLink="/oliveoil">Olijfolie</button>
+              <button mat-menu-item>Likeuren en sterke dranken</button>
+              <button mat-menu-item>Bewaren</button>
+              <button mat-menu-item>Charcuterie</button>
+            </mat-menu>
+          </li>
           <li><a routerLink="/shopcart">shoppcart</a></li>
           <li><a routerLink="/contacts">opmerkingen</a></li>
           <li><img class="flag" src="./assets/img/flagBE.png" alt="Belgiun flag"></li>

@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmDialogComponent } from './../../components/confirm-dialog/confirm-dialog.component';
 import { Wine } from 'src/app/interfaces/Interfaces';
 import { Observable } from 'rxjs';
+import { HeaderImageService } from './../../services/header-image.service';
 
 @Component({
   selector: 'app-shop-list',
@@ -22,7 +23,8 @@ export class ShopListComponent implements OnInit {
     private shopCartService: ShoppingCartService,
     private apiService: ApiDataService,
     public dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private headerImageService: HeaderImageService
   ) {
     this.cart = shopCartService.getShopCartList();
   /*   this.total$ = shopCartService.shopcartTotal; */
@@ -93,6 +95,7 @@ export class ShopListComponent implements OnInit {
 
   ngOnInit(): void {
     this.total$ = this.shopCartService.shopcartTotal;
+    this.headerImageService.setImage('shop3.jpg');
   }
 
 

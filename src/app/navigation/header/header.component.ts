@@ -2,6 +2,7 @@ import { Component, OnDestroy, EventEmitter, OnInit, Output } from '@angular/cor
 import { Subscription } from 'rxjs';
 import { ApiDataService } from '../../services/api-data.service';
 import { ShoppingCartService } from './../../services/shopping-cart.service';
+import { HeaderImageService } from './../../services/header-image.service';
 
 @Component({
   selector: 'app-header',
@@ -13,10 +14,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   subscription: Subscription | undefined;
   shownav = false;
   shopcartLoad = 0;
-
+  backgroundImage: string | undefined;
   constructor(
     private apiService: ApiDataService,
-    private shopcartService: ShoppingCartService
+    private shopcartService: ShoppingCartService,
+    private headerImageService: HeaderImageService
   ) {   }
 
   ngOnInit(): void {
@@ -29,6 +31,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
       res => {
         this.shopcartLoad = res;
       }
+    );
+    this.subscription = this.headerImageService.imageBackground.subscribe(
+      img => this.backgroundImage = img
     );
   }
 

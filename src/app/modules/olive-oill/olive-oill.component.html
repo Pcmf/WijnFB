@@ -1,0 +1,161 @@
+<section>
+    <article>
+        <h2>olijfolie</h2>
+        <div class="content">
+            <div class="content-text">
+                <p>
+                    "Olijfolie is een voedingsproduct dat wordt gewonnen uit olijven, de vrucht van de olijfboom.
+                </p>
+                <p>
+                    Op volle kracht geplant. Het is een oud gerecht, klassieker uit de hedendaagse keuken,
+                    gebruikelijk in het mediterrane dieet en tegenwoordig aanwezig in de meeste keukens.
+                </p>
+                <p>
+                    Naast de voordelen voor de gezondheid, voegt olijfolie een eigenaardige smaak en aroma toe aan
+                    voedsel.”
+                </p>
+                <em>in wikipedia</em>
+
+
+            </div>
+
+            <div class="image"></div>
+        </div>
+    </article>
+
+  <!--   Produtos -->
+    <article>
+        <div class="content-product">
+            <div class="product-image">
+                <img src="./assets/azeite_remondes_1.png" alt="Lata azeite remondes fado">
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <h2>remondes - fado</h2>
+                    <div class="product-info__text">
+                        <p>Extra vierge olijfolie.</p>
+                        <p>
+                            Product van Portugal van superieure categorie verkregen uit verse en
+                            gezonde olijven door koude mechanische precessen.
+                        </p>
+                    </div>
+                </div>
+                <div class="product-tecnic">
+                    <h3>Data papier</h3>
+                    <div class="product-tecnic-group">
+                        <div class="product-tecnic-group__labels">
+                            <p>zuurgraad:</p>
+                            <p>inpakken:</p>
+                            <p>peroxide-index:</p>
+                            <p>wassen:</p>
+                            <p>energie:</p>
+                        </div>
+                        <div class="product-tecnic-group__info">
+                            <p>&le; 0.5 %</p>
+                            <p>0.5L</p>
+                            <p>(megO2/Kg) &lt; 15</p>
+                            <p>&lt; 150mg/Kg</p>
+                            <p>3378KJ / 822 Kcal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="shoppcart-left">
+                    <form #f="ngForm">
+                        <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
+                        <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add <mat-icon>add_shopping_cart</mat-icon></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </article>
+<hr>
+    <article>
+        <div class="content-product">
+            <div class="product">
+                <div class="product-info">
+                    <h2>Águia Moura</h2>
+                    <div class="product-info__text">
+                        <p>Extra vierge olijfolie.</p>
+                        <p>
+                            Product van Portugal van superieure categorie verkregen uit verse en
+                            gezonde olijven door koude mechanische precessen.
+                        </p>
+                    </div>
+                </div>
+                <div class="product-tecnic">
+                    <h3>Data papier</h3>
+                    <div class="product-tecnic-group">
+                        <div class="product-tecnic-group__labels">
+                            <p>zuurgraad:</p>
+                            <p>inpakken:</p>
+                            <p>peroxide-index:</p>
+                            <p>wassen:</p>
+                            <p>energie:</p>
+                        </div>
+                        <div class="product-tecnic-group__info">
+                            <p>&le; 0.5 %</p>
+                            <p>0.5L</p>
+                            <p>(megO2/Kg) &lt; 15</p>
+                            <p>&lt; 150mg/Kg</p>
+                            <p>3378KJ / 822 Kcal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="shoppcart-right">
+                    <form #f="ngForm">
+                        <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
+                        <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add <mat-icon>add_shopping_cart</mat-icon></button>
+                    </form>
+                </div>
+            </div>
+            <div class="product-image">
+                <img src="./assets/azeite_aguia_moura.png" alt="Aguia moura">
+            </div>
+        </div>
+    </article>
+    <hr>
+    <article>
+        <div class="content-product">
+            <div class="product-image">
+                <img src="./assets/azeite_remondes_1.png" alt="Lata azeite remondes fado">
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <h2>remondes - fado</h2>
+                    <div class="product-info__text">
+                        <p>Extra vierge olijfolie.</p>
+                        <p>
+                            Product van Portugal van superieure categorie verkregen uit verse en
+                            gezonde olijven door koude mechanische precessen.
+                        </p>
+                    </div>
+                </div>
+                <div class="product-tecnic">
+                    <h3>Data papier</h3>
+                    <div class="product-tecnic-group">
+                        <div class="product-tecnic-group__labels">
+                            <p>zuurgraad:</p>
+                            <p>inpakken:</p>
+                            <p>peroxide-index:</p>
+                            <p>wassen:</p>
+                            <p>energie:</p>
+                        </div>
+                        <div class="product-tecnic-group__info">
+                            <p>&le; 0.5 %</p>
+                            <p>0.5L</p>
+                            <p>(megO2/Kg) &lt; 15</p>
+                            <p>&lt; 150mg/Kg</p>
+                            <p>3378KJ / 822 Kcal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="shoppcart-left">
+                    <form #f="ngForm">
+                        <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
+                        <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add <mat-icon>add_shopping_cart</mat-icon></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
