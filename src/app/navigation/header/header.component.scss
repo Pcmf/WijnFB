@@ -105,6 +105,16 @@ a, a:visited, a:link{
   text-decoration: none;
   color: white;
 }
+
+.mat-button{
+  background-color: rgba(245, 245, 245, 0);
+}
+
+.mat-button:hover{
+  background-color: rgba(245, 245, 245, 0.336);
+}
+
+
 .shopcart{
   position: relative;
   height: 1.5rem;

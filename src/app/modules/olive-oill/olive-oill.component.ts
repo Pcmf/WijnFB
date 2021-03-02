@@ -14,10 +14,10 @@ export class OliveOillComponent implements OnInit {
 
   ngOnInit(): void {
     this.headerImageService.setImage('olival.jpg');
+    window.scrollTo(0, 0);
   }
 
   addToCart(value: number): void{
-    
   }
 
 }
