@@ -82,6 +82,7 @@ export class WineListComponent implements OnInit {
   }
 
   showDetail(wine: any): void{
+    console.log(wine);
     const dialogRef = this.dialog.open(WineDetailDialog, {
       data: wine
     });
