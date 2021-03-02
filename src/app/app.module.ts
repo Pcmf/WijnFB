@@ -28,6 +28,7 @@ import { WineDetailDialog } from './modules/detail-dialog/wine-detail-dialog';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { OliveOillComponent } from './modules/olive-oill/olive-oill.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     MatCarouselModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [ApiDataService, WineDetailDialog, ConfirmDialogComponent, ShoppingCartService,
+  providers: [ApiDataService, WineDetailDialog, ConfirmDialogComponent, ShoppingCartService, CookieService,
               {provide: LocationStrategy, useClass: HashLocationStrategy}
             ],
   bootstrap: [AppComponent]

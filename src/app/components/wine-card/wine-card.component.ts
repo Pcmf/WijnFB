@@ -9,8 +9,11 @@ import { ShoppingCartService } from './../../services/shopping-cart.service';
 export class WineCardComponent implements OnInit {
   @Output() selectWine = new EventEmitter<void>();
   @Output() addedToCart = new EventEmitter<string>();
+  @Output() toggleToFavorit = new EventEmitter<number>();
   @Input() wine: any;
   @Input() selected: boolean | false | undefined;
+
+
 
   constructor(
     private shopCartService: ShoppingCartService
@@ -28,6 +31,11 @@ export class WineCardComponent implements OnInit {
     const msg = this.wine.name + ' is toegevoegd aan de boodschappenlijst!';
     this.addedToCart.emit(msg);
     this.shopCartService.addLineToCart({id: this.wine.id, name: this.wine.name, qty: 1, price: this.wine.pricesell});
+  }
+
+  toggleFavorit(): void{
+    this.wine.favorit = !this.wine.favorit;
+    this.toggleToFavorit.emit(this.wine.id);
   }
 
 }

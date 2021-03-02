@@ -18,7 +18,11 @@
         <!-- <button mat-mini-fab color="default"> -->
         <mat-icon color="primary" (click)="addToCart()">add_shopping_cart</mat-icon>
     <!-- </button> -->
-        <div class="favorite"><mat-icon>favorite_border</mat-icon></div>
+        <div class="favorite" (click)="toggleFavorit()">
+            <mat-icon *ngIf="!wine.favorit">favorite_border</mat-icon>
+            <mat-icon *ngIf="wine.favorit">favorite</mat-icon>
+        
+        </div>
 
     </mat-card-footer>
 </mat-card>

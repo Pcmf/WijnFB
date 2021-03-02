@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatDialog} from '@angular/material/dialog';
 import { ApiDataService } from './../../services/api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -6,8 +6,9 @@ import { ShoppingCartService } from './../../services/shopping-cart.service';
 import { WineDetailDialog } from './../detail-dialog/wine-detail-dialog';
 import { Subscription } from 'rxjs';
 import { SelectMenuService } from './../../services/select-menu.service';
-import { Selection } from './../../interfaces/Interfaces';
+import { Selection, Wine } from './../../interfaces/Interfaces';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-wine-list',
@@ -20,6 +21,7 @@ export class WineListComponent implements OnInit {
   winesListSelection: any = [];
   subscription: Subscription | undefined;
   selection: Selection;
+  favoritsList: string[] = [];
 
   constructor(
     private apiData: ApiDataService,
@@ -27,14 +29,20 @@ export class WineListComponent implements OnInit {
     private snackBar: MatSnackBar,
     private shoppCartService: ShoppingCartService,
     private selectionMenuService: SelectMenuService,
-    private router: Router
+    private router: Router,
+    private cookieService: CookieService
 
   ) {
+
     this.selection = {winetype: 0, region: 0};
     this.getWineList(this.selection);
   }
 
   ngOnInit(): void {
+    if ( this.cookieService.check('favorits')){
+      this.favoritsList = JSON.parse(this.cookieService.get('favorits'));
+      console.log(this.favoritsList);
+    }
     this.subscription = this.selectionMenuService.menuSelection.subscribe(
       res => this.getWineList(res)
     );
@@ -53,10 +61,21 @@ export class WineListComponent implements OnInit {
           this.openSnackBar('Sorry, we hebben geen resultaten voor die zoekopdracht!', '');
         }
         this.winesListSelection = resp;
+        this.winesListSelection.map((el: any) => {
+          if (this.favoritsList?.indexOf(el.id) >= 0){
+            el.favorit = true;
+          }
+        });
+
 
         this.apiData.getData('wines/not/' + selection.winetype + '/' + selection.region).subscribe(
           (resp2: any[]) => {
             this.winesList = resp2;
+            this.winesList.map((el: any) => {
+              if (this.favoritsList?.indexOf(el.id) >= 0){
+                el.favorit = true;
+              }
+            });
           });
         }
     );
@@ -88,6 +107,22 @@ export class WineListComponent implements OnInit {
       console.log('Action go to shopp');
       this.router.navigate(['/shopcart']);
     } );
+  }
+
+  toggleToFavorits(event: any): void{
+    console.log(event);
+    const index = this.favoritsList.indexOf(event);
+    if ( index >= 0 ) {
+      this.favoritsList.splice(index, 1);
+    } else {
+      this.favoritsList.push(event);
+    }
+    console.log(this.favoritsList);
+    this.cookieService.set('favorits', JSON.stringify(this.favoritsList), {expires: 30, path: '/', sameSite: 'Lax'});
+  }
+
+  OnDestroy(): void{
+    this.cookieService.set('favorits', JSON.stringify(this.favoritsList));
   }
 
 }
