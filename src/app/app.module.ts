@@ -29,6 +29,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 import { OliveOillComponent } from './modules/olive-oill/olive-oill.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
+import { TagComponent } from './components/tag/tag.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { CookieService } from 'ngx-cookie-service';
     WineDetailDialog,
     ShopListComponent,
     ConfirmDialogComponent,
-    OliveOillComponent
+    OliveOillComponent,
+    TagComponent
   ],
   imports: [
     BrowserModule,

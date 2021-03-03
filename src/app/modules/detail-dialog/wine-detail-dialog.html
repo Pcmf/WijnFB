@@ -8,11 +8,14 @@
         <mat-icon *ngIf="data.favorit" class="favorite">favorite</mat-icon>
         {{data.subtitle}}
     </div>
+    <!-- <app-tag [tag]="data.status"></app-tag> -->
 </div>
 <hr>
 <div mat-dialog-content>
+    
     <div class="image">
         <img src="./assets/{{data.photobottle}}">
+        <app-tag *ngIf="data.status" [tag]="data.status"></app-tag>
     </div>
     <div class="details">
         <div class="line">

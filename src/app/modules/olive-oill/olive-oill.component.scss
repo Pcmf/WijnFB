@@ -108,9 +108,12 @@ section {
     }
 }
 
-article{
+article:not(:first-child){
+    max-width: 86%;
+    margin: auto;
     margin-bottom: 3rem;
 }
+
 
 .shoppcart-right {
     text-align: right;
