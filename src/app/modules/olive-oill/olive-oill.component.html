@@ -61,6 +61,7 @@
                 </div>
                 <div class="shoppcart-left">
                     <form #f="ngForm">
+                        <span class="price">2.99 €</span>
                         <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
                         <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add <mat-icon>add_shopping_cart</mat-icon></button>
                     </form>
@@ -103,6 +104,7 @@
                 </div>
                 <div class="shoppcart-right">
                     <form #f="ngForm">
+                        <span class="price">4.99 €</span>
                         <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
                         <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add <mat-icon>add_shopping_cart</mat-icon></button>
                     </form>
@@ -151,6 +153,7 @@
                 </div>
                 <div class="shoppcart-left">
                     <form #f="ngForm">
+                        <span class="price">3.99 €</span>
                         <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
                         <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add <mat-icon>add_shopping_cart</mat-icon></button>
                     </form>

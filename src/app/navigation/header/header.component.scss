@@ -1,83 +1,73 @@
-mat-toolbar{
+mat-toolbar {
   height: 375px;
   /* background-image: url("./../../../assets/douro2.jpg"); */
   background-size: cover;
   background-position: center;
 
-  mat-toolbar-row{
+  mat-toolbar-row {
     width: 90%;
     margin: auto;
     height: 80px;
     margin-top: 20px;
   }
 
-  .logo{
+  .logo {
     width: 60px;
     display: flex;
     justify-content: space-between;
 
-    &-image{
-      /* width: 60px; */
-      height: 60px;
+    &-image {
+      width: 10rem;
     }
-    hr{
+    hr {
       width: 100%;
- /*      background: white;
-      height: 1.2px; */
     }
 
-    &-title{
+    &-title {
       color: white;
-      width: 12.0rem;
+      width: 20rem;
       display: flex;
       flex-direction: column;
-
-      &__top{
-        font-size: 1.4rem;
+      align-items: center;
+      &__top {
+        font-size: 3rem;
         font-weight: 900;
         letter-spacing: 1rem;
-        margin-bottom: -1.9rem;
+        margin-bottom: -1.1rem;
+        margin-top: 1.5rem;
         text-align: right;
+        text-shadow: 0px 3px 0px #081402;
       }
-      &__bottom{
-        margin-top: -2.1rem;
-        font-size: 0.6rem;
+      &__bottom {
+        margin-top: -1.8rem !important;
+        font-size: 1.6rem;
         font-weight: 200;
       }
     }
-
-
   }
 
-  .spacer{
+  .spacer {
     flex: 1;
   }
-
 
   .menu {
     color: rgba(255, 255, 255, 0.749);
     font-size: 1.2rem;
-    ul{
+    ul {
       /* display: inline; */
 
-      li{
+      li {
         list-style: none;
       }
     }
-
-
   }
 
-
-
-
-  .flag{
+  .flag {
     height: 1.7rem;
   }
+}
 
-} 
-
-.header-title{
+.header-title {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -85,46 +75,49 @@ mat-toolbar{
   align-items: center;
   color: white;
 
-  h1{
-    font-family: Montserrat, sans-serif;
-    font-weight: 400;
+  h1 {
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
     font-size: 6rem;
-    letter-spacing: -5px;
+    letter-spacing: -1px;
     margin-top: -12rem;
+    text-shadow: 0px 4px 1px #081402;
   }
-  h2{
-    font-family: Montserrat, sans-serif;
+  h2 {
+    font-family: Roboto, sans-serif;
     font-weight: 300;
     font-size: 3rem;
     margin-top: 2.5rem;
-
+    text-shadow: 0px 2px 0px #081402;
+    
   }
 }
 
-a, a:visited, a:link{
+a,
+a:visited,
+a:link {
   text-decoration: none;
   color: white;
 }
 
-.mat-button{
+.mat-button {
   background-color: rgba(245, 245, 245, 0);
 }
 
-.mat-button:hover{
+.mat-button:hover {
   background-color: rgba(245, 245, 245, 0.336);
 }
 
-
-.shopcart{
+.shopcart {
   position: relative;
   height: 1.5rem;
   width: 1.5rem;
 
-  &-icon{
+  &-icon {
     height: 1.5rem;
     width: 1.5rem;
   }
-  &-load{
+  &-load {
     position: absolute;
     top: -7px;
     right: -11px;
@@ -140,38 +133,78 @@ a, a:visited, a:link{
   }
 }
 
+@media only screen and (max-width: 1024px) {
+  .logo {
+    width: 16rem !important;
+    &-image {
+      width: 8rem !important;
+    }
+
+    &-title {
+      &__top {
+        font-size: 2.8rem !important;
+
+      }
+      &__bottom {
+        margin-top: -1.8rem !important;
+        font-size: 1.4rem !important;
+      }
+    }
+  }
+}
 
 @media only screen and (max-width: 600px) {
-  mat-toolbar{
+  mat-toolbar {
     height: 20vh;
   }
-  .mat-icon{
+
+  .logo {
+    width: 14rem !important;
+    &-image {
+      width: 6rem !important;
+      height: 6rem !important;
+    }
+
+    &-title {
+      &__top {
+        font-size: 2rem !important;
+        font-weight: 600 !important;
+        margin-top: 0.5rem !important;
+        margin-bottom: -1.5rem !important;
+      }
+      &__bottom {
+        font-size: 1.1rem !important;
+      }
+    }
+  }
+
+  .mat-icon {
     height: 4rem;
     width: 4rem;
     font-size: 4rem !important;
-}
+  }
 
-  .header-title{
+  .header-title {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
-  
-    h1{
-      font-family: Montserrat, sans-serif;
-      font-weight: 400;
+    color: rgba(255, 255, 255, 0.815);
+
+
+    h1 {
+      font-family: Roboto, sans-serif;
+      font-weight: 600;
       font-size: 2.6rem;
       letter-spacing: -1.5px;
       margin-top: -2rem;
     }
-    h2{
-      font-family: Montserrat, sans-serif;
+    h2 {
+      font-family: Roboto, sans-serif;
       font-weight: 300;
       font-size: 1.5rem;
       margin-top: -0.5rem;
-  
     }
   }
 }

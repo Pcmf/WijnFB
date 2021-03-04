@@ -30,6 +30,7 @@ import { OliveOillComponent } from './modules/olive-oill/olive-oill.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
 import { TagComponent } from './components/tag/tag.component';
+import { LikeurenComponent } from './modules/likeuren/likeuren.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { TagComponent } from './components/tag/tag.component';
     ShopListComponent,
     ConfirmDialogComponent,
     OliveOillComponent,
-    TagComponent
+    TagComponent,
+    LikeurenComponent
   ],
   imports: [
     BrowserModule,

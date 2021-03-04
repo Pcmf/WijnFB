@@ -1,0 +1,219 @@
+<section>
+
+
+    <!--   Produtos -->
+    <article>
+        <div class="content-product">
+            <div class="product-image">
+                <img src="./assets/licor-beirao.jpg" alt="Lata azeite remondes fado">
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <h2>Licor Beirão</h2>
+                    <div class="product-info__text">
+                        <p>De bekendste likeur uit Portugal</p>
+                        <p>
+                            Licor Beiräo Portugese die gebaseerd is op een eeuwenoud recept van
+                            plantenextracten en aromatische zaden. De meest populaire likeur van
+                            Portugal en heeft ook al verschillende prijzen in de wacht mogen slepen.
+                            Een lekkere zoete likeur met intense aroma’s die je Mediterrane avonden zullen bezorgen!
+                        </p>
+                    </div>
+                </div>
+                <div class="product-tecnic">
+                    <div class="product-tecnic-group">
+                        <div class="product-tecnic-group__labels">
+                            <p>Alcoholgehalte:</p>
+                            <p>Verpakking:</p>
+                        </div>
+                        <div class="product-tecnic-group__info">
+                            <p>20% vol</p>
+                            <p>70 cl</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="shoppcart-left">
+                    <form #f="ngForm">
+                        <span class="price">16.95 €</span>
+                        <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
+                        <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add
+                            <mat-icon>add_shopping_cart</mat-icon>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </article>
+    <hr>
+    <article>
+        <div class="content-product">
+            <div class="product">
+                <div class="product-info">
+                    <h2>Brandy 1920</h2>
+                    <div class="product-info__text">
+                        <p>
+                            Product van Portugal van superieure categorie verkregen uit verse en
+                            gezonde olijven door koude mechanische precessen.
+                        </p>
+                    </div>
+                </div>
+                <div class="product-tecnic">
+                    <div class="product-tecnic-group">
+                        <div class="product-tecnic-group__labels">
+                            <p>Alcoholgehalte:</p>
+                            <p>Verpakking:</p>
+                        </div>
+                        <div class="product-tecnic-group__info">
+                            <p>30% vol</p>
+                            <p>1 L</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="shoppcart-right">
+                    <form #f="ngForm">
+                        <span class="price">19.12 €</span>
+                        <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
+                        <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add
+                            <mat-icon>add_shopping_cart</mat-icon>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="product-image">
+                <img src="./assets/1920.png" alt="1920">
+            </div>
+        </div>
+    </article>
+    <hr>
+    <article>
+        <div class="content-product">
+            <div class="product-image">
+                <img src="./assets/macieira.png" alt="Brandy Macieira">
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <h2>Brandy Macieira</h2>
+                    <div class="product-info__text">
+                        <p>Brandy Macieira is de traditionele.</p>
+                        <p>
+                            Portugese brandewijn van druiven van de wijnstok Arinto,
+                            Periquita, Trincadeira en Fernao Pires. Deze brandy heeft
+                            ten minste zes maanden gerijpt in Franse eiken vaten.
+                        </p>
+                    </div>
+                </div>
+                <div class="product-tecnic">
+                    <div class="product-tecnic-group">
+                        <div class="product-tecnic-group">
+                            <div class="product-tecnic-group__labels">
+                                <p>Alcoholgehalte:</p>
+                                <p>Verpakking:</p>
+                            </div>
+                            <div class="product-tecnic-group__info">
+                                <p>30% vol</p>
+                                <p>1 L</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shoppcart-left">
+                        <form #f="ngForm">
+                            <span class="price">20.95 €</span>
+                            <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
+                            <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add
+                                <mat-icon>add_shopping_cart</mat-icon>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <hr>
+    <article>
+        <div class="content-product">
+            <div class="product">
+                <div class="product-info">
+                    <h2>Brandy Croft</h2>
+                    <div class="product-info__text">
+                        <p>
+                            Product van Portugal.
+                        </p>
+                    </div>
+                </div>
+                <div class="product-tecnic">
+                    <div class="product-tecnic-group">
+                        <div class="product-tecnic-group__labels">
+                            <p>Alcoholgehalte:</p>
+                            <p>Verpakking:</p>
+                        </div>
+                        <div class="product-tecnic-group__info">
+                            <p>30% vol</p>
+                            <p>1 L</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="shoppcart-right">
+                    <form #f="ngForm">
+                        <span class="price">21.70 €</span>
+                        <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
+                        <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add
+                            <mat-icon>add_shopping_cart</mat-icon>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="product-image">
+                <img src="./assets/croft.png" alt="1920">
+            </div>
+        </div>
+    </article>
+    <hr>
+    <article>
+        <div class="content-product">
+            <div class="product-image">
+                <img src="./assets/Fim de Seculo.png" alt="Brandy Fim de Seculo">
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <h2>Aguardente Fim de Século</h2>
+                    <div class="product-info__text">
+                        <p>Aguardente traditionele.</p>
+                        <p>
+                            &nbsp;
+                        </p>
+                    </div>
+                </div>
+                <div class="product-tecnic">
+                    <div class="product-tecnic-group">
+                        <div class="product-tecnic-group">
+                            <div class="product-tecnic-group__labels">
+                                <p>Alcoholgehalte:</p>
+                                <p>Verpakking:</p>
+                            </div>
+                            <div class="product-tecnic-group__info">
+                                <p>30% vol</p>
+                                <p>70 cl</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shoppcart-left">
+                        <form #f="ngForm">
+                            <span class="price">23.45 €</span>
+                            <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
+                            <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add
+                                <mat-icon>add_shopping_cart</mat-icon>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+<app-other-products-teaser></app-other-products-teaser>
+<app-footer></app-footer>

@@ -37,8 +37,13 @@
     }
 }
 
+a, a:visited, a:link, a:hover {
+    text-decoration: none;
+}
+
 @media only screen and (max-width: 600px){
     h2{
-        font-size: 1.6rem;
+        font-size: 1.6rem !important;
+        padding: 0 3rem !important;
     }
 }
