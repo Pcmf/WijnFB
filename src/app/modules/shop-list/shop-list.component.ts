@@ -95,7 +95,7 @@ export class ShopListComponent implements OnInit {
 
   ngOnInit(): void {
     this.total$ = this.shopCartService.shopcartTotal;
-    this.headerImageService.setImage('shop3.jpg');
+    this.headerImageService.setImage('shop3_sm.jpg');
   }
 
 

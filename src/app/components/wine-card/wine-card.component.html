@@ -13,7 +13,7 @@
         <img *ngIf="!wine.photobottle" mat-card-image src="./assets/bottle.png">
         <span>{{wine.region}}</span>
 
-        <app-tag *ngIf="wine.status" [tag]="wine.status"></app-tag>
+        <app-tag *ngIf="wine.status_be" [tag]="wine.status_be"></app-tag>
     </div>
     
     <mat-card-footer >

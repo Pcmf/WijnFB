@@ -1,0 +1,248 @@
+section {
+    width: 100%;
+    font-size: 2rem;
+
+    h2 {
+        font-size: 3rem;
+        text-transform: uppercase;
+        color: #3e4e02;
+        text-align: center;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+
+
+    .content {
+        background: linear-gradient(326.56deg, #374d00 7.83%, #d9bd8e 99.31%);
+        width: 100%;
+        height: 50rem;
+        display: flex;
+
+        &-text {
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin-left: 10%;
+            color: #d4eaa6;
+
+            p {
+                font-size: 2rem;
+                line-height: 3rem;
+            }
+        }
+
+        .image {
+            width: 40%;
+            background-image: url("./../../../assets/azeite_intro2.jpg");
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+        }
+    }
+
+    .content-product {
+        width: 86%;
+        margin: auto;
+        margin-top: 4rem;
+        height: auto;
+        display: flex;
+
+        .product-image {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+
+            img {
+                height: 40rem;
+                width: auto;
+            }
+        }
+
+        .product {
+            width: 60%;
+            padding-top: 2rem;
+
+            &-info {
+                h2 {
+                    width: 70%;
+                    text-align: center;
+                    text-transform: uppercase;
+                    font-size: 2.2rem;
+                }
+                &__text {
+                    width: 60%;
+                    font-size: 1.6rem;
+                }
+            }
+
+            &-tecnic {
+                h3 {
+                    width: 70%;
+                    text-align: center;
+                    font-size: 1.6rem;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                }
+                &-group {
+                    font-size: 1.6rem;
+                    width: 70%;
+                    display: flex;
+
+                    &__labels {
+                        width: 50%;
+                        font-weight: 500;
+                        text-align: right;
+                        padding-right: 1.5rem;
+                        text-transform: capitalize;
+                    }
+                    &__info {
+                        width: 50%;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+    }
+}
+
+article:not(:first-child){
+    max-width: 86%;
+    margin: auto;
+    margin-bottom: 3rem;
+}
+
+.price{
+    font-size: 2rem;
+    color: #86303b;
+    font-weight: 500;
+    margin: auto 1.5rem;
+}
+
+.shoppcart-right {
+    text-align: right;
+}
+.shoppcart-left {
+    text-align: left;
+}
+
+.qty {
+    width: 3rem;
+    margin-right: 1rem;
+}
+
+.add-button {
+    min-width: auto;
+    line-height: normal;
+    padding: 2px;
+    background-color: #86303b;
+    color: white;
+}
+
+@media only screen and (max-width: 768px) {
+    img {
+        margin-top: 3rem;
+        height: 30rem !important;
+        width: auto;
+    }
+
+    h2 {
+        font-size: 2rem !important;
+    }
+    .product-info__text {
+        font-size: 1.4rem !important;
+    }
+
+    .product-tecnic {
+        h3 {
+            font-size: 1.4rem !important;
+        }
+        &-group {
+            font-size: 1.4rem !important;
+
+            &__labels {
+                padding-right: 1.3rem !important;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .content{
+        height: 35rem !important;
+    }
+    section .content-text p {
+        margin-top: 2rem !important;
+        font-size: 1.6rem !important;
+        line-height: 1.8rem;
+    }
+    em {
+        font-size: 1.4rem !important;
+    }
+    p {
+        margin-block-start: 0 !important;
+        margin-block-end: 0 !important;
+    }
+
+    .product-image {
+        width: 30% !important;
+    }
+
+    img {
+        margin-top: 3rem;
+        height: 14rem !important;
+        width: auto;
+    }
+
+    .product {
+        width: 100% !important;
+        padding-top: 1rem !important;
+    }
+
+    h2 {
+        font-size: 1.6rem !important;
+    }
+    .product-info__text {
+        margin: 1rem;
+        width: 100% !important;
+        font-size: 1.2rem !important;
+        p {
+            width: 100% !important;
+        }
+    }
+
+    .product-tecnic-group {
+        width: 100% !important;
+    }
+
+    .product-tecnic {
+        h3 {
+            font-size: 1.2rem !important;
+        }
+        &-group {
+            font-size: 1.2rem !important;
+
+            &__labels {
+                padding-right: 1.1rem !important;
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 375px) {
+    .content{
+        height: 35rem !important;
+    }
+    section .content-text p {
+        margin-top: 2rem !important;
+        font-size: 1.4rem !important;
+        line-height: 1.6rem;
+    }
+    em {
+        font-size: 1.2rem !important;
+    }
+}
+

@@ -1,0 +1,133 @@
+<section>
+
+
+    <!--   Produtos -->
+    <article>
+        <div class="content-product">
+            <div class="product-image">
+                <img src="./assets/presunto.jpg" alt="Perna de presunto">
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <h2>Presunto</h2>
+                    <div class="product-info__text">
+                        <p>Presunto de Lamego</p>
+                        <p>
+                            Perna de presunto fumado!
+                        </p>
+                    </div>
+                </div>
+                <!--                 <div class="product-tecnic">
+                    <div class="product-tecnic-group">
+                        <div class="product-tecnic-group__labels">
+                            <p>Alcoholgehalte:</p>
+                            <p>Verpakking:</p>
+                        </div>
+                        <div class="product-tecnic-group__info">
+                            <p>20% vol</p>
+                            <p>70 cl</p>
+
+                        </div>
+                    </div>
+                </div> -->
+                <div class="shoppcart-left">
+                    <form #f="ngForm">
+                        <span class="price">16.95 €/Kg</span>
+                        <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
+                        <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add
+                            <mat-icon>add_shopping_cart</mat-icon>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </article>
+    <hr>
+    <article>
+        <div class="content-product">
+            <div class="product">
+                <div class="product-info">
+                    <h2>Salpicão</h2>
+                    <div class="product-info__text">
+                        <p>
+                            Traditional Portuguese product made with pork loin meats, marinated in garlic and seasoning
+                            vines.
+                        </p>
+                    </div>
+                </div>
+                <!--                 <div class="product-tecnic">
+                    <div class="product-tecnic-group">
+                        <div class="product-tecnic-group__labels">
+                            <p>Alcoholgehalte:</p>
+                            <p>Verpakking:</p>
+                        </div>
+                        <div class="product-tecnic-group__info">
+                            <p>30% vol</p>
+                            <p>1 L</p>
+
+                        </div>
+                    </div>
+                </div> -->
+                <div class="shoppcart-right">
+                    <form #f="ngForm">
+                        <span class="price">12.12 €/Kg</span>
+                        <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
+                        <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add
+                            <mat-icon>add_shopping_cart</mat-icon>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="product-image">
+                <img src="./assets/salpicao.jpg" alt="Salpicão">
+            </div>
+        </div>
+    </article>
+    <hr>
+    <article>
+        <div class="content-product">
+            <div class="product-image">
+                <img src="./assets/alheira.png" alt="Alheiras">
+            </div>
+            <div class="product">
+                <div class="product-info">
+                    <h2>Salpicão Tradicional</h2>
+                    <div class="product-info__text">
+                        <p>Alheira.</p>
+                        <p>
+                            Traditional Portuguese product.
+                        </p>
+                    </div>
+                </div>
+                <div class="product-tecnic">
+                    <div class="product-tecnic-group">
+<!--                         <div class="product-tecnic-group">
+                            <div class="product-tecnic-group__labels">
+                                <p>Alcoholgehalte:</p>
+                                <p>Verpakking:</p>
+                            </div>
+                            <div class="product-tecnic-group__info">
+                                <p>30% vol</p>
+                                <p>1 L</p>
+
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="shoppcart-left">
+                        <form #f="ngForm">
+                            <span class="price">10.95 €/Kg</span>
+                            <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
+                            <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add
+                                <mat-icon>add_shopping_cart</mat-icon>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <hr>
+   
+</section>
+<app-other-products-teaser></app-other-products-teaser>
+<app-footer></app-footer>

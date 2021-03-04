@@ -13,7 +13,7 @@ export class LikeurenComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.headerImageService.setImage('olival.jpg');
+    this.headerImageService.setImage('licores1.jpg');
     window.scrollTo(0, 0);
   }
 

@@ -31,6 +31,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
 import { TagComponent } from './components/tag/tag.component';
 import { LikeurenComponent } from './modules/likeuren/likeuren.component';
+import { BewarenComponent } from './modules/bewaren/bewaren.component';
+import { CharcuterieComponent } from './modules/charcuterie/charcuterie.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { LikeurenComponent } from './modules/likeuren/likeuren.component';
     ConfirmDialogComponent,
     OliveOillComponent,
     TagComponent,
-    LikeurenComponent
+    LikeurenComponent,
+    BewarenComponent,
+    CharcuterieComponent
   ],
   imports: [
     BrowserModule,
