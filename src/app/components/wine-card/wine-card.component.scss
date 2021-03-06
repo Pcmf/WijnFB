@@ -30,16 +30,22 @@
 
 
     .mat-card-title{
+        position: relative;
         font-size: 1.6rem;
- /*        display: flex;
-        justify-content: space-between; */
+        text-align: center;
         .mat-icon{
-            margin-right: 1.6rem;
+            position: absolute;
+            left: 5px;
+            top: 25px;
+        }
+        span{
+            width: 85%;
         }
     }
     .mat-card-subtitle{
         font-size: 12px;
         color: #86303B;
+        text-align: center;
     }
 
 
