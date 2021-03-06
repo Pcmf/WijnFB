@@ -24,15 +24,15 @@
                         <p>Verpakking:</p>
                     </div>
                     <div class="product-tecnic-group__info">
-                        <p>20% vol</p>
-                        <p>70 cl</p>
+                        <p>{{product.alchool}}% vol</p>
+                        <p>{{product.pack}}</p>
 
                     </div>
                 </div>
             </div>
             <div class="shoppcart">
                 <form #f="ngForm">
-                    <span class="price">16.95 €</span>
+                    <span class="price">{{product.pricesell}} €</span>
                     <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
                     <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add
                         <mat-icon>add_shopping_cart</mat-icon>
