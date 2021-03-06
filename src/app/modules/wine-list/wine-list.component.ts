@@ -105,7 +105,6 @@ export class WineListComponent implements OnInit {
     });
 
     snackBarRef.onAction().subscribe(() => {
-      console.log('Action go to shopp');
       this.router.navigate(['/shopcart']);
     } );
   }

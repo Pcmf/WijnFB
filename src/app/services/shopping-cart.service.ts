@@ -21,10 +21,10 @@ export class ShoppingCartService {
     private apiService: ApiDataService
   ) { }
 
-  addLineToCart(line: ShopcartLine): void{
+  addLineToCart(line: ShopcartLine): void {
     if (this.cart.length > 0) {
       this.found = false;
-      this.cart.forEach( (el: ShopcartLine) => {
+      this.cart.forEach((el: ShopcartLine) => {
         if (el.id === line.id) {
           el.qty += line.qty;
           this.found = true;
@@ -39,43 +39,52 @@ export class ShoppingCartService {
     this.getShopCartTotalValue();
   }
 
-  updateCartQty(line: any): void{
-      this.cart.forEach( (el: any) => {
-        if (el.id === line.id) {
-          el.qty = line.qty;
-        }
-      });
-      this.getShopCartTotalValue();
+  updateCartQty(line: any): void {
+    this.cart.forEach((el: any) => {
+      if (el.id === line.id) {
+        el.qty = line.qty;
+      }
+    });
+    this.getShopCartTotalValue();
   }
 
   clearCart(): void {
     this.cart = [];
   }
 
-  removeLineFromCart(line: ShopcartLine): void{
-    console.table(this.cart);
-    console.table(line);
+  removeLineFromCart(line: ShopcartLine): void {
     this.cart = this.cart.filter((el: ShopcartLine) => {
       return el.id != line.id;
     });
     this.getShopCartTotalValue();
   }
 
-  getShopCartList(): any[]{
+  getShopCartList(): any[] {
     const wines: any[] = [];
 
-    this.cart.forEach((element: { id: number; qty: number; }) => {
-      this.apiService.getData('wines/' + element.id).subscribe(
-        (res: any) => {
-          res[0].qty = element.qty;
-          wines.push(res[0]);
-        }
-      );
+    this.cart.forEach((element: { id: number; type: number; qty: number; }) => {
+      if (element.type == 1) {
+        this.apiService.getData('wines/' + element.id).subscribe(
+          (res: any) => {
+            res[0].qty = element.qty;
+            wines.push(res[0]);
+          }
+        );
+      } else {
+        this.apiService.getData('products/' + element.type + '/' + element.id).subscribe(
+          (res: any) => {
+            res[0].qty = element.qty;
+            wines.push(res[0]);
+          }
+        );
+      }
+
     });
+
     return wines;
   }
 
-  getShopCartTotalValue(): number{
+  getShopCartTotalValue(): number {
     const total = this.cart.reduce((acc: number, el: ShopcartLine) => {
       return +acc + el.price * el.qty;
     }, 0);

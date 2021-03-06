@@ -30,7 +30,7 @@ export class WineCardComponent implements OnInit {
   addToCart(): void{
     const msg = this.wine.name + ' is toegevoegd aan de boodschappenlijst!';
     this.addedToCart.emit(msg);
-    this.shopCartService.addLineToCart({id: this.wine.id, name: this.wine.name, qty: 1, price: this.wine.pricesell});
+    this.shopCartService.addLineToCart({id: this.wine.id, type: 1, name: this.wine.name, qty: 1, price: this.wine.pricesell});
   }
 
   toggleFavorit(): void{

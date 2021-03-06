@@ -34,7 +34,7 @@
                 <form #f="ngForm">
                     <span class="price">{{product.pricesell}} €</span>
                     <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
-                    <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add
+                    <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value, product)">add
                         <mat-icon>add_shopping_cart</mat-icon>
                     </button>
                 </form>

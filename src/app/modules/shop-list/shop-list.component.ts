@@ -8,6 +8,7 @@ import { ConfirmDialogComponent } from './../../components/confirm-dialog/confir
 import { Wine } from 'src/app/interfaces/Interfaces';
 import { Observable } from 'rxjs';
 import { HeaderImageService } from './../../services/header-image.service';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-shop-list',
@@ -24,7 +25,9 @@ export class ShopListComponent implements OnInit {
     private apiService: ApiDataService,
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
-    private headerImageService: HeaderImageService
+    private headerImageService: HeaderImageService,
+    // tslint:disable-next-line:variable-name
+    private _location: Location
   ) {
     this.cart = shopCartService.getShopCartList();
   /*   this.total$ = shopCartService.shopcartTotal; */
@@ -56,7 +59,7 @@ export class ShopListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(
       result => {
         if (result) {
-          const line = {id: value.id, name: value.name, qty: value.qty, price: value.pricesell};
+          const line = {id: value.id, type: 1, name: value.name, qty: value.qty, price: value.pricesell};
           this.shopCartService.removeLineFromCart(line);
           this.cart = this.shopCartService.getShopCartList();
           this.total$ = this.shopCartService.shopcartTotal;
@@ -98,6 +101,8 @@ export class ShopListComponent implements OnInit {
     this.headerImageService.setImage('shop3_sm.jpg');
   }
 
-
+  goBack(): void{
+    this._location.back();
+  }
 
 }

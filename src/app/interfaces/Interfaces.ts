@@ -6,6 +6,7 @@ export interface Selection{
 
 export interface ShopcartLine{
     id: number;
+    type: number;
     name: string;
     qty: number;
     price: number;
