@@ -1,48 +1,54 @@
-<mat-toolbar>
-    <mat-toolbar-row class="nav" id="mainNavbar">
-        <a routerLink="/dash">
-          <div class="logo" >
-            <img class="logo-image" src="./assets/logo.png">
-            <div class="logo-title">
-              <span class="logo-title__top">FB</span>
-              <hr/>
-              <span class="logo-title__bottom">representações</span>
+<mat-toolbar class="mat-elevation-z8">
+  <mat-toolbar-row class="nav" id="mainNavbar">
+    <a routerLink="/dash">
+      <div class="logo">
+        <img class="logo-image" src="./assets/logo.png">
+        <div class="logo-title">
+          <span class="logo-title__top">FB</span>
+          <hr />
+          <span class="logo-title__bottom">representações</span>
+        </div>
+      </div>
+    </a>
+    <span class="spacer"></span>
+    <div class="menu" fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.lt-sm>
+      <ul fxLayout fxLayoutGap="15px">
+        <li><button mat-button routerLink="/winelist">wijnen</button></li>
+        <li>
+          <button mat-button [matMenuTriggerFor]="menu">andere produten</button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/oliveoil">Olijfolie</button>
+            <button mat-menu-item routerLink="/likeuren">Likeuren en sterke dranken</button>
+            <button mat-menu-item routerLink="/bewaren">Bewaren</button>
+            <button mat-menu-item routerLink="/charcuterie">Charcuterie</button>
+          </mat-menu>
+        </li>
+        <li><button mat-button routerLink="/shopcart">shoppcart</button></li>
+        <li><button mat-button routerLink="/contacts">opmerkingen</button></li>
+        <li><img class="flag" src="./assets/img/flagBE.png" alt="Belgiun flag"></li>
+        <li><img class="flag" src="./assets/img/flagPT.jpg" alt="Portugal flag"></li>
+        <li>
+          <a routerLink="/shopcart">
+            <div class="shopcart">
+              <mat-icon class="shopcart-icon">shopping_cart</mat-icon>
+              <span class="shopcart-load" *ngIf="shopcartLoad>0">{{shopcartLoad}}</span>
             </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div fxHide.gt-xs>
+      <div class="mobile-menu">
+        <a routerLink="/shopcart">
+          <div class="shopcart">
+            <mat-icon class="shopcart-icon">shopping_cart</mat-icon>
+            <span class="shopcart-load" *ngIf="shopcartLoad>0">{{shopcartLoad}}</span>
           </div>
         </a>
-      <span class="spacer"></span>
-      <div class="menu" fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.lt-sm>
-        <ul fxLayout fxLayoutGap="15px">
-          <li><button mat-button routerLink="/winelist">wijnen</button></li>
-          <li>
-            <button mat-button [matMenuTriggerFor]="menu">andere produten</button>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item routerLink="/oliveoil">Olijfolie</button>
-              <button mat-menu-item routerLink="/likeuren">Likeuren en sterke dranken</button>
-              <button mat-menu-item routerLink="/bewaren">Bewaren</button>
-              <button mat-menu-item routerLink="/charcuterie">Charcuterie</button>
-            </mat-menu>
-          </li>
-          <li><button mat-button  routerLink="/shopcart">shoppcart</button></li>
-          <li><button mat-button  routerLink="/contacts">opmerkingen</button></li>
-          <li><img class="flag" src="./assets/img/flagBE.png" alt="Belgiun flag"></li>
-          <li><img class="flag" src="./assets/img/flagPT.jpg" alt="Portugal flag"></li>
-          <li>
-            <a routerLink="/shopcart">
-              <div class="shopcart">
-                <mat-icon class="shopcart-icon">shopping_cart</mat-icon>
-                <span class="shopcart-load" *ngIf="shopcartLoad>0">{{shopcartLoad}}</span>
-              </div>
-              
-            </a>
-          </li>
-        </ul>
+        <mat-icon class="menu" fxLayout fxShow.xs (click)="ToggleSidenav()" aria-hidden="false" aria-label="menu icon">
+          menu</mat-icon>
       </div>
-      <div fxHide.gt-xs>
-        <mat-icon class="menu" fxLayout fxShow.xs (click)="ToggleSidenav()" aria-hidden="false" aria-label="menu icon">menu</mat-icon>
-      </div>
-    </mat-toolbar-row>
+    </div>
+  </mat-toolbar-row>
 
 </mat-toolbar>
-
-

@@ -25,7 +25,7 @@ import { ShopcartLine } from 'src/app/interfaces/Interfaces';
     }
 
     addToCart(value: ShopcartLine): void{
-      const obj = {id: this.data.id, name: this.data.name, qty: value.qty, price: this.data.pricesell};
+      const obj = {id: this.data.id, type: 1, name: this.data.name, qty: value.qty, price: this.data.pricesell};
       this.dialogRef.close(obj);
     }
 

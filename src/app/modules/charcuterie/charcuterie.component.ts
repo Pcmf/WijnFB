@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderImageService } from 'src/app/services/header-image.service';
 
 @Component({
   selector: 'app-charcuterie',
@@ -9,14 +8,12 @@ import { HeaderImageService } from 'src/app/services/header-image.service';
 export class CharcuterieComponent implements OnInit {
 
   qty = 0;
-  constructor(
-    private headerImageService: HeaderImageService
-  ) { }
+  headerImage = '';
+  constructor( ) { }
 
   ngOnInit(): void {
     const num = Math.floor(Math.random() * 2) + 1;
-    console.log(num);
-    this.headerImageService.setImage('charcuterie' + num + '.jpg');
+    this.headerImage = 'charcuterie' + num + '.jpg';
     window.scrollTo(0, 0);
   }
 

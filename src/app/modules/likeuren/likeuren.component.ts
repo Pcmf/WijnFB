@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderImageService } from './../../services/header-image.service';
 import { ApiDataService } from './../../services/api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -12,9 +11,10 @@ import { ShoppingCartService } from './../../services/shopping-cart.service';
 })
 export class LikeurenComponent implements OnInit {
   qty = 1;
+  headerImage = '';
   products: any[] = [];
+
   constructor(
-    private headerImageService: HeaderImageService,
     private apiDataService: ApiDataService,
     private snackBar: MatSnackBar,
     private router: Router,
@@ -26,7 +26,7 @@ export class LikeurenComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.headerImageService.setImage('licores1.jpg');
+    this.headerImage = 'licores1.jpg';
     window.scrollTo(0, 0);
   }
 

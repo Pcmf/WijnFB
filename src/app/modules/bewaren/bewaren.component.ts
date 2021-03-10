@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderImageService } from 'src/app/services/header-image.service';
 
 @Component({
   selector: 'app-bewaren',
@@ -9,12 +8,11 @@ import { HeaderImageService } from 'src/app/services/header-image.service';
 export class BewarenComponent implements OnInit {
 
   qty = 0;
-  constructor(
-    private headerImageService: HeaderImageService
-  ) { }
+  headerImage = '';
+  constructor( ) { }
 
   ngOnInit(): void {
-    this.headerImageService.setImage('sardines1.jpg');
+    this.headerImage = 'sardines1.jpg';
     window.scrollTo(0, 0);
   }
 

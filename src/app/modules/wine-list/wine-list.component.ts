@@ -68,7 +68,7 @@ export class WineListComponent implements OnInit {
         });
 
 
-        this.apiData.getData('wines/not/' + selection.winetype + '/' + selection.region).subscribe(
+/*         this.apiData.getData('wines/not/' + selection.winetype + '/' + selection.region).subscribe(
           (resp2: any[]) => {
             this.winesList = resp2;
             this.winesList.map((el: any) => {
@@ -76,7 +76,7 @@ export class WineListComponent implements OnInit {
                 el.favorit = true;
               }
             });
-          });
+          }); */
         }
     );
   }
@@ -90,7 +90,9 @@ export class WineListComponent implements OnInit {
     // add line to shopping cart
     dialogRef.afterClosed().subscribe(
       result => {
-        if (result && result.qty > 0) {
+        console.log(result.qty);
+        if (result?.qty > 0) {
+          console.log(result);
           this.shoppCartService.addLineToCart(result);
           this.openSnackBar(result.name  + ' is toegevoegd aan de boodschappenlijst!', 'Shopping Cart');
         }

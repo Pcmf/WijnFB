@@ -34,6 +34,7 @@ export class ShoppingCartService {
         this.cart.push(line);
       }
     } else {
+      console.log(line);
       this.cart.push(line);
     }
     this.getShopCartTotalValue();

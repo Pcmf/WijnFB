@@ -1,5 +1,5 @@
 <div class="container">
-    <section class="header-image" style="background-image: url('.assets/douro1.jpg');"></section>
+    
     <app-wine-card 
         *ngFor="let wine of winesListSelection; let i = index;" 
         [wine]="wine" [selected]="true" class="wine-card" 

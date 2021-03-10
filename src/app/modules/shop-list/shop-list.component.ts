@@ -19,6 +19,7 @@ export class ShopListComponent implements OnInit {
 
   cart: Wine[] = [];
   total$: Observable<number> | undefined;
+  headerImage = '';
 
   constructor(
     private shopCartService: ShoppingCartService,
@@ -30,7 +31,6 @@ export class ShopListComponent implements OnInit {
     private _location: Location
   ) {
     this.cart = shopCartService.getShopCartList();
-  /*   this.total$ = shopCartService.shopcartTotal; */
    }
 
    updateTotal(line: Wine): void{
@@ -98,7 +98,8 @@ export class ShopListComponent implements OnInit {
 
   ngOnInit(): void {
     this.total$ = this.shopCartService.shopcartTotal;
-    this.headerImageService.setImage('shop3_sm.jpg');
+    this.headerImage = 'shop3_sm.jpg';
+    window.scrollTo(0, 0);
   }
 
   goBack(): void{

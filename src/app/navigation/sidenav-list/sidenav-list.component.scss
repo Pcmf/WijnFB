@@ -6,3 +6,28 @@
 .mat-icon{
     margin-right: 10px;
 }
+
+.shopcart {
+    position: relative;
+    height: 2.5rem;
+    width: 2.5rem;
+  
+/*     &-icon {
+      height: 1.5rem;
+      width: 1.5rem;
+    } */
+    &-load {
+      position: absolute;
+      top: 4px;
+      left: 26px;
+      color: white;
+      font-size: 10px;
+      border-radius: 100px;
+      background-color: #86303b;
+      width: 15px;
+      height: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }

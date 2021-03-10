@@ -1,17 +1,17 @@
 mat-toolbar {
-  height: 115px;
+  height: 90px;
   position: fixed;
   top: 0;
   z-index: 100;
-  background-color: rgba(0, 0, 0, 0.61);
+  background-color: rgb(255, 255, 255);
 
   mat-toolbar-row {
     width: 100%;
     padding-left: 5%;
     padding-right: 5%;
     margin: auto;
-    height: 80px;
-    margin-top: 20px;
+/*     height: 80px;
+    margin-top: 5px; */
   }
 
   #mainNavbar{
@@ -21,7 +21,7 @@ mat-toolbar {
   
   
     button{
-      background-color: rgba(0, 0, 0, 0.212);
+      background-color: rgba(255, 255, 255, 0.212);
     }
   
 
@@ -38,7 +38,7 @@ mat-toolbar {
     }
 
     &-title {
-      color: white;
+      color: rgb(0, 0, 0);
       width: 20rem;
       display: flex;
       flex-direction: column;
@@ -50,7 +50,7 @@ mat-toolbar {
         margin-bottom: -1.1rem;
         margin-top: 1.5rem;
         text-align: right;
-        text-shadow: 0px 3px 0px #081402;
+        /* text-shadow: 0px 1px 0px #191a18; */
       }
       &__bottom {
         margin-top: -1.8rem !important;
@@ -65,7 +65,7 @@ mat-toolbar {
   }
 
   .menu {
-    color: rgba(255, 255, 255, 0.749);
+    color: rgba(3, 3, 3, 0.749);
     font-size: 1.2rem;
     ul {
       /* display: inline; */
@@ -111,15 +111,15 @@ a,
 a:visited,
 a:link {
   text-decoration: none;
-  color: white;
+  color: rgb(63, 62, 62);
 }
 
 .mat-button {
-  background-color: rgba(245, 245, 245, 0);
+  background-color: rgb(255, 255, 255);
 }
 
 .mat-button:hover {
-  background-color: rgba(245, 245, 245, 0.336);
+  background-color: rgba(245, 245, 245, 0.192);
 }
 
 .shopcart {
@@ -171,22 +171,56 @@ a:link {
 
 @media only screen and (max-width: 600px) {
   mat-toolbar {
-    height: 20vh;
+    height: 65px;
+    margin-top: 0;
+  }
+
+  .mobile-menu{
+    width: 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2px;
+  }
+
+  .shopcart {
+    position: relative;
+    height: 2.5rem;
+    width: 2.5rem;
+  
+    &-icon {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+    &-load {
+      position: absolute;
+      top: -7px;
+      right: -9px;
+      color: white;
+      font-size: 10px;
+      border-radius: 100px;
+      background-color: #86303b;
+      width: 15px;
+      height: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   .logo {
-    width: 14rem !important;
+    width: 12rem !important;
     &-image {
-      width: 6rem !important;
-      height: 6rem !important;
+      width: 5rem !important;
+      height: 5rem !important;
     }
 
     &-title {
       &__top {
-        font-size: 2rem !important;
-        font-weight: 600 !important;
+        font-size: 1.8rem !important;
+        font-weight: 500 !important;
         margin-top: 0.5rem !important;
-        margin-bottom: -1.5rem !important;
+        margin-bottom: -1.8rem !important;
       }
       &__bottom {
         font-size: 1.1rem !important;
@@ -194,7 +228,7 @@ a:link {
     }
   }
 
-  .mat-icon {
+  .menu {
     height: 4rem;
     width: 4rem;
     font-size: 4rem !important;

@@ -15,11 +15,12 @@
     <mat-icon>tapas</mat-icon> Chacurterie
   </a>
   <a mat-list-item (click)="CloseSidenav()" routerLink="/shopcart">
-    <mat-icon>local_grocery_store</mat-icon> Shoppcart
+    <mat-icon class="shopcart">local_grocery_store</mat-icon> Shoppcart
+    <span class="shopcart-load" *ngIf="shopcartLoad>0">{{shopcartLoad}}</span>
   </a>
-  <a mat-list-item (click)="CloseSidenav()" routerLink="talk">
+<!--   <a mat-list-item (click)="CloseSidenav()" routerLink="talk">
     <mat-icon>support_agent</mat-icon> Opmerkingen
-  </a>
+  </a> -->
 <!--   <mat-list-item>
     <mat-icon>logout</mat-icon>
     <button (click)="logout(); CloseSidenav()">Uitloggen</button>
