@@ -10,8 +10,6 @@ mat-toolbar {
     padding-left: 5%;
     padding-right: 5%;
     margin: auto;
-/*     height: 80px;
-    margin-top: 5px; */
   }
 
   #mainNavbar{
@@ -50,7 +48,6 @@ mat-toolbar {
         margin-bottom: -1.1rem;
         margin-top: 1.5rem;
         text-align: right;
-        /* text-shadow: 0px 1px 0px #191a18; */
       }
       &__bottom {
         margin-top: -1.8rem !important;
@@ -65,7 +62,7 @@ mat-toolbar {
   }
 
   .menu {
-    color: rgba(3, 3, 3, 0.749);
+    color: #86303baa;
     font-size: 1.2rem;
     ul {
       /* display: inline; */
@@ -173,6 +170,10 @@ a:link {
   mat-toolbar {
     height: 65px;
     margin-top: 0;
+  }
+
+  .menu {
+    color: #000000aa !important;
   }
 
   .mobile-menu{

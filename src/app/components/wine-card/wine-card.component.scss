@@ -10,7 +10,7 @@
 
 .mat-card {
     width: 27.6rem;
-    height: 33rem;
+    height: 34rem;
     padding: 0;
     color: #86303b;
 
@@ -110,19 +110,35 @@
 }
 @media only screen and (max-width: 600px) {
     .mat-card {
-        width: 17rem;
-        height: 32rem;
+        width: 25rem;
+        height: 34rem;
     }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 425px) {
     .mat-card {
-        width: 15rem;
-        height: 32rem;
+        width: 18rem;
+        height: 31rem;
+    }
+    .mat-card-image {
+        height: 85%;
+        width: auto;
     }
 
-    .image{
-        overflow-x: hidden;
+    .mat-card-header .mat-card-title {
+        font-size: 1.2rem;
+        margin-bottom: -0.2rem;
+    }
+
+    .mat-card-header .mat-card-subtitle {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .mat-card {
+        width: 25rem;
+        height: 34rem;
     }
 
     .mat-card-header .mat-card-title {
