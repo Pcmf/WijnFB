@@ -1,4 +1,4 @@
-<mat-toolbar style='background-image: url("./assets/{{backgroundImage}}");'>
+<mat-toolbar>
     <mat-toolbar-row class="nav" id="mainNavbar">
         <a routerLink="/dash">
           <div class="logo" >
@@ -14,7 +14,6 @@
       <div class="menu" fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.lt-sm>
         <ul fxLayout fxLayoutGap="15px">
           <li><button mat-button routerLink="/winelist">wijnen</button></li>
-   <!--        <li><a routerLink="/other">andere produten</a></li> -->
           <li>
             <button mat-button [matMenuTriggerFor]="menu">andere produten</button>
             <mat-menu #menu="matMenu">
@@ -43,12 +42,7 @@
         <mat-icon class="menu" fxLayout fxShow.xs (click)="ToggleSidenav()" aria-hidden="false" aria-label="menu icon">menu</mat-icon>
       </div>
     </mat-toolbar-row>
-    <mat-toolbar-row>
-      <div class="header-title">
-        <h1>Wijnen van Portugal</h1>
-        <h2>kwaliteit voor de beste prijs!</h2>
-      </div>
-    </mat-toolbar-row>
+
 </mat-toolbar>
 
 

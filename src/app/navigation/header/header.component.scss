@@ -1,8 +1,9 @@
 mat-toolbar {
-  height: 375px;
-  /* background-image: url("./../../../assets/douro2.jpg"); */
-  background-size: cover;
-  background-position: center;
+  height: 115px;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.61);
 
   mat-toolbar-row {
     width: 100%;
