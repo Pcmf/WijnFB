@@ -5,12 +5,20 @@ mat-toolbar {
   background-position: center;
 
   mat-toolbar-row {
-    width: 90%;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
     margin: auto;
     height: 80px;
     margin-top: 20px;
   }
-    
+
+  #mainNavbar{
+    position: sticky !important;
+    top: 0 !important;
+  }
+  
+  
     button{
       background-color: rgba(0, 0, 0, 0.212);
     }
@@ -137,6 +145,8 @@ a:link {
     align-items: center;
   }
 }
+
+
 
 @media only screen and (max-width: 1024px) {
   .logo {

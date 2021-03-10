@@ -6,13 +6,14 @@
         (addedToCart)="openSnackBar($event, 'Shopping Cart')"
         (toggleToFavorit)="toggleToFavorits($event)">
     </app-wine-card>
-    <app-wine-card 
+<!--     <app-wine-card
+        *ngIf="winesListSelection.length==0" 
         *ngFor="let wine of winesList; let i = index;" 
         [wine]="wine"  [selected]="false" class="wine-card" 
         (selectWine)="showDetail(wine)"
         (addedToCart)="openSnackBar($event, 'Shopping Cart')"
         (toggleToFavorit)="toggleToFavorits($event)">
-    </app-wine-card>
+    </app-wine-card> -->
 
 </div>
 

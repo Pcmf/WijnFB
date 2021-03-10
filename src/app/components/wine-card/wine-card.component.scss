@@ -1,181 +1,136 @@
-@import '~@angular/material/theming';
-.mat-card{
-    width: 27.6rem;
-    height: 33.0rem;
-    padding: 0;
-    color:  #86303B;
-}
+@import "~@angular/material/theming";
 
-.card-selected{
-   /*  background-color: rgba(217, 224, 209, 0.712); */
-    @include mat-elevation(8);
-}
 
-::ng-deep{
+::ng-deep {
     .mat-card-header-text {
         margin: 0 16px;
         width: 100%;
     }
 }
 
+.mat-card {
+    width: 27.6rem;
+    height: 33rem;
+    padding: 0;
+    color: #86303b;
 
-.mat-card-header{
-    
+
+}
+
+.card-selected {
+    @include mat-elevation(8);
+}
+
+
+
+.mat-card-header {
     width: 100%;
-    height: 25%;
+    height: 20%;
     min-height: 7rem;
-    border-radius: 4px;
     padding-top: 5px;
 
-
-
-    .mat-card-title{
+    .mat-card-title {
         position: relative;
         font-size: 1.6rem;
         text-align: center;
-        .mat-icon{
+        .mat-icon {
             position: absolute;
             left: 5px;
             top: 25px;
         }
-        span{
+        span {
             width: 85%;
         }
     }
-    .mat-card-subtitle{
+    .mat-card-subtitle {
         font-size: 12px;
-        color: #86303B;
+        color: #86303b;
         text-align: center;
     }
-
-
 }
-.image{
+.image {
     position: relative;
-    margin-top: 10px;
-    width: 100%;
-    height: 60%;
+    margin-top: 2px;
+    max-width: 100%;
+    height: 65%;
     display: flex;
     flex-direction: column;
     align-items: center;
     
-    span{
+
+    span {
         font-size: 1rem;
         text-transform: uppercase;
-        color: #86303B;
+        color: #86303b;
         margin-top: -0.6rem;
     }
 }
-.mat-card-image{
+.mat-card-image {
     height: 90%;
     width: auto;
 }
 
-.mat-card-footer{
-    height: 40px;
+.mat-card-footer {
+    height: 4rem;
     margin: 0 2rem;
     display: flex;
     justify-content: space-between;
-    .price{
+    .price {
         font-weight: 500;
     }
-    .mat-icon:hover{
+    .mat-icon:hover {
         cursor: pointer;
         font-size: 26px;
     }
 }
 
 /* change icon color  */
-.glass-white{
-    color:rgb(223, 219, 213);
+.glass-white {
+    color: rgb(223, 219, 213);
 }
-.glass-rose{
+.glass-rose {
     color: #e999a4;
 }
-.glass-champagne{
-    color: #e6d288
+.glass-champagne {
+    color: #e6d288;
 }
-.glass-red{
-    color: #86303B;
+.glass-red {
+    color: #86303b;
 }
 
-@media only screen and (max-width: 1024px){
-    .mat-card{
+@media only screen and (max-width: 1024px) {
+    .mat-card {
         width: 20.5rem;
-        height: 22.95rem;
+        height: 32rem;
     }
-    .image{
-        height: 50%;
+    .mat-card-header {
+        height: 17%;
     }
-    .mat-card-image{
-        height: 80%;
-    }
+
 }
-@media only screen and (max-width: 600px){
-    .mat-card{
-        width: 17.5rem;
-        height: 23rem;
-    }
-
-    .mat-card-header .mat-card-title{
-        font-size: 1.2rem;
-        margin-bottom: -.2rem;
-    }
-
-    .mat-card-header .mat-card-subtitle{
-        font-size: 0.8rem;
-    }
-
-    .image{
-        height: 45%;
-    }
-    .mat-card-image{
-        height: 90%;
+@media only screen and (max-width: 600px) {
+    .mat-card {
+        width: 17rem;
+        height: 32rem;
     }
 }
 
-@media only screen and (max-width: 375px){
-    .mat-card{
-        width: 16.5rem;
-        height: 23rem;
-    }
-
-    .mat-card-header .mat-card-title{
-        font-size: 1.2rem;
-        margin-bottom: -.2rem;
-    }
-
-    .mat-card-header .mat-card-subtitle{
-        font-size: 0.8rem;
+@media only screen and (max-width: 320px) {
+    .mat-card {
+        width: 15rem;
+        height: 32rem;
     }
 
     .image{
-        height: 45%;
-    }
-    .mat-card-image{
-        height: 90%;
-    }
-}
-
-@media only screen and (max-width: 340px){
-    .mat-card{
-        width: 14.5rem;
-        height: 21rem;
+        overflow-x: hidden;
     }
 
-    .mat-card-header .mat-card-title{
+    .mat-card-header .mat-card-title {
         font-size: 1.2rem;
-        margin-bottom: -.2rem;
+        margin-bottom: -0.2rem;
     }
 
-    .mat-card-header .mat-card-subtitle{
+    .mat-card-header .mat-card-subtitle {
         font-size: 0.8rem;
-    }
-
-    .image{
-        height: 45%;
-    }
-    .mat-card-image{
-        height: 90%;
     }
 }
