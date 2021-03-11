@@ -38,6 +38,7 @@
         align-content: center;
 
         img {
+            max-height: 500px;
             margin: auto;
         }
     }
@@ -188,13 +189,12 @@
         padding: 0 10px !important;
 
         .image {
-            width: 200px;
-            max-width: 200px;
+            width: 250px;
+            max-width: 250px;
             margin: auto;
 
             img {
-                max-height: 240px;
-                width: auto;
+                max-width: 250px;
             }
         }
 
@@ -224,4 +224,18 @@
             }
         }
     }
+}
+
+@media only screen and (max-width: 425px) {
+
+        .image {
+            width: 200px;
+            max-width: 200px;
+            margin: auto;
+
+            img {
+                max-width: 200px;
+            }
+        }
+
 }
