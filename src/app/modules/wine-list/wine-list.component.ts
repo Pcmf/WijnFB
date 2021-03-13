@@ -84,7 +84,8 @@ export class WineListComponent implements OnInit {
   showDetail(wine: any): void{
     console.log(wine);
     const dialogRef = this.dialog.open(WineDetailDialog, {
-      data: wine
+      data: wine,
+      maxWidth: '92vw'
     });
 
     // add line to shopping cart
