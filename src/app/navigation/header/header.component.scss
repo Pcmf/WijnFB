@@ -75,7 +75,13 @@ mat-toolbar {
 
   .flag {
     height: 1.7rem;
+    cursor: pointer;
+    &-disabled{
+      opacity: .5;
+      cursor: default;
+    }
   }
+
 }
 
 .header-title {
@@ -177,7 +183,7 @@ a:link {
   }
 
   .mobile-menu{
-    width: 8rem;
+    width: 12rem;
     display: flex;
     justify-content: space-between;
     align-items: center;

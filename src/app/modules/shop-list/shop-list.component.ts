@@ -7,8 +7,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmDialogComponent } from './../../components/confirm-dialog/confirm-dialog.component';
 import { Wine } from 'src/app/interfaces/Interfaces';
 import { Observable } from 'rxjs';
-import { HeaderImageService } from './../../services/header-image.service';
 import {Location} from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop-list',
@@ -20,15 +20,16 @@ export class ShopListComponent implements OnInit {
   cart: Wine[] = [];
   total$: Observable<number> | undefined;
   headerImage = '';
+  showFinalize = false;
 
   constructor(
     private shopCartService: ShoppingCartService,
     private apiService: ApiDataService,
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
-    private headerImageService: HeaderImageService,
     // tslint:disable-next-line:variable-name
-    private _location: Location
+    private _location: Location,
+    private route: Router
   ) {
     this.cart = shopCartService.getShopCartList();
    }
@@ -60,6 +61,7 @@ export class ShopListComponent implements OnInit {
       result => {
         if (result) {
           const line = {id: value.id, type: 1, name: value.name, qty: value.qty, price: value.pricesell};
+          this.openSnackBar(`${line.name} foi removido do carrinho.`, '');
           this.shopCartService.removeLineFromCart(line);
           this.cart = this.shopCartService.getShopCartList();
           this.total$ = this.shopCartService.shopcartTotal;
@@ -78,17 +80,21 @@ export class ShopListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(
       result => {
         if (result) {
-          this.cart = [];
-          this.shopCartService.clearCart();
-          this.total$ = this.shopCartService.shopcartTotal;
+          this.clearCart();
         }
       }
     );
   }
 
-  openSnackBar(message: string ): void {
-    console.log(message);
-    const snackBarRef = this.snackBar.open(message, 'Shopping Cart', {
+  private clearCart(): void{
+    this.cart = [];
+    this.shopCartService.clearCart();
+    this.total$ = this.shopCartService.shopcartTotal;
+  }
+
+
+  openSnackBar(message: string, action: string ): void {
+    const snackBarRef = this.snackBar.open(message, action, {
       duration: 3000
     });
 
@@ -104,6 +110,31 @@ export class ShopListComponent implements OnInit {
 
   goBack(): void{
     this._location.back();
+  }
+
+  showFinalizeForm(): void{
+    setTimeout(() => {
+      window.scrollBy({top: 600, left: 0, behavior: 'smooth'});
+    }, 100);
+  }
+
+  cancelFinalize(): void{
+    this.showFinalize = false;
+  }
+
+  finalizeOrder(data: any): void{
+    const obj = {orderInfo: data, shopcart: this.shopCartService.cart};
+    this.apiService.setData('order/', obj).subscribe(
+      (resp: any) => {
+        console.log(resp);
+        this.openSnackBar('O seu pedido foi enviado com sucesso. Iremos contacta-lo em breve. Obrigado', '');
+        this.clearCart();
+        this.shopCartService.clearCart();
+        setTimeout(() => {
+          this.route.navigate(['/']);
+        }, 2000);
+      }
+    );
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoppingCartService } from './services/shopping-cart.service';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,10 @@ export class AppComponent implements OnInit {
  cookieMessage = 'Deze website maakt gebruik van cookies om uw surfervaring te verbeteren. Door verder te surfen op deze site accepteert u de voorwaarden!';
  cookieDismiss = 'Got it!';
  cookieLinkText = '';
+
+ constructor(
+    private shopcartService: ShoppingCartService
+ ){}
 
   ngOnInit(): void{
     const cc = window as any;
@@ -31,5 +36,7 @@ export class AppComponent implements OnInit {
         href: ''
       }
     });
+    this.shopcartService.getShopcartFromCookies();
+
   }
 }

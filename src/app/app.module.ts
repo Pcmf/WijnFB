@@ -33,6 +33,7 @@ import { TagComponent } from './components/tag/tag.component';
 import { LikeurenComponent } from './modules/likeuren/likeuren.component';
 import { BewarenComponent } from './modules/bewaren/bewaren.component';
 import { CharcuterieComponent } from './modules/charcuterie/charcuterie.component';
+import { DashboardComponent } from './backoffice/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { CharcuterieComponent } from './modules/charcuterie/charcuterie.componen
     TagComponent,
     LikeurenComponent,
     BewarenComponent,
-    CharcuterieComponent
+    CharcuterieComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

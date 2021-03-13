@@ -28,6 +28,11 @@ export class ApiDataService {
   }
 
 
+  setData(param: string, obj: any): any{
+    return this.http.put( this.ADDRESS + param , obj );
+  }
+
+
 
 
 }

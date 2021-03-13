@@ -23,7 +23,6 @@ export class WineCardComponent implements OnInit {
   }
 
   onSelect(): void{
-    console.log('selected');
     this.selectWine.emit();
   }
 

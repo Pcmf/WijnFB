@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiDataService } from './api-data.service';
 import { ShopcartLine } from './../interfaces/Interfaces';
 import { BehaviorSubject } from 'rxjs';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,11 @@ export class ShoppingCartService {
   found = false;
 
   constructor(
-    private apiService: ApiDataService
+    private apiService: ApiDataService,
+    private cookieService: CookieService
   ) { }
+
+
 
   addLineToCart(line: ShopcartLine): void {
     if (this.cart.length > 0) {
@@ -34,10 +38,10 @@ export class ShoppingCartService {
         this.cart.push(line);
       }
     } else {
-      console.log(line);
       this.cart.push(line);
     }
     this.getShopCartTotalValue();
+    this.saveShopcartToCookies();
   }
 
   updateCartQty(line: any): void {
@@ -47,10 +51,13 @@ export class ShoppingCartService {
       }
     });
     this.getShopCartTotalValue();
+    this.saveShopcartToCookies();
   }
 
   clearCart(): void {
     this.cart = [];
+    this.Shopcart.next(0);
+    this.cookieService.delete('shopcart');
   }
 
   removeLineFromCart(line: ShopcartLine): void {
@@ -58,6 +65,7 @@ export class ShoppingCartService {
       return el.id != line.id;
     });
     this.getShopCartTotalValue();
+    this.saveShopcartToCookies();
   }
 
   getShopCartList(): any[] {
@@ -96,4 +104,17 @@ export class ShoppingCartService {
     this.Shopcart.next(totalItems);
     return total;
   }
+
+  getShopcartFromCookies(): void {
+    if (this.cookieService.check('shopcart')) {
+      this.cart = JSON.parse(this.cookieService.get('shopcart'));
+      this.getShopCartTotalValue();
+    }
+  }
+
+  saveShopcartToCookies(): void {
+    this.cookieService.set('shopcart', JSON.stringify(this.cart), { expires: 30, path: '/', sameSite: 'Lax' });
+  }
+
+
 }

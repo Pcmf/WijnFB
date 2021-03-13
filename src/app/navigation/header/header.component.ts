@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { ApiDataService } from '../../services/api-data.service';
 import { ShoppingCartService } from './../../services/shopping-cart.service';
 import { HeaderImageService } from './../../services/header-image.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-header',
@@ -13,12 +14,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
   @Output() sidenavToggle = new EventEmitter<void>();
   subscription: Subscription | undefined;
   shownav = false;
+  showFavorite = false;
   shopcartLoad = 0;
   backgroundImage: string | undefined;
   constructor(
     private apiService: ApiDataService,
     private shopcartService: ShoppingCartService,
-    private headerImageService: HeaderImageService
+    private headerImageService: HeaderImageService,
+    private cookieService: CookieService
   ) {   }
 
   ngOnInit(): void {
@@ -35,6 +38,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.subscription = this.headerImageService.imageBackground.subscribe(
       img => this.backgroundImage = img
     );
+    if (this.cookieService.check('favorits')){
+      this.showFavorite = true;
+    }
   }
 
   ngOnDestroy(): void {

@@ -5,7 +5,7 @@
     <h3 class="subtitle">best wijnen</h3>
 
     <section class="empty-cart" *ngIf="!(cart.length>0)">
-        <p>Ups! Het ziet ernaar uit dat uw winkelwagen leeg is!        
+        <p>Ups! Het ziet ernaar uit dat uw winkelwagen leeg is!
         </p>
         <p>
             <mat-icon class="empty-cart-icon">shopping_cart</mat-icon>
@@ -13,7 +13,7 @@
         <p>
             <button mat-flat-button color="accent" routerLink="/">Blijf kopen</button>
         </p>
-        
+
 
     </section>
 
@@ -41,7 +41,7 @@
                 <div class="list-line-picture" (click)="showDetail(line)">
                     <img class="list-line-picture__img" src="./assets/{{line.photobottle}}" alt="wine bottle picture">
                 </div>
-                
+
                 <div class="list-line-text">
                     <div class="list-line-text__title">{{line.name}}</div>
                     <div class="list-line-text__subtitle">{{line.subtitle}}</div>
@@ -51,18 +51,22 @@
                     {{line.pricesell}}€
                 </div>
                 <div class="list-line-actions">
-                    <mat-icon class="list-line-actions__button" (click)="line.qty>0 ? line.qty = line.qty-1 : line.qty=0; updateTotal(line);">indeterminate_check_box</mat-icon>
-                    <input class="list-line-actions__qty" min="0" name="qty" type="number" [(ngModel)]="line.qty" (change)="updateTotal(line)" >
-                    <mat-icon class="list-line-actions__button" (click)="line.qty = line.qty+1; updateTotal(line);">add_box</mat-icon>
+                    <mat-icon class="list-line-actions__button"
+                        (click)="line.qty>0 ? line.qty = line.qty-1 : line.qty=0; updateTotal(line);">
+                        indeterminate_check_box</mat-icon>
+                    <input class="list-line-actions__qty" min="0" name="qty" type="number" [(ngModel)]="line.qty"
+                        (change)="updateTotal(line)">
+                    <mat-icon class="list-line-actions__button" (click)="line.qty = line.qty+1; updateTotal(line);">
+                        add_box</mat-icon>
                 </div>
                 <div class="list-line__price">
                     {{line.pricesell * line.qty | number: '1.2-2'}}€
                 </div>
-                <mat-icon class="remove-button" color="warn" (click)="removeLine(line)">close</mat-icon>  
+                <mat-icon class="remove-button" color="warn" (click)="removeLine(line)">close</mat-icon>
             </div>
             <hr>
         </div>
-        
+
 
 
         <div class="list-footer">
@@ -70,7 +74,7 @@
                 totale prijs:
             </div>
             <div class="list-footer-totalprice">
-                <span>{{total$ | async | number: '1.2-2'}}€</span> 
+                <span>{{total$ | async | number: '1.2-2'}}€</span>
             </div>
             <div class="list-footer-rightvoid">
                 &nbsp;
@@ -81,7 +85,46 @@
 
             <button mat-stroked-button color="default" (click)="clearShoppingCart()">Schone lijst</button>
             <button mat-stroked-button color="default" (click)="goBack()">Blijf kopen</button>
-            <button mat-flat-button color="accent">Aankoop</button>
+            <button mat-flat-button color="accent" (click)="showFinalize = true; showFinalizeForm()">Aankoop</button>
         </div>
     </div>
+
+    <!-- formulario para inserir o email (ou se já estiver registado fazer o log in)?? -->
+    <section class="email-form" *ngIf="showFinalize">
+        <article>
+            <h3>Informações para finalizar a encomenda</h3>
+            <p>Por favor preencha os dados abaixo para que possamos entrar em contacto consigo para finalizar a
+                encomenda.
+                Irá receber um email com a sua encomenda e depois entrarei em contacto consigo para combinar a entrega.
+            </p>
+            <p>O pagamento será efectuado no acto de entrega.</p>
+        </article>
+        <form #f="ngForm" (submit)="finalizeOrder(f.value)">
+            <div class="form-group">
+                <label for="name">Uw naam*</label>
+                <input class="form-control" type="text" id="name" name="name" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="telephone">Jouw telefoon*</label>
+                <input class="form-control" type="tel" id="telephone" name="telephone" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="email">Jouw email*</label>
+                <input class="form-control" type="email" id="email" name="email" ngModel required>
+            </div>
+            <div class="form-group">
+                <label for="address">Endereço</label>
+                <textarea class="form-control" type="text" id="address" name="address" ngModel></textarea>
+            </div>
+            <div class="form-group">
+                <label for="obs">Tekst bericht</label>
+                <textarea class="form-control" id="obs" name="obs" ngModel></textarea>
+            </div>
+            <div class="action">
+                <button mat-raised-button color="default" type="button" (click)="cancelFinalize()">Cancelar</button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid">Enviar</button>
+            </div>
+
+        </form>
+    </section>
 </div>

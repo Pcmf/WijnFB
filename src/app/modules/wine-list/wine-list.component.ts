@@ -41,7 +41,6 @@ export class WineListComponent implements OnInit {
   ngOnInit(): void {
     if ( this.cookieService.check('favorits')){
       this.favoritsList = JSON.parse(this.cookieService.get('favorits'));
-      console.log(this.favoritsList);
     }
     this.subscription = this.selectionMenuService.menuSelection.subscribe(
       res => this.getWineList(res)
@@ -57,7 +56,7 @@ export class WineListComponent implements OnInit {
     }
     this.apiData.getData('wines/filter/' + selection.winetype + '/' + selection.region ).subscribe(
       (resp: any[]) => {
-        if ((!resp || resp.length==0) && (selection.winetype!=0 && selection.region!=0)) {
+        if ((!resp || resp.length === 0) && (selection.winetype !== 0 && selection.region !== 0)) {
           this.openSnackBar('Sorry, we hebben geen resultaten voor die zoekopdracht!', '');
         }
         this.winesListSelection = resp;
@@ -67,16 +66,6 @@ export class WineListComponent implements OnInit {
           }
         });
 
-
-/*         this.apiData.getData('wines/not/' + selection.winetype + '/' + selection.region).subscribe(
-          (resp2: any[]) => {
-            this.winesList = resp2;
-            this.winesList.map((el: any) => {
-              if (this.favoritsList?.indexOf(el.id) >= 0){
-                el.favorit = true;
-              }
-            });
-          }); */
         }
     );
   }
@@ -113,19 +102,18 @@ export class WineListComponent implements OnInit {
   }
 
   toggleToFavorits(event: any): void{
-    console.log(event);
     const index = this.favoritsList.indexOf(event);
     if ( index >= 0 ) {
       this.favoritsList.splice(index, 1);
     } else {
       this.favoritsList.push(event);
     }
-    console.log(this.favoritsList);
     this.cookieService.set('favorits', JSON.stringify(this.favoritsList), {expires: 30, path: '/', sameSite: 'Lax'});
   }
 
   OnDestroy(): void{
     this.cookieService.set('favorits', JSON.stringify(this.favoritsList));
+    this.subscription?.unsubscribe();
   }
 
 }
