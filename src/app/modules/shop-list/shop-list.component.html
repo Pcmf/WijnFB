@@ -92,12 +92,11 @@
     <!-- formulario para inserir o email (ou se já estiver registado fazer o log in)?? -->
     <section class="email-form" *ngIf="showFinalize">
         <article>
-            <h3>Informações para finalizar a encomenda</h3>
-            <p>Por favor preencha os dados abaixo para que possamos entrar em contacto consigo para finalizar a
-                encomenda.
-                Irá receber um email com a sua encomenda e depois entrarei em contacto consigo para combinar a entrega.
+            <h3>Informatie om de bestelling af te ronden</h3>
+            <p>Vul onderstaande gegevens in zodat we contact met u kunnen opnemen om de bestelling af te ronden. 
+                Je ontvangt een e-mail met je bestelling en daarna neem ik contact met je op om de bezorging af te spreken.
             </p>
-            <p>O pagamento será efectuado no acto de entrega.</p>
+            <p>Betaling geschiedt bij levering.</p>
         </article>
         <form #f="ngForm" (submit)="finalizeOrder(f.value)">
             <div class="form-group">
@@ -113,16 +112,16 @@
                 <input class="form-control" type="email" id="email" name="email" ngModel required>
             </div>
             <div class="form-group">
-                <label for="address">Endereço</label>
+                <label for="address">Adres</label>
                 <textarea class="form-control" type="text" id="address" name="address" ngModel></textarea>
             </div>
             <div class="form-group">
-                <label for="obs">Tekst bericht</label>
+                <label for="obs">Opmerkingen</label>
                 <textarea class="form-control" id="obs" name="obs" ngModel></textarea>
             </div>
             <div class="action">
-                <button mat-raised-button color="default" type="button" (click)="cancelFinalize()">Cancelar</button>
-                <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid">Enviar</button>
+                <button mat-raised-button color="default" type="button" (click)="cancelFinalize()">Annuleren</button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid">Verzenden</button>
             </div>
 
         </form>
