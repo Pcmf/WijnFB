@@ -1,8 +1,50 @@
 <section>
     <section class="header-image" style="background-image: url('./assets/{{headerImage}}');"></section>
-
     <!--   Produtos -->
-    <article>
+    <article *ngFor="let product of products; let i = index;">
+        <div class="product-image">
+            <img src="./assets/{{product.image}}" alt="imagem de {{product.name}}">
+        </div>
+
+        <div class="product">
+            <div class="product-info">
+                <h2>{{product.name}}</h2>
+                <div class="product-info__text">
+                    <p>{{product.subtitle_be}}</p>
+                    <p>
+                        {{product.description_be}}
+                    </p>
+                </div>
+            </div>
+            <div class="product-tecnic">
+                <div class="product-tecnic-group">
+                    <div class="product-tecnic-group__labels">
+                        <div class="product-tecnic-group__labels">
+                            <p>Netto gewicht:</p>
+                            <p>Uitgelekt gewicht:</p>
+                        </div>
+                    </div>
+                    <div class="product-tecnic-group__info">
+                        <p>{{product.peso_liquido}} g</p>
+                        <p>{{product.peso_escorrido}} g</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="shoppcart">
+                <form #f="ngForm">
+                    <span class="price">{{product.pricesell}} €</span>
+                    <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
+                    <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value, product)">add
+                        <mat-icon>add_shopping_cart</mat-icon>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </article>
+    <!--   Produtos -->
+<!--     <article>
         <div class="content-product">
             <div class="product-image">
                 <img src="./assets/atum-ramirez-natural-xl.jpg" alt="Lata azeite remondes fado">
@@ -164,7 +206,7 @@
                 <img src="./assets/atum_bom_petisco_oregaos.jpg" alt="Atum ramirez natural">
             </div>
         </div>
-    </article>
+    </article> -->
 </section>
 <app-other-products-teaser></app-other-products-teaser>
 <app-footer></app-footer>

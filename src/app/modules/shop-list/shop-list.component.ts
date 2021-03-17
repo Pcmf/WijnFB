@@ -127,7 +127,7 @@ export class ShopListComponent implements OnInit {
     this.apiService.setData('order/', obj).subscribe(
       (resp: any) => {
         console.log(resp);
-        this.openSnackBar('O seu pedido foi enviado com sucesso. Iremos contacta-lo em breve. Obrigado', '');
+        this.openSnackBar('Uw aanvraag is succesvol ingediend. We nemen binnenkort contact met u op. Bedankt', '');
         this.clearCart();
         this.shopCartService.clearCart();
         setTimeout(() => {

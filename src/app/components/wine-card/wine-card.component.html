@@ -10,8 +10,7 @@
         <mat-card-subtitle>{{wine.subtitle}}</mat-card-subtitle>
     </mat-card-header>
     <div class="image" (click)="onSelect()">
-        <img *ngIf="wine.photobottle" mat-card-image src="./assets/{{wine.photobottle}}">
-        <img *ngIf="!wine.photobottle" mat-card-image src="./assets/bottle.png">
+        <img  mat-card-image src="./assets/{{wine.photobottle}}">
         <span>{{wine.region}}</span>
 
         <app-tag *ngIf="wine.status_be" [tag]="wine.status_be"></app-tag>
