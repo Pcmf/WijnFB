@@ -3,23 +3,31 @@
         <div class="image">
         </div>
         <div class="content">
-            <h2>hulp nodig bij het kiezen van een wijn?</h2>
-            <h3>Op zoek naar een bijzondere wijn?</h3>
-            <h5>Stuur uw vragen en voorkeuren en wij helpen!</h5>
+
+            <h2 *ngIf="selectedLanguage=='NL'">hulp nodig bij het kiezen van een wijn?</h2>
+            <h2 *ngIf="selectedLanguage=='PT'">precisa de ajuda para escolher um vinho?</h2>
+            <h3 *ngIf="selectedLanguage=='NL'">Op zoek naar een bijzondere wijn?</h3>
+            <h3 *ngIf="selectedLanguage=='PT'">Procurando um vinho especial?</h3>
+            <h5 *ngIf="selectedLanguage=='NL'">Stuur uw vragen en voorkeuren en wij helpen!</h5>
+            <h5 *ngIf="selectedLanguage=='PT'">Envie-nos suas dúvidas e preferências e nós ajudaremos!</h5>
             <form>
                 <div class="form-group">
-                    <label>Uw naam</label>
+                    <label *ngIf="selectedLanguage=='NL'">Uw naam</label>
+                    <label *ngIf="selectedLanguage=='PT'">Seu nome</label>
                     <input class="form-control" type="text">
                 </div>
                 <div class="form-group">
-                    <label>Jouw email</label>
+                    <label *ngIf="selectedLanguage=='NL'">Jouw email</label>
+                    <label *ngIf="selectedLanguage=='PT'">Seu email</label>
                     <input class="form-control" type="email">
                 </div>
                 <div class="form-group">
-                    <label>Tekst bericht</label>
+                    <label *ngIf="selectedLanguage=='NL'">Tekst bericht</label>
+                    <label *ngIf="selectedLanguage=='PT'">Mensagem de texto</label>
                     <textarea class="form-control"></textarea>
                 </div>
-                <button mat-raised-button type="submit">vraag om contact</button>
+                <button mat-raised-button type="submit" *ngIf="selectedLanguage=='NL'">vraag om contact</button>
+                <button mat-raised-button type="submit" *ngIf="selectedLanguage=='PT'">pedir contacto</button>
             </form>
         </div>
     </div>

@@ -1,17 +1,20 @@
 <section class="header-image" style="background-image: url('./assets/{{headerImage}}');"></section>
 
 <div class="container">
-    <h2 class="title">mijn wagen</h2>
-    <h3 class="subtitle">best wijnen</h3>
+    <h2 class="title" *ngIf="selectedLanguage=='NL'">mijn wagen</h2>
+    <h2 class="title" *ngIf="selectedLanguage=='PT'">carrinho de compras</h2>
+    <h3 class="subtitle" *ngIf="selectedLanguage=='NL'">best wijnen</h3>
+    <h3 class="subtitle" *ngIf="selectedLanguage=='PT'">os melhores vinhos</h3>
 
     <section class="empty-cart" *ngIf="!(cart.length>0)">
-        <p>Ups! Het ziet ernaar uit dat uw winkelwagen leeg is!
-        </p>
+        <p *ngIf="selectedLanguage=='NL'">Ups! Het ziet ernaar uit dat uw winkelwagen leeg is!</p>
+        <p *ngIf="selectedLanguage=='PT'">Ups! O seu carrinho de compras está vazio!</p>
         <p>
             <mat-icon class="empty-cart-icon">shopping_cart</mat-icon>
         </p>
         <p>
-            <button mat-flat-button color="accent" routerLink="/">Blijf kopen</button>
+            <button mat-flat-button color="accent" routerLink="/" *ngIf="selectedLanguage=='NL'">Blijf kopen</button>
+            <button mat-flat-button color="accent" routerLink="/" *ngIf="selectedLanguage=='PT'">Continuar a comprar</button>
         </p>
 
 
@@ -23,15 +26,13 @@
             <div class="list-header-leftvoid">
                 &nbsp;
             </div>
-            <div class="list-header-unitprice">
-                stuksprijs
-            </div>
+            <div class="list-header-unitprice" *ngIf="selectedLanguage=='NL'">stuksprijs</div>
+            <div class="list-header-unitprice" *ngIf="selectedLanguage=='PT'">preço unidade</div>
             <div class="list-header-actionsvoid">
                 &nbsp;
             </div>
-            <div class="list-header-totalprice">
-                prijs
-            </div>
+            <div class="list-header-totalprice" *ngIf="selectedLanguage=='NL'">prijs</div>
+            <div class="list-header-totalprice" *ngIf="selectedLanguage=='PT'">preço</div>
             <div class="list-header-rightvoid">
                 &nbsp;
             </div>
@@ -70,9 +71,8 @@
 
 
         <div class="list-footer">
-            <div class="list-footer-leftvoid">
-                totale prijs:
-            </div>
+            <div class="list-footer-leftvoid" *ngIf="selectedLanguage=='NL'">totale prijs:</div>
+            <div class="list-footer-leftvoid" *ngIf="selectedLanguage=='PT'">preço total:</div>
             <div class="list-footer-totalprice">
                 <span>{{total$ | async | number: '1.2-2'}}€</span>
             </div>
@@ -83,45 +83,60 @@
 
         <div class="finalize">
 
-            <button mat-stroked-button color="default" (click)="clearShoppingCart()">Schone lijst</button>
-            <button mat-stroked-button color="default" (click)="goBack()">Blijf kopen</button>
-            <button mat-flat-button color="accent" (click)="showFinalize = true; showFinalizeForm()">Aankoop</button>
+            <button mat-stroked-button color="default" (click)="clearShoppingCart()" *ngIf="selectedLanguage=='NL'">Schone lijst</button>
+            <button mat-stroked-button color="default" (click)="clearShoppingCart()" *ngIf="selectedLanguage=='PT'">Limpar lista</button>
+            <button mat-stroked-button color="default" (click)="goBack()" *ngIf="selectedLanguage=='NL'">Blijf kopen</button>
+            <button mat-stroked-button color="default" (click)="goBack()" *ngIf="selectedLanguage=='PT'">Continuar a comprar</button>
+            <button mat-flat-button color="accent" (click)="showFinalize = true; showFinalizeForm()" *ngIf="selectedLanguage=='NL'">Aankoop</button>
+            <button mat-flat-button color="accent" (click)="showFinalize = true; showFinalizeForm()" *ngIf="selectedLanguage=='PT'">Finalizar</button>
         </div>
     </div>
 
     <!-- formulario para inserir o email (ou se já estiver registado fazer o log in)?? -->
     <section class="email-form" *ngIf="showFinalize">
         <article>
-            <h3>Informatie om de bestelling af te ronden</h3>
-            <p>Vul onderstaande gegevens in zodat we contact met u kunnen opnemen om de bestelling af te ronden. 
+            <h3 *ngIf="selectedLanguage=='NL'">Informatie om de bestelling af te ronden</h3>
+            <h3 *ngIf="selectedLanguage=='PT'">Informações para completar o pedido</h3>
+            <p *ngIf="selectedLanguage=='NL'">Vul onderstaande gegevens in zodat we contact met u kunnen opnemen om de bestelling af te ronden. 
                 Je ontvangt een e-mail met je bestelling en daarna neem ik contact met je op om de bezorging af te spreken.
             </p>
-            <p>Betaling geschiedt bij levering.</p>
+            <p *ngIf="selectedLanguage=='PT'">Preencha as informações abaixo para que possamos entrar em contato para finalizar o pedido.
+                Você receberá um e-mail com seu pedido e depois entrarei em contato para providenciar a entrega.
+            </p>
+            <p *ngIf="selectedLanguage=='NL'">Betaling geschiedt bij levering.</p>
+            <p *ngIf="selectedLanguage=='PT'">O pagamento é feito no momento da entrega.</p>
         </article>
         <form #f="ngForm" (submit)="finalizeOrder(f.value)">
             <div class="form-group">
-                <label for="name">Uw naam*</label>
+                <label for="name" *ngIf="selectedLanguage=='NL'">uw naam*</label>
+                <label for="name" *ngIf="selectedLanguage=='PT'">seu nome*</label>
                 <input class="form-control" type="text" id="name" name="name" ngModel required>
             </div>
             <div class="form-group">
-                <label for="mobile">Jouw telefoon*</label>
+                <label for="mobile" *ngIf="selectedLanguage=='NL'">jouw telefoon*</label>
+                <label for="mobile" *ngIf="selectedLanguage=='PT'">seu telefone*</label>
                 <input class="form-control" type="tel" id="mobile" name="mobile" ngModel required>
             </div>
             <div class="form-group">
-                <label for="email">Jouw email*</label>
+                <label for="email" *ngIf="selectedLanguage=='NL'">jouw email*</label>
+                <label for="email" *ngIf="selectedLanguage=='PT'">seu email*</label>
                 <input class="form-control" type="email" id="email" name="email" ngModel required>
             </div>
             <div class="form-group">
-                <label for="address">Adres</label>
+                <label for="address" *ngIf="selectedLanguage=='NL'">jouw adres</label>
+                <label for="address" *ngIf="selectedLanguage=='PT'">seu endereço</label>
                 <textarea class="form-control" type="text" id="address" name="address" ngModel></textarea>
             </div>
             <div class="form-group">
-                <label for="obs">Opmerkingen</label>
+                <label for="obs" *ngIf="selectedLanguage=='NL'">opmerkingen</label>
+                <label for="obs" *ngIf="selectedLanguage=='PT'">observações</label>
                 <textarea class="form-control" id="obs" name="obs" ngModel></textarea>
             </div>
             <div class="action">
-                <button mat-raised-button color="default" type="button" (click)="cancelFinalize()">Annuleren</button>
-                <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid">Verzenden</button>
+                <button mat-raised-button color="default" type="button" (click)="cancelFinalize()" *ngIf="selectedLanguage=='NL'">Annuleren</button>
+                <button mat-raised-button color="default" type="button" (click)="cancelFinalize()" *ngIf="selectedLanguage=='PT'">Cancelar</button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid" *ngIf="selectedLanguage=='NL'">Verzenden</button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="f.invalid" *ngIf="selectedLanguage=='PT'">Confirmar</button>
             </div>
 
         </form>

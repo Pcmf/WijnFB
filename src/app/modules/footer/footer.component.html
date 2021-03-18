@@ -1,7 +1,8 @@
 <div class="container">
     <div class="container-content">
         <div class="blocks">
-            <h2>contacten</h2>
+            <h2 *ngIf="selectedLanguage=='NL'">contacten</h2>
+            <h2 *ngIf="selectedLanguage=='PT'">contactos</h2>
             <div class="info">
                 <img src="./assets/foto_luis.png" alt="Photo Filipe Babo">
                 <div class="info-contacts">
@@ -14,27 +15,33 @@
             <div class="contact-form">
                 <form>
                     <div class="form-group">
-                        <label>Uw naam</label>
+                        <label *ngIf="selectedLanguage=='NL'">uw naam</label>
+                        <label *ngIf="selectedLanguage=='PT'">seu nome</label>
                         <input class="form-control" type="text">
                     </div>
                     <div class="form-group">
-                        <label>Jouw telefoon</label>
+                        <label *ngIf="selectedLanguage=='NL'">jouw telefoon</label>
+                        <label *ngIf="selectedLanguage=='PT'">seu telefone</label>
                         <input class="form-control" type="tel">
                     </div>
                     <div class="form-group">
-                        <label>Jouw email</label>
+                        <label *ngIf="selectedLanguage=='NL'">jouw email</label>
+                        <label *ngIf="selectedLanguage=='PT'">seu email</label>
                         <input class="form-control" type="email">
                     </div>
                     <div class="form-group">
-                        <label>tekst bericht</label>
+                        <label *ngIf="selectedLanguage=='NL'">tekst bericht</label>
+                        <label *ngIf="selectedLanguage=='NL'">mensagem de texto</label>
                         <textarea class="form-control"></textarea>
                     </div>
-                    <button mat-raised-button type="submit">vraag om contact</button>
+                    <button mat-raised-button type="submit" *ngIf="selectedLanguage=='NL'">vraag om contact</button>
+                    <button mat-raised-button type="submit" *ngIf="selectedLanguage=='PT'">pedir contacto</button>
                 </form>
             </div>
         </div>
         <div class="blocks">
-            <h2>waar zijn we</h2>
+            <h2 *ngIf="selectedLanguage=='NL'">waar zijn we</h2>
+            <h2 *ngIf="selectedLanguage=='PT'">onde estamos</h2>
             <div class="maps">
                 <img src="./assets/map.png">
                 <p>Rua do local xpto</p>
@@ -43,7 +50,8 @@
 
         </div>
         <div class="blocks">
-            <h2>sociale netwerken</h2>
+            <h2 *ngIf="selectedLanguage=='NL'">sociale netwerken</h2>
+            <h2 *ngIf="selectedLanguage=='PT'">redes sociais</h2>
             <div class="social">
                 <img class="social-img" src="./assets/facebook.png">
                 <img class="social-img" src="./assets/whatsaap.png">

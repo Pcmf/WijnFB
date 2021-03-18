@@ -1,18 +1,31 @@
 <mat-nav-list class="sidenav">
+  <span mat-list-item (click)="changeLanguage('NL')"><img class="flag" [class]="selectedLanguage=='NL' ? 'flag-disabled': ''" src="./assets/img/flagBE.png" alt="Belgiun flag"></span>
+  <span mat-list-item (click)="changeLanguage('PT')"><img class="flag"  [class]="selectedLanguage=='PT' ? 'flag-disabled': ''"  src="./assets/img/flagPT.jpg" alt="Portugal flag"></span>
+
   <a mat-list-item (click)="CloseSidenav()" routerLink="/wines" >
-    <mat-icon>wine_bar</mat-icon> Wijnen
+    <mat-icon>wine_bar</mat-icon> 
+    <span *ngIf="selectedLanguage==='NL'">wijnen</span>
+    <span *ngIf="selectedLanguage==='PT'">vinhos</span>
   </a>
   <a mat-list-item (click)="CloseSidenav()" routerLink="/oliveoil">
-    <mat-icon>tapas</mat-icon> Olijfolie
+    <mat-icon>tapas</mat-icon> 
+    <span *ngIf="selectedLanguage==='NL'">olijfolie</span>
+    <span *ngIf="selectedLanguage==='PT'">azeites</span>
   </a>
   <a mat-list-item (click)="CloseSidenav()" routerLink="/likeuren">
-    <mat-icon>tapas</mat-icon> Likeuren en sterk dranken
+    <mat-icon>tapas</mat-icon>
+    <span *ngIf="selectedLanguage==='NL'">likeuren en sterke dranken</span>
+    <span *ngIf="selectedLanguage==='PT'">liquores e aguardentes</span>
   </a>  
   <a mat-list-item (click)="CloseSidenav()" routerLink="/bewaren">
-    <mat-icon>tapas</mat-icon> Bewaren
+    <mat-icon>tapas</mat-icon>
+    <span *ngIf="selectedLanguage==='NL'">bewaren</span>
+    <span *ngIf="selectedLanguage==='PT'">conservas</span>
   </a>
   <a mat-list-item (click)="CloseSidenav()" routerLink="/charcuterie">
-    <mat-icon>tapas</mat-icon> Chacurterie
+    <mat-icon>tapas</mat-icon> 
+    <span *ngIf="selectedLanguage==='NL'">charcuterie</span>
+    <span *ngIf="selectedLanguage==='PT'">enchidos e fumados</span>
   </a>
   <a mat-list-item (click)="CloseSidenav()" routerLink="/shopcart">
     <mat-icon class="shopcart">local_grocery_store</mat-icon> Shoppcart

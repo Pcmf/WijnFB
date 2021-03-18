@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/cor
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ShoppingCartService } from './../../services/shopping-cart.service';
+import { LanguageService } from './../../services/language.service';
 
 @Component({
   selector: 'app-sidenav-list',
@@ -13,15 +14,22 @@ export class SidenavListComponent implements OnInit, OnDestroy {
 
   shopcartLoad = 0;
   subscription: Subscription | undefined;
+  selectedLanguage: string | undefined;
   constructor(
     private router: Router,
-    private shopcartService: ShoppingCartService
+    private shopcartService: ShoppingCartService,
+    private languageService: LanguageService
     ) { }
 
   ngOnInit(): void {
     this.subscription = this.shopcartService.shopcartLoad.subscribe(
       res => {
         this.shopcartLoad = res;
+      }
+    );
+    this.subscription = this.languageService.selectedLanguage.subscribe(
+      res => {
+        this.selectedLanguage = res;
       }
     );
   }
@@ -39,5 +47,9 @@ export class SidenavListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
    }
+
+   changeLanguage(lang: string): void{
+    this.languageService.menuLanguageChange(lang);
+  }
 
 }

@@ -11,10 +11,10 @@
                 <div class="product-info">
                     <h2>{{product.name}}</h2>
                     <div class="product-info__text">
-                        <p>{{product.subtitle_be}}</p>
-                        <p>
-                            {{product.description_be}}
-                        </p>
+                        <p *ngIf="selectedLanguage==='NL'">{{product.subtitle_be}}</p>
+                        <p *ngIf="selectedLanguage==='PT'">{{product.subtitle}}</p>
+                        <p *ngIf="selectedLanguage==='NL'">{{product.description_be}</p>
+                        <p *ngIf="selectedLanguage==='PT'">{{product.description}}</p>
                     </div>
                 </div>
 

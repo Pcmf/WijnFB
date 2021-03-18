@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ShoppingCartService } from './../../services/shopping-cart.service';
 import { ApiDataService } from './../../services/api-data.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -6,21 +6,24 @@ import { WineDetailDialog } from '../detail-dialog/wine-detail-dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ConfirmDialogComponent } from './../../components/confirm-dialog/confirm-dialog.component';
 import { Wine } from 'src/app/interfaces/Interfaces';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import {Location} from '@angular/common';
 import { Router } from '@angular/router';
+import { LanguageService } from './../../services/language.service';
 
 @Component({
   selector: 'app-shop-list',
   templateUrl: './shop-list.component.html',
   styleUrls: ['./shop-list.component.scss']
 })
-export class ShopListComponent implements OnInit {
+export class ShopListComponent implements OnInit, OnDestroy {
 
   cart: Wine[] = [];
   total$: Observable<number> | undefined;
   headerImage = '';
   showFinalize = false;
+  selectedLanguage: string | undefined;
+  subscription: Subscription | undefined;
 
   constructor(
     private shopCartService: ShoppingCartService,
@@ -29,7 +32,8 @@ export class ShopListComponent implements OnInit {
     private snackBar: MatSnackBar,
     // tslint:disable-next-line:variable-name
     private _location: Location,
-    private route: Router
+    private route: Router,
+    private languageService: LanguageService
   ) {
     this.cart = shopCartService.getShopCartList();
    }
@@ -53,15 +57,30 @@ export class ShopListComponent implements OnInit {
   }
 
   removeLine(value: Wine): void{
+    let title = '';
+    let subtitle = '';
+    if (this.selectedLanguage === 'NL') {
+       title = 'Aandacht!';
+       subtitle = 'Weet u zeker dat u ' + value.name + '?';
+    } else if (this.selectedLanguage === 'PT') {
+      title = 'Atenção!';
+      subtitle = 'Tem a certeza que quer remover ' + value.name + '?';
+    }
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      data: {title: 'Aandacht!!', subtitle: 'Weet u zeker dat u ' + value.name + '?'}
+      data: {title, subtitle}
     });
 
     dialogRef.afterClosed().subscribe(
       result => {
         if (result) {
+          let msg = '';
+          if (this.selectedLanguage === 'NL') {
+            msg = ' was verwijderd!';
+          } else if (this.selectedLanguage === 'PT') {
+            msg = ' foi removido!';
+          }
           const line = {id: value.id, type: 1, name: value.name, qty: value.qty, price: value.pricesell};
-          this.openSnackBar(`${line.name} foi removido do carrinho.`, '');
+          this.openSnackBar(`${line.name} ${msg}`, '');
           this.shopCartService.removeLineFromCart(line);
           this.cart = this.shopCartService.getShopCartList();
           this.total$ = this.shopCartService.shopcartTotal;
@@ -73,8 +92,17 @@ export class ShopListComponent implements OnInit {
   }
 
   clearShoppingCart(): void{
+    let title = '';
+    let subtitle = '';
+    if (this.selectedLanguage === 'NL') {
+       title = 'Aandacht!'
+       subtitle = 'Weet u zeker dat u de winkelwagen wilt schoonmaken?';
+    } else if (this.selectedLanguage === 'PT') {
+      title = 'Atenção!'
+      subtitle = 'Tem certeza de que deseja limpar o carrinho de compras?';
+    }
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      data: {title: 'Aandacht!!', subtitle: 'Weet u zeker dat u de winkelwagen wilt schoonmaken?'}
+      data: {title, subtitle}
     });
 
     dialogRef.afterClosed().subscribe(
@@ -106,6 +134,13 @@ export class ShopListComponent implements OnInit {
     this.total$ = this.shopCartService.shopcartTotal;
     this.headerImage = 'shop3_sm.jpg';
     window.scrollTo(0, 0);
+    this.subscription = this.languageService.selectedLanguage.subscribe(
+      res => this.selectedLanguage = res
+    );
+  }
+
+  ngOnDestroy(): void{
+    this.subscription?.unsubscribe();
   }
 
   goBack(): void{
@@ -126,8 +161,13 @@ export class ShopListComponent implements OnInit {
     const obj = {orderInfo: data, shopcart: this.shopCartService.cart};
     this.apiService.setData('order/', obj).subscribe(
       (resp: any) => {
-        console.log(resp);
-        this.openSnackBar('Uw aanvraag is succesvol ingediend. We nemen binnenkort contact met u op. Bedankt', '');
+        let msg = '';
+        if (this.selectedLanguage === 'NL') {
+          msg = 'Uw bestelling is succesvol verzonden. We nemen spoedig contact met u op. Bedankt';
+        } else if (this.selectedLanguage === 'PT') {
+          msg = 'Seu pedido foi enviada com sucesso. Entraremos em contato em breve. Obrigado';
+        }
+        this.openSnackBar(msg, '');
         this.clearCart();
         this.shopCartService.clearCart();
         setTimeout(() => {

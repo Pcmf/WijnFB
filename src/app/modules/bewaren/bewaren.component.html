@@ -10,18 +10,20 @@
             <div class="product-info">
                 <h2>{{product.name}}</h2>
                 <div class="product-info__text">
-                    <p>{{product.subtitle_be}}</p>
-                    <p>
-                        {{product.description_be}}
-                    </p>
+                    <p *ngIf="selectedLanguage=='NL'">{{product.subtitle_be}}</p>
+                    <p *ngIf="selectedLanguage=='PT'">{{product.subtitle}}</p>
+                    <p *ngIf="selectedLanguage=='NL'">{{product.description_be}}</p>
+                    <p *ngIf="selectedLanguage=='PT'">{{product.description}}</p>
                 </div>
             </div>
             <div class="product-tecnic">
                 <div class="product-tecnic-group">
                     <div class="product-tecnic-group__labels">
                         <div class="product-tecnic-group__labels">
-                            <p>Netto gewicht:</p>
-                            <p>Uitgelekt gewicht:</p>
+                            <p *ngIf="selectedLanguage=='NL'">Netto gewicht:</p>
+                            <p *ngIf="selectedLanguage=='PT'">Peso peso_liquido:</p>
+                            <p *ngIf="selectedLanguage=='NL'">Uitgelekt gewicht:</p>
+                            <p *ngIf="selectedLanguage=='PT'">Peso escorrido:</p>
                         </div>
                     </div>
                     <div class="product-tecnic-group__info">
@@ -43,170 +45,7 @@
         </div>
 
     </article>
-    <!--   Produtos -->
-<!--     <article>
-        <div class="content-product">
-            <div class="product-image">
-                <img src="./assets/atum-ramirez-natural-xl.jpg" alt="Lata azeite remondes fado">
-            </div>
-            <div class="product">
-                <div class="product-info">
-                    <h2>Atum Ramirez - Natural</h2>
-                    <div class="product-info__text">
-                        <p>Natuurlijke Tonijn - 250g</p>
-                        <p>
-                            250 g blik natuurlijke tonijn. Voordelige verpakking!
-                        </p>
-                    </div>
-                </div>
-                <div class="product-tecnic">
-                    <div class="product-tecnic-group">
-                        <div class="product-tecnic-group__labels">
-                            <p>Netto gewicht:</p>
-                            <p>Uitgelekt gewicht:</p>
-                        </div>
-                        <div class="product-tecnic-group__info">
-                            <p>250 g</p>
-                            <p>215 g</p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="shoppcart-left">
-                    <form #f="ngForm">
-                        <span class="price">3.95 €</span>
-                        <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
-                        <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add
-                            <mat-icon>add_shopping_cart</mat-icon>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </article>
-    <hr>
-    <article>
-        <div class="content-product">
-            <div class="product">
-                <div class="product-info">
-                    <h2>Atum Ramirez - Natural</h2>
-                    <div class="product-info__text">
-                        <p>Natuurlijke Tonijn - 125g</p>
-                        <p>
-                            125 g blik natuurlijke tonijn. Voordelige verpakking!
-                        </p>
-                    </div>
-                </div>
-                <div class="product-tecnic">
-                    <div class="product-tecnic-group">
-                        <div class="product-tecnic-group__labels">
-                            <p>Netto gewicht:</p>
-                            <p>Uitgelekt gewicht:</p>
-                        </div>
-                        <div class="product-tecnic-group__info">
-                            <p>125 g</p>
-                            <p>112 g</p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="shoppcart-right">
-                    <form #f="ngForm">
-                        <span class="price">2.12 €</span>
-                        <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
-                        <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add
-                            <mat-icon>add_shopping_cart</mat-icon>
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <div class="product-image">
-                <img src="./assets/atum-ramirez-natural.jpg" alt="Atum ramirez natural">
-            </div>
-        </div>
-    </article>
-    <hr>
-    <article>
-        <div class="content-product">
-            <div class="product-image">
-                <img src="./assets/atum_bom_petisco_azeite_xl.png" alt="Atum bom petisco 250g">
-            </div>
-            <div class="product">
-                <div class="product-info">
-                    <h2>Atum Bom Petisco in Olijfolie</h2>
-                    <div class="product-info__text">
-                        <p>Tonijn in Olijfolie - 250g</p>
-                        <p>
-                            250 g tonijn in Olijfolie. Voordelige verpakking!
-                        </p>
-                    </div>
-                </div>
-                <div class="product-tecnic">
-                    <div class="product-tecnic-group">
-                        <div class="product-tecnic-group__labels">
-                            <p>Netto gewicht:</p>
-                            <p>Uitgelekt gewicht:</p>
-                        </div>
-                        <div class="product-tecnic-group__info">
-                            <p>250 g</p>
-                            <p>215 g</p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="shoppcart-left">
-                    <form #f="ngForm">
-                        <span class="price">4.45 €</span>
-                        <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
-                        <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add
-                            <mat-icon>add_shopping_cart</mat-icon>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </article>
-    <hr>
-    <article>
-        <div class="content-product">
-            <div class="product">
-                <div class="product-info">
-                    <h2>Atum Bom Petisco met oregano</h2>
-                    <div class="product-info__text">
-                        <p>Tonijn in olijfolie met oregano - 125g</p>
-                        <p>
-                            125 g Tonijn in olijfolie met oregano.
-                        </p>
-                    </div>
-                </div>
-                <div class="product-tecnic">
-                    <div class="product-tecnic-group">
-                        <div class="product-tecnic-group__labels">
-                            <p>Netto gewicht:</p>
-                            <p>Uitgelekt gewicht:</p>
-                        </div>
-                        <div class="product-tecnic-group__info">
-                            <p>125 g</p>
-                            <p>112 g</p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="shoppcart-right">
-                    <form #f="ngForm">
-                        <span class="price">2.12 €</span>
-                        <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
-                        <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value)">add
-                            <mat-icon>add_shopping_cart</mat-icon>
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <div class="product-image">
-                <img src="./assets/atum_bom_petisco_oregaos.jpg" alt="Atum ramirez natural">
-            </div>
-        </div>
-    </article> -->
+ 
 </section>
 <app-other-products-teaser></app-other-products-teaser>
 <app-footer></app-footer>

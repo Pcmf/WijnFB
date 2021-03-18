@@ -13,14 +13,32 @@
     <span class="spacer"></span>
     <div class="menu" fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.lt-sm>
       <ul fxLayout fxLayoutGap="15px">
-        <li><button mat-button routerLink="/winelist">wijnen</button></li>
+        <li><button mat-button routerLink="/winelist">
+          <span *ngIf="selectedLanguage==='NL'">wijnen</span>
+          <span *ngIf="selectedLanguage==='PT'">vinhos</span>
+          </button></li>
         <li>
-          <button mat-button [matMenuTriggerFor]="menu">andere produten</button>
+          <button mat-button [matMenuTriggerFor]="menu">
+            <span *ngIf="selectedLanguage==='NL'">andere produten</span>
+            <span *ngIf="selectedLanguage==='PT'">outros produtos</span>
+          </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/oliveoil">Olijfolie</button>
-            <button mat-menu-item routerLink="/likeuren">Likeuren en sterke dranken</button>
-            <button mat-menu-item routerLink="/bewaren">Bewaren</button>
-            <button mat-menu-item routerLink="/charcuterie">Charcuterie</button>
+            <button mat-menu-item routerLink="/oliveoil">
+              <span *ngIf="selectedLanguage==='NL'">olijfolie</span>
+              <span *ngIf="selectedLanguage==='PT'">azeites</span>
+            </button>
+            <button mat-menu-item routerLink="/likeuren">
+              <span *ngIf="selectedLanguage==='NL'">likeuren en sterke dranken</span>
+              <span *ngIf="selectedLanguage==='PT'">liquores e aguardentes</span>
+            </button>
+            <button mat-menu-item routerLink="/bewaren">
+              <span *ngIf="selectedLanguage==='NL'">bewaren</span>
+              <span *ngIf="selectedLanguage==='PT'">conservas</span>
+            </button>
+            <button mat-menu-item routerLink="/charcuterie">
+              <span *ngIf="selectedLanguage==='NL'">charcuterie</span>
+              <span *ngIf="selectedLanguage==='PT'">enchidos e fumados</span>
+            </button>
           </mat-menu>
         </li>
         <li><button mat-button routerLink="/shopcart">shoppcart</button></li>
@@ -38,8 +56,8 @@
           </a>
         </li>
         <!--         <li><button mat-button routerLink="/contacts">opmerkingen</button></li> -->
-        <li><img class="flag flag-disabled" src="./assets/img/flagBE.png" alt="Belgiun flag"></li>
-        <li><img class="flag" src="./assets/img/flagPT.jpg" alt="Portugal flag"></li>
+        <li (click)="changeLanguage('NL')"><img class="flag" [class]="selectedLanguage=='NL' ? 'flag-disabled': ''" src="./assets/img/flagBE.png" alt="Belgiun flag"></li>
+        <li (click)="changeLanguage('PT')"><img class="flag"  [class]="selectedLanguage=='PT' ? 'flag-disabled': ''"  src="./assets/img/flagPT.jpg" alt="Portugal flag"></li>
 
       </ul>
     </div>

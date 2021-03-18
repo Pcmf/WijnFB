@@ -1,5 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ShoppingCartService } from './../../services/shopping-cart.service';
+import { LanguageService } from './../../services/language.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-wine-card',
@@ -14,12 +16,18 @@ export class WineCardComponent implements OnInit {
   @Input() selected: boolean | false | undefined;
 
 
+  selectedLanguage: string | undefined;
+  subscription: Subscription | undefined;
 
   constructor(
-    private shopCartService: ShoppingCartService
+    private shopCartService: ShoppingCartService,
+    private languageService: LanguageService
   ) { }
 
   ngOnInit(): void {
+    this.subscription = this.languageService.selectedLanguage.subscribe(
+      res => this.selectedLanguage = res
+    );
   }
 
   onSelect(): void{
@@ -27,7 +35,10 @@ export class WineCardComponent implements OnInit {
   }
 
   addToCart(): void{
-    const msg = this.wine.name + ' is toegevoegd aan de boodschappenlijst!';
+    let msg = this.wine.name + ' is toegevoegd aan de boodschappenlijst!';
+    if (this.selectedLanguage === 'PT') {
+      msg = this.wine.name + ' foi adicionado ao carrinho!';
+    }
     this.addedToCart.emit(msg);
     this.shopCartService.addLineToCart({id: this.wine.id, type: 1, name: this.wine.name, qty: 1, price: this.wine.pricesell});
   }

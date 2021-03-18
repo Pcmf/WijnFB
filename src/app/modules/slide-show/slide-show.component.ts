@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-/* import { MatCarousel, MatCarouselComponent } from '@ngmodule/material-carousel'; */
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { LanguageService } from './../../services/language.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-slide-show',
   templateUrl: './slide-show.component.html',
   styleUrls: ['./slide-show.component.scss']
 })
-export class SlideShowComponent implements OnInit {
+export class SlideShowComponent implements OnInit, OnDestroy {
 
   public hideArrows = false;
   public hideIndicators = false;
@@ -32,9 +33,20 @@ export class SlideShowComponent implements OnInit {
   public slideHeight = '50%';
   images = ['./assets/bafarela_reserva.png', './assets/100-hectares.jpg', './assets/aveleda2.jpg', './assets/promo.png'];
 
-  constructor() { }
+  selectedLanguage: string | undefined;
+  subscription: Subscription | undefined;
+  constructor(
+    private languageService: LanguageService
+  ) { }
 
   ngOnInit(): void {
+    this.subscription = this.languageService.selectedLanguage.subscribe(
+      res => this.selectedLanguage = res
+    );
+  }
+
+  ngOnDestroy(): void{
+    this.subscription?.unsubscribe();
   }
 
 }

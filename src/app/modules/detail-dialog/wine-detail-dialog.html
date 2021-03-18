@@ -20,47 +20,62 @@
     </div>
     <div class="details">
         <div class="line">
-            <div class="label">Jaar:</div>
+            <div class="label" *ngIf="selectedLanguage=='NL'">Jaar:</div>
+            <div class="label" *ngIf="selectedLanguage=='PT'">Ano:</div>
             <div class="info">{{data.year}}</div>
         </div>
         <div class="line">
-            <div class="label">Soort wijn:</div>
-            <div class="info">{{data.winetype_be}}</div>
+            <div class="label" *ngIf="selectedLanguage=='NL'">Soort wijn:</div>
+            <div class="label" *ngIf="selectedLanguage=='PT'">Tipo de vinho:</div>
+            <div class="info" *ngIf="selectedLanguage=='NL'">{{data.winetype_be}}</div>
+            <div class="info" *ngIf="selectedLanguage=='PT'">{{data.winetype}}</div>
         </div>
         <div class="line">
-            <div class="label">Regio:</div>
+            <div class="label" *ngIf="selectedLanguage=='NL'">Regio:</div>
+            <div class="label" *ngIf="selectedLanguage=='PT'">Região:</div>
             <div class="info">{{data.region}}</div>
         </div>
         <div class="line">
-            <div class="label">Wijndruiven:</div>
+            <div class="label" *ngIf="selectedLanguage=='NL'">Wijndruiven:</div>
+            <div class="label" *ngIf="selectedLanguage=='PT'">Castas:</div>
             <div class="info">{{data.grapescoll}}</div>
         </div>
         <div class="line">
-            <div class="label">Bodem:</div>
-            <div class="info">{{data.soil_be}}</div>
+            <div class="label" *ngIf="selectedLanguage=='NL'">Bodem:</div>
+            <div class="label" *ngIf="selectedLanguage=='PT'">Solo:</div>
+            <div class="info" *ngIf="selectedLanguage=='NL'">{{data.soil_be}}</div>
+            <div class="info" *ngIf="selectedLanguage=='PT'">{{data.soil}}</div>
         </div>
         <div class="line">
-            <div class="label">Proefnotities:</div>
-            <div class="info">{{data.tasting_be}}</div>
+            <div class="label" *ngIf="selectedLanguage=='NL'">Proefnotities:</div>
+            <div class="label" *ngIf="selectedLanguage=='PT'">Notas de prova:</div>
+            <div class="info" *ngIf="selectedLanguage=='NL'">{{data.tasting_be}}</div>
+            <div class="info" *ngIf="selectedLanguage=='PT'">{{data.tasting}}</div>
         </div>
         <div class="line">
-            <div class="label">Alcoholgehalte:</div>
+            <div class="label" *ngIf="selectedLanguage=='NL'">Alcoholgehalte:</div>
+            <div class="label" *ngIf="selectedLanguage=='PT'">Alcool:</div>
             <div class="info">{{data.alcohol}}% vol.</div>
         </div>
         <div class="line">
-            <div class="label">Service:</div>
-            <div class="info">{{data?.service_be}}</div>
+            <div class="label" *ngIf="selectedLanguage=='NL'">Service:</div>
+            <div class="label" *ngIf="selectedLanguage=='PT'">Serviço:</div>
+            <div class="info" *ngIf="selectedLanguage=='NL'">{{data?.service_be}}</div>
+            <div class="info" *ngIf="selectedLanguage=='PT'">{{data?.service}}</div>
         </div>
         <div class="line">
-            <div class="label">Wijnmaker:</div>
+            <div class="label" *ngIf="selectedLanguage=='NL'">Wijnmaker:</div>
+            <div class="label" *ngIf="selectedLanguage=='PT'">Enologista:</div>
             <div class="info">{{data.oenologiste}}</div>
         </div>
         <div class="line">
-            <div class="label">Producent:</div>
+            <div class="label" *ngIf="selectedLanguage=='NL'">Producent:</div>
+            <div class="label" *ngIf="selectedLanguage=='PT'">Produtor:</div>
             <div class="info">{{data.producer}}</div>
         </div>
         <div class="line">
-            <div class="label">Verpakking:</div>
+            <div class="label" *ngIf="selectedLanguage=='NL'">Verpakking:</div>
+            <div class="label" *ngIf="selectedLanguage=='PT'">Embalagem:</div>
             <div class="info">{{data.packing}}</div>
         </div>
         

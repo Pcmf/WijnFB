@@ -11,17 +11,19 @@
             <div class="product-info">
                 <h2>{{product.name}}</h2>
                 <div class="product-info__text">
-                    <p>{{product.subtitle_be}}</p>
-                    <p>
-                        {{product.description_be}}
-                    </p>
+                    <p *ngIf="selectedLanguage=='NL'">{{product.subtitle_be}}</p>
+                    <p *ngIf="selectedLanguage=='PT'">{{product.subtitle}}</p>
+                    <p *ngIf="selectedLanguage=='NL'">{{product.description_be}}</p>
+                    <p *ngIf="selectedLanguage=='PT'">{{product.description}}</p>
                 </div>
             </div>
             <div class="product-tecnic">
                 <div class="product-tecnic-group">
                     <div class="product-tecnic-group__labels">
-                        <p>Alcoholgehalte:</p>
-                        <p>Verpakking:</p>
+                        <p *ngIf="selectedLanguage=='NL'">Alcoholgehalte:</p>
+                        <p *ngIf="selectedLanguage=='PT'">Alcool:</p>
+                        <p *ngIf="selectedLanguage=='NL'">Verpakking:</p>
+                        <p *ngIf="selectedLanguage=='PT'">Embalagem:</p>
                     </div>
                     <div class="product-tecnic-group__info">
                         <p>{{product.alchool}}% vol</p>

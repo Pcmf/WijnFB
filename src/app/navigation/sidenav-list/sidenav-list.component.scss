@@ -7,6 +7,16 @@
     margin-right: 10px;
 }
 
+.flag {
+  margin-left: 2rem;
+  height: 1.7rem;
+  cursor: pointer;
+  &-disabled{
+    opacity: .5;
+    cursor: default;
+  }
+}
+
 .shopcart {
     position: relative;
     height: 2.5rem;

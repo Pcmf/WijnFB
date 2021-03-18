@@ -9,6 +9,7 @@ import { SelectMenuService } from './../../services/select-menu.service';
 import { Selection, Wine } from './../../interfaces/Interfaces';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { LanguageService } from './../../services/language.service';
 
 @Component({
   selector: 'app-wine-list',
@@ -22,6 +23,7 @@ export class WineListComponent implements OnInit {
   subscription: Subscription | undefined;
   selection: Selection;
   favoritsList: string[] = [];
+  selectedLanguage: string | undefined;
 
   constructor(
     private apiData: ApiDataService,
@@ -30,7 +32,8 @@ export class WineListComponent implements OnInit {
     private shoppCartService: ShoppingCartService,
     private selectionMenuService: SelectMenuService,
     private router: Router,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private languageService: LanguageService
 
   ) {
 
@@ -45,6 +48,9 @@ export class WineListComponent implements OnInit {
     this.subscription = this.selectionMenuService.menuSelection.subscribe(
       res => this.getWineList(res)
     );
+    this.subscription = this.languageService.selectedLanguage.subscribe(
+      res => this.selectedLanguage = res
+    );
   }
 
   getWineList(selection: Selection): void {
@@ -56,8 +62,14 @@ export class WineListComponent implements OnInit {
     }
     this.apiData.getData('wines/filter/' + selection.winetype + '/' + selection.region ).subscribe(
       (resp: any[]) => {
+        let msg = '';
+        if (this.selectedLanguage === 'NL') {
+          msg = 'Sorry, we hebben geen resultaten voor die zoekopdracht!';
+        } else if (this.selectedLanguage === 'PT') {
+          msg = 'Desculpe, não temos resultados para essa pesquisa!';
+        }
         if ((!resp || resp.length === 0) && (selection.winetype !== 0 && selection.region !== 0)) {
-          this.openSnackBar('Sorry, we hebben geen resultaten voor die zoekopdracht!', '');
+          this.openSnackBar(msg, '');
         }
         this.winesListSelection = resp;
         this.winesListSelection.map((el: any) => {
@@ -80,11 +92,15 @@ export class WineListComponent implements OnInit {
     // add line to shopping cart
     dialogRef.afterClosed().subscribe(
       result => {
-        console.log(result.qty);
+        let msg = '';
+        if (this.selectedLanguage === 'NL') {
+          msg = ' is toegevoegd aan de boodschappenlijst!';
+        } else if (this.selectedLanguage === 'PT') {
+          msg = ' foi adicionado à lista de compras!';
+        }
         if (result?.qty > 0) {
-          console.log(result);
           this.shoppCartService.addLineToCart(result);
-          this.openSnackBar(result.name  + ' is toegevoegd aan de boodschappenlijst!', 'Shopping Cart');
+          this.openSnackBar(result.name  + msg , 'Shopping Cart');
         }
       }
     );

@@ -1,5 +1,6 @@
 <div class="container">
-    <h2>zie ook andere producten uit Portugal</h2>
+    <h2 *ngIf="selectedLanguage=='NL'">zie ook andere producten uit Portugal</h2>
+    <h2 *ngIf="selectedLanguage=='PT'">outros produtos de Portugal</h2>
 
     <div class="container-content">
 
@@ -8,7 +9,8 @@
                 <div class="block-teaser__image">
                     <img src="./assets/azeite.png" alt="azeites">
                 </div>
-                <h3 class="label">olijfolie</h3>
+                <h3 class="label" *ngIf="selectedLanguage=='NL'">olijfolie</h3>
+                <h3 class="label" *ngIf="selectedLanguage=='PT'">azeites</h3>
             </a>
         </div>
 
@@ -17,7 +19,8 @@
                 <div class="block-teaser__image">
                     <img src="./assets/aguardentes.png" alt="aguardentes">
                 </div>
-                <h3 class="label">likeuren en sterke dranken</h3>
+                <h3 class="label" *ngIf="selectedLanguage=='NL'">likeuren en sterke dranken</h3>
+                <h3 class="label" *ngIf="selectedLanguage=='PT'">liquores e aguardentes</h3>
             </a>
         </div>
 
@@ -26,7 +29,8 @@
                 <div class="block-teaser__image">
                     <img src="./assets/conservas.png" alt="conservas">
                 </div>
-                <h3 class="label">bewaren</h3>
+                <h3 class="label" *ngIf="selectedLanguage=='NL'">bewaren</h3>
+                <h3 class="label" *ngIf="selectedLanguage=='PT'">conservas</h3>
             </a>
         </div>
 
@@ -35,7 +39,8 @@
                 <div class="block-teaser__image">
                     <img src="./assets/enchidos.png" alt="enchidos">
                 </div>
-                <h3 class="label">charcuterie</h3>
+                <h3 class="label" *ngIf="selectedLanguage=='NL'">charcuterie</h3>
+                <h3 class="label" *ngIf="selectedLanguage=='PT'">enchidos e fumados</h3>
             </a>
         </div>
 

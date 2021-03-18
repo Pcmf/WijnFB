@@ -1,23 +1,29 @@
 <div class="container">
-    <h2>Bekijk meer</h2>
+    <h2 *ngIf="selectedLanguage=='NL'">Bekijk meer</h2>
+    <h2 *ngIf="selectedLanguage=='PT'">Ver mais</h2>
 
     <div class="container-content">
         <form #f="ngForm">
             <div class="container-content-block">
                 <div class="sparator-line">
                     <hr /> 
-                    <span>soort wijn</span>
+                    <span *ngIf="selectedLanguage=='NL'">soort wijn</span>
+                    <span *ngIf="selectedLanguage=='PT'">tipo de vinho</span>
                     <hr />
                 </div>
 
                 <div class="menus">
                     <mat-button-toggle-group type="submit" name="winetype" ngModel (click)="winetypeChanged(f.value)" aria-label="Wine Type">
-                        <mat-button-toggle value="0">all</mat-button-toggle>
+                        <mat-button-toggle value="0" *ngIf="selectedLanguage=='NL'">all</mat-button-toggle>
+                        <mat-button-toggle value="0" *ngIf="selectedLanguage=='PT'">todos</mat-button-toggle>
                         <mat-button-toggle value="8">porto</mat-button-toggle>
-                        <mat-button-toggle value="1">rood</mat-button-toggle>
-                        <mat-button-toggle value="2">wit</mat-button-toggle>
+                        <mat-button-toggle value="1" *ngIf="selectedLanguage=='NL'">rood</mat-button-toggle>
+                        <mat-button-toggle value="1" *ngIf="selectedLanguage=='PT'">tintos</mat-button-toggle>
+                        <mat-button-toggle value="2" *ngIf="selectedLanguage=='PT'">brancos</mat-button-toggle>
+                        <mat-button-toggle value="2" *ngIf="selectedLanguage=='NL'">wit</mat-button-toggle>
                         <mat-button-toggle value="3">rosé</mat-button-toggle>
-                        <mat-button-toggle value="7">mousserend</mat-button-toggle>
+                        <mat-button-toggle value="7" *ngIf="selectedLanguage=='NL'">mousserend</mat-button-toggle>
+                        <mat-button-toggle value="7" *ngIf="selectedLanguage=='PT'">espumantes</mat-button-toggle>
                     </mat-button-toggle-group>
                 </div>
             </div>
@@ -25,13 +31,15 @@
             <div class="container-content-block">
                 <div class="sparator-line">
                     <hr />
-                    <span>regio</span>
+                    <span *ngIf="selectedLanguage=='NL'">regio</span>
+                    <span *ngIf="selectedLanguage=='PT'">região</span>
                     <hr />
                 </div>
 
                 <div class="menus">
                     <mat-button-toggle-group name="region" ngModel  (click)="winetypeChanged(f.value)" aria-label="Wine Region">
-                        <mat-button-toggle [checked]="f.value.winetype==7"  value="0">all</mat-button-toggle>
+                        <mat-button-toggle [checked]="f.value.winetype==7"  value="0" *ngIf="selectedLanguage=='NL'">all</mat-button-toggle>
+                        <mat-button-toggle [checked]="f.value.winetype==7"  value="0" *ngIf="selectedLanguage=='PT'">all</mat-button-toggle>
                         <mat-button-toggle [disabled]="f.value.winetype==8 || f.value.winetype==7" value="7">alentejo</mat-button-toggle>
                         <mat-button-toggle [disabled]="f.value.winetype==8 || f.value.winetype==7" value="8">bairrada</mat-button-toggle>
                         <mat-button-toggle [disabled]="f.value.winetype==8 || f.value.winetype==7" value="4">beiras</mat-button-toggle>
@@ -48,21 +56,28 @@
     <div class="container-content-mobile">
         <form #f2="ngForm">
         <mat-form-field appearance="fill">
-            <mat-label>soort wijn</mat-label>
+            <mat-label *ngIf="selectedLanguage=='NL'">soort wijn</mat-label>
+            <mat-label *ngIf="selectedLanguage=='PT'">tipo de vinho</mat-label>
             <mat-select name="winetype" ngModel (selectionChange)="winetypeChanged(f2.value)" placeholder="wijn type">
-              <mat-option value="0">all</mat-option>
+                <mat-option value="0" *ngIf="selectedLanguage=='NL'">all</mat-option>
+                <mat-option value="0" *ngIf="selectedLanguage=='PT'">todos</mat-option>
               <mat-option [disabled]="f.value.winetype==8 || f.value.winetype==7" value="8">porto</mat-option>
-              <mat-option value="1">rood</mat-option>
-              <mat-option value="2">wit</mat-option> 
+              <mat-option value="1" *ngIf="selectedLanguage=='NL'">rood</mat-option>
+              <mat-option value="1" *ngIf="selectedLanguage=='PT'">tintos</mat-option>
+              <mat-option value="2" *ngIf="selectedLanguage=='NL'">wit</mat-option> 
+              <mat-option value="2" *ngIf="selectedLanguage=='PT'">brancos</mat-option> 
               <mat-option value="3">rosé</mat-option>
-              <mat-option value="7">mousserend</mat-option>
+              <mat-option value="7" *ngIf="selectedLanguage=='NL'">mousserend</mat-option>
+              <mat-option value="7" *ngIf="selectedLanguage=='PT'">espumantes</mat-option>
             </mat-select>
           </mat-form-field>
 
           <mat-form-field appearance="fill">
-            <mat-label>regio</mat-label>
+            <mat-label *ngIf="selectedLanguage=='NL'">regio</mat-label>
+            <mat-label *ngIf="selectedLanguage=='PT'">regiões</mat-label>
             <mat-select  [disabled]="f2.value.winetype==8 || f2.value.winetype==7" name="region" ngModel  (selectionChange)="winetypeChanged(f2.value)">
-              <mat-option value="0">all</mat-option>
+                <mat-option value="0" *ngIf="selectedLanguage=='NL'">all</mat-option>
+                <mat-option value="0" *ngIf="selectedLanguage=='PT'">todos</mat-option>
               <mat-option value="7">alentejo</mat-option>
               <mat-option value="8">bairrada</mat-option>
               <mat-option value="4">beiras</mat-option> 
