@@ -6,7 +6,6 @@ import { CharcuterieComponent } from './modules/charcuterie/charcuterie.componen
 import { LikeurenComponent } from './modules/likeuren/likeuren.component';
 import { OliveOillComponent } from './modules/olive-oill/olive-oill.component';
 import { ShopListComponent } from './modules/shop-list/shop-list.component';
-
 const routes: Routes = [
   {path: 'bewaren', component: BewarenComponent},
   {path: 'charcuterie', component: CharcuterieComponent},
