@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ApiDataService } from './../../services/api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ShoppingCartService } from './../../services/shopping-cart.service';
@@ -37,12 +37,12 @@ export class WineListComponent implements OnInit {
 
   ) {
 
-    this.selection = {winetype: 0, region: 0};
+    this.selection = { winetype: 0, region: 0 };
     this.getWineList(this.selection);
   }
 
   ngOnInit(): void {
-    if ( this.cookieService.check('favorits')){
+    if (this.cookieService.check('favorits')) {
       this.favoritsList = JSON.parse(this.cookieService.get('favorits'));
     }
     this.subscription = this.selectionMenuService.menuSelection.subscribe(
@@ -60,7 +60,7 @@ export class WineListComponent implements OnInit {
     if (!selection.winetype) {
       selection.winetype = 0;
     }
-    this.apiData.getData('wines/filter/' + selection.winetype + '/' + selection.region ).subscribe(
+    this.apiData.getData('wines/filter/' + selection.winetype + '/' + selection.region).subscribe(
       (resp: any[]) => {
         let msg = '';
         if (this.selectedLanguage === 'NL') {
@@ -71,18 +71,22 @@ export class WineListComponent implements OnInit {
         if ((!resp || resp.length === 0) && (selection.winetype !== 0 && selection.region !== 0)) {
           this.openSnackBar(msg, '');
         }
-        this.winesListSelection = resp;
+
+        this.winesListSelection = resp.filter(object => {
+          return object.active == 1;
+        });
+
         this.winesListSelection.map((el: any) => {
-          if (this.favoritsList?.indexOf(el.id) >= 0){
+          if (this.favoritsList?.indexOf(el.id) >= 0) {
             el.favorit = true;
           }
         });
 
-        }
+      }
     );
   }
 
-  showDetail(wine: any): void{
+  showDetail(wine: any): void {
     console.log(wine);
     const dialogRef = this.dialog.open(WineDetailDialog, {
       data: wine,
@@ -100,34 +104,34 @@ export class WineListComponent implements OnInit {
         }
         if (result?.qty > 0) {
           this.shoppCartService.addLineToCart(result);
-          this.openSnackBar(result.name  + msg , 'Shopping Cart');
+          this.openSnackBar(result.name + msg, 'Shopping Cart');
         }
       }
     );
   }
 
 
-  openSnackBar(message: string, action: string ): void {
+  openSnackBar(message: string, action: string): void {
     const snackBarRef = this.snackBar.open(message, action, {
       duration: 3000
     });
 
     snackBarRef.onAction().subscribe(() => {
       this.router.navigate(['/shopcart']);
-    } );
+    });
   }
 
-  toggleToFavorits(event: any): void{
+  toggleToFavorits(event: any): void {
     const index = this.favoritsList.indexOf(event);
-    if ( index >= 0 ) {
+    if (index >= 0) {
       this.favoritsList.splice(index, 1);
     } else {
       this.favoritsList.push(event);
     }
-    this.cookieService.set('favorits', JSON.stringify(this.favoritsList), {expires: 30, path: '/', sameSite: 'Lax'});
+    this.cookieService.set('favorits', JSON.stringify(this.favoritsList), { expires: 30, path: '/', sameSite: 'Lax' });
   }
 
-  OnDestroy(): void{
+  OnDestroy(): void {
     this.cookieService.set('favorits', JSON.stringify(this.favoritsList));
     this.subscription?.unsubscribe();
   }

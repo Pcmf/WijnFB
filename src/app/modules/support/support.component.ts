@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { LanguageService } from 'src/app/services/language.service';
+import { ApiDataService } from 'src/app/services/api-data.service';
 
 @Component({
   selector: 'app-support',
@@ -10,9 +11,15 @@ import { LanguageService } from 'src/app/services/language.service';
 export class SupportComponent implements OnInit, OnDestroy {
   selectedLanguage: string | undefined;
   subscription: Subscription | undefined;
+  c = {
+    name: '',
+    email: '',
+    msg: ''
+  };
 
   constructor(
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    private apiData: ApiDataService
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +30,22 @@ export class SupportComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void{
     this.subscription?.unsubscribe();
+  }
+
+  sendSuport(form: any): void{
+    this.apiData.setData('contact', form).subscribe(
+      (resp: any) => {
+        console.log(resp);
+        if (resp > 0) {
+          this.c = {
+            name: '',
+            email: '',
+            msg: ''
+          };
+          console.log('sucesso');
+        }
+      }
+    );
   }
 
 }

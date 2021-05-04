@@ -64,11 +64,16 @@ mat-toolbar {
   .menu {
     color: #86303baa;
     font-size: 1.2rem;
+    
     ul {
       /* display: inline; */
 
       li {
         list-style: none;
+
+        span{
+          text-transform: uppercase;
+        }
       }
     }
   }
@@ -129,6 +134,7 @@ a:link {
   position: relative;
   height: 1.5rem;
   width: 1.5rem;
+  margin-right: 2rem;
 
   &-icon {
     height: 1.5rem;

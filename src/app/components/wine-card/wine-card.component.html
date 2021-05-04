@@ -13,15 +13,14 @@
         <img  mat-card-image src="./assets/{{wine.photobottle}}">
         <span>{{wine.region}}</span>
 
-        <app-tag *ngIf="wine.status_be" [tag]="wine.status_be"></app-tag>
+        <app-tag *ngIf="selectedLanguage=='PT' && wine.status" [tag]="wine.status" [tagColor]="wine.tag_color"></app-tag>
+        <app-tag *ngIf="selectedLanguage=='NL' && wine.status_be" [tag]="wine.status_be" [tagColor]="wine.tag_color"></app-tag>
     </div>
     
     <mat-card-footer >
         
         <div class="price">{{wine.pricesell}}€</div>
-        <!-- <button mat-mini-fab color="default"> -->
-        <mat-icon color="primary" (click)="addToCart()">add_shopping_cart</mat-icon>
-    <!-- </button> -->
+        <mat-icon *ngIf="!(wine.tag_type==0)" color="primary" (click)="addToCart()">add_shopping_cart</mat-icon>
         <div class="favorite" (click)="toggleFavorit()">
             <mat-icon *ngIf="!wine.favorit">favorite_border</mat-icon>
             <mat-icon *ngIf="wine.favorit">favorite</mat-icon>

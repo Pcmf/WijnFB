@@ -10,21 +10,21 @@
             <h3 *ngIf="selectedLanguage=='PT'">Procurando um vinho especial?</h3>
             <h5 *ngIf="selectedLanguage=='NL'">Stuur uw vragen en voorkeuren en wij helpen!</h5>
             <h5 *ngIf="selectedLanguage=='PT'">Envie-nos suas dúvidas e preferências e nós ajudaremos!</h5>
-            <form>
+            <form #f="ngForm" (submit)="sendSuport(f.value)">
                 <div class="form-group">
                     <label *ngIf="selectedLanguage=='NL'">Uw naam</label>
                     <label *ngIf="selectedLanguage=='PT'">Seu nome</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" name="name" [(ngModel)]="c.name">
                 </div>
                 <div class="form-group">
                     <label *ngIf="selectedLanguage=='NL'">Jouw email</label>
                     <label *ngIf="selectedLanguage=='PT'">Seu email</label>
-                    <input class="form-control" type="email">
+                    <input class="form-control" type="email" name="email" [(ngModel)]="c.email">
                 </div>
                 <div class="form-group">
                     <label *ngIf="selectedLanguage=='NL'">Tekst bericht</label>
                     <label *ngIf="selectedLanguage=='PT'">Mensagem de texto</label>
-                    <textarea class="form-control"></textarea>
+                    <textarea class="form-control" name="msg" [(ngModel)]="c.msg"></textarea>
                 </div>
                 <button mat-raised-button type="submit" *ngIf="selectedLanguage=='NL'">vraag om contact</button>
                 <button mat-raised-button type="submit" *ngIf="selectedLanguage=='PT'">pedir contacto</button>

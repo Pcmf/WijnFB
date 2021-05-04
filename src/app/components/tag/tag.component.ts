@@ -7,10 +7,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TagComponent implements OnInit {
   @Input() tag: string | undefined;
-  constructor() { }
+  @Input() tagColor: string | undefined;
+  constructor() {
+  }
 
   ngOnInit(): void {
-    
+    console.log(this.tagColor);
   }
 
 }

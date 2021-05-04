@@ -158,7 +158,7 @@ export class ShopListComponent implements OnInit, OnDestroy {
   }
 
   finalizeOrder(data: any): void{
-    const obj = {orderInfo: data, shopcart: this.shopCartService.cart};
+    const obj = {orderInfo: data, shopcart: this.shopCartService.cart, lang: this.selectedLanguage};
     this.apiService.setData('order/', obj).subscribe(
       (resp: any) => {
         let msg = '';

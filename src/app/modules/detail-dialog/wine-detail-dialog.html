@@ -16,7 +16,8 @@
     <div class="image">
         <img src="./assets/{{data.photobottle}}">
 
-        <app-tag *ngIf="data.status_be" [tag]="data.status_be"></app-tag>
+        <app-tag *ngIf="selectedLanguage=='PT' && data.status" [tag]="data.status" [tagColor]="data.tag_color"></app-tag>
+        <app-tag *ngIf="selectedLanguage=='NL' && data.status_be" [tag]="data.status_be" [tagColor]="data.tag_color"></app-tag>
     </div>
     <div class="details">
         <div class="line">
@@ -94,7 +95,7 @@
         <div class="bottom-line__right">
             <form #f="ngForm">
                 <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
-                <button type="button" mat-flat-button class="add-button" 
+                <button type="button" mat-flat-button class="add-button" [disabled]="data.tag_type==0"
                         (click)="addToCart(f.value)">add <mat-icon>add_shopping_cart</mat-icon>
                 </button>
             </form>

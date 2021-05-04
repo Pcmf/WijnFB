@@ -1,14 +1,19 @@
 .tag{
     width: 9rem;
-    height: 2rem;
+    min-height: 2rem;
     position: absolute;
     top: 6rem;
     left: 8rem;
-    background-color: rgba(245, 13, 13, 0.63);
+  //  background-color: rgba(245, 13, 13, 0.63);
     color: white;
     transform: rotateZ(338deg);
     text-align: center;
     text-transform: uppercase;
+    border-radius: 5px;
+}
+
+.tag-text{
+    margin: auto;
 }
 
 @media only screen and (max-width: 1024px){
