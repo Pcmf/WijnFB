@@ -1,36 +1,43 @@
 <section>
     <section class="header-image" style="background-image: url('./assets/{{headerImage}}');"></section>
 
-        <!--   Produtos -->
-        <article *ngFor="let product of products; let i = index;">
-            <div class="product-image">
-                <img src="./assets/{{product.image}}" alt="imagem de {{product.name}}">
-            </div>
-    
-            <div class="product">
-                <div class="product-info">
-                    <h2>{{product.name}}</h2>
-                    <div class="product-info__text">
-                        <p *ngIf="selectedLanguage==='NL'">{{product.subtitle_be}}</p>
-                        <p *ngIf="selectedLanguage==='PT'">{{product.subtitle}}</p>
-                        <p *ngIf="selectedLanguage==='NL'">{{product.description_be}</p>
-                        <p *ngIf="selectedLanguage==='PT'">{{product.description}}</p>
-                    </div>
-                </div>
+    <!--   Produtos -->
+    <article *ngFor="let product of products; let i = index;">
+        <div class="product-image">
+            <img src="./assets/{{product.image}}" alt="imagem de {{product.name}}">
 
-                <div class="shoppcart">
-                    <form #f="ngForm">
-                        <span class="price">{{product.pricesell}} €</span>
-                        <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
-                        <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value, product)">add
-                            <mat-icon>add_shopping_cart</mat-icon>
-                        </button>
-                    </form>
+            <app-tag *ngIf="product.status && selectedLanguage=='PT'" [tag]="product.status"
+                [tagColor]="product.tag_color"></app-tag>
+            <app-tag *ngIf="product.status_be && selectedLanguage=='NL'" [tag]="product.status_be"
+                [tagColor]="product.tag_color"></app-tag>
+        </div>
+
+        <div class="product">
+            <div class="product-info">
+                <h2>{{product.name}}</h2>
+                <div class="product-info__text">
+                    <p *ngIf="selectedLanguage==='NL'">{{product.subtitle_be}}</p>
+                    <p *ngIf="selectedLanguage==='PT'">{{product.subtitle}}</p>
+                    <p *ngIf="selectedLanguage==='NL'">{{product.description_be}</p>
+                    <p *ngIf="selectedLanguage==='PT'">{{product.description}}</p>
                 </div>
             </div>
-    
-        </article>
-   
-    </section>
+
+            <div class="shoppcart">
+                <form #f="ngForm">
+                    <app-promo-price *ngIf="product.price_promo > 0" [promoPrice]="product.price_promo">
+                    </app-promo-price>
+                    <span class="price" [class]="product.price_promo>0? 'stroked': ''">{{product.pricesell}} €</span>
+                    <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
+                    <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value, product)">add
+                        <mat-icon>add_shopping_cart</mat-icon>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </article>
+
+</section>
 <app-other-products-teaser></app-other-products-teaser>
 <app-footer></app-footer>

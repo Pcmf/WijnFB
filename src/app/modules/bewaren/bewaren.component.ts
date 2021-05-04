@@ -17,7 +17,7 @@ export class BewarenComponent implements OnInit {
   products: any[] = [];
   selectedLanguage: string | undefined;
   subscription: Subscription | undefined;
-  
+
   constructor(
     private apiDataService: ApiDataService,
     private snackBar: MatSnackBar,
@@ -47,7 +47,11 @@ export class BewarenComponent implements OnInit {
     }
     const msg = product.name + text;
     this.openSnackBar(msg, 'Shoping Cart');
-    this.shopCartService.addLineToCart({id: product.id, type: product.type, name: product.name, qty: qt.qty, price: product.pricesell});
+    let price = product.pricesell;
+    if (product.price_promo > 0){
+      price = product.price_promo;
+    }
+    this.shopCartService.addLineToCart({id: product.id, type: product.type, name: product.name, qty: qt.qty, price});
   }
 
   openSnackBar(message: string, action: string ): void {

@@ -4,6 +4,11 @@
     <article *ngFor="let product of products; let i = index;">
         <div class="product-image">
             <img src="./assets/{{product.image}}" alt="imagem de {{product.name}}">
+
+            <app-tag *ngIf="product.status && selectedLanguage=='PT'" [tag]="product.status"
+                [tagColor]="product.tag_color"></app-tag>
+            <app-tag *ngIf="product.status_be && selectedLanguage=='NL'" [tag]="product.status_be"
+                [tagColor]="product.tag_color"></app-tag>
         </div>
 
         <div class="product">
@@ -35,6 +40,8 @@
             </div>
             <div class="shoppcart">
                 <form #f="ngForm">
+                    <app-promo-price *ngIf="product.price_promo > 0" [promoPrice]="product.price_promo"></app-promo-price>
+                    <span class="price"  [class]="product.price_promo>0? 'stroked': ''">{{product.pricesell}} €</span>
                     <span class="price">{{product.pricesell}} €</span>
                     <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
                     <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value, product)">add
@@ -45,7 +52,7 @@
         </div>
 
     </article>
- 
+
 </section>
 <app-other-products-teaser></app-other-products-teaser>
 <app-footer></app-footer>

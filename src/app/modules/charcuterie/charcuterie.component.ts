@@ -12,8 +12,6 @@ import { LanguageService } from './../../services/language.service';
   styleUrls: ['./charcuterie.component.scss']
 })
 export class CharcuterieComponent implements OnInit, OnDestroy {
-
-
   qty = 1;
   headerImage = '';
   products: any[] = [];
@@ -50,7 +48,11 @@ export class CharcuterieComponent implements OnInit, OnDestroy {
     }
     const msg = product.name + text;
     this.openSnackBar(msg, 'Shoping Cart');
-    this.shopCartService.addLineToCart({ id: product.id, type: product.type, name: product.name, qty: qt.qty, price: product.pricesell });
+    let price = product.pricesell;
+    if (product.price_promo > 0){
+      price = product.price_promo;
+    }
+    this.shopCartService.addLineToCart({id: product.id, type: product.type, name: product.name, qty: qt.qty, price});
   }
 
   openSnackBar(message: string, action: string): void {

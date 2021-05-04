@@ -12,6 +12,7 @@ section {
         justify-content: center;
 
         .product-image {
+            position: relative;
             flex: 5;
             text-align: center;
             img {

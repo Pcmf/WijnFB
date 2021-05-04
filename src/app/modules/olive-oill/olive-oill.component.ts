@@ -51,6 +51,9 @@ export class OliveOillComponent implements OnInit, OnDestroy {
     }
     const msg = product.name + text;
     this.openSnackBar(msg, 'Shoping Cart');
+    if (product.price_promo > 0){
+      product.pricesell = product.price_promo;
+    }
     this.shopCartService.addLineToCart({id: product.id, type: 2, name: product.name, qty: qt.qty, price: product.pricesell});
   }
 
