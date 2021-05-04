@@ -111,6 +111,10 @@
     }
 }
 
+.stroked{
+    text-decoration:line-through;
+}
+
 @media only screen and (max-width: 768px) {
     .mat-dialog-title {
         .title {

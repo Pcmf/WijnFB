@@ -21,6 +21,7 @@ export interface Wine{
     region: string;
     qty: number;
     pricesell: number;
+    price_promo: number;
     photobottle: string;
     producer: string;
     packing: string;

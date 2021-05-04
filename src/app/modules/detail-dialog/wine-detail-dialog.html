@@ -87,7 +87,8 @@
 <div mat-dialog-actions>
 
     <div class="prices-info">
-        {{data.pricesell}}€
+        <app-promo-price *ngIf="data.price_promo > 0" [promoPrice]="data.price_promo"></app-promo-price>
+        <span [class]="data.price_promo>0? 'stroked': ''">{{data.pricesell}}€</span>
     </div>
 
     <div class="bottom-line">

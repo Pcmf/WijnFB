@@ -1,0 +1,33 @@
+.tag{
+    width: 6rem;
+    min-height: 2rem;
+/*     position: absolute;
+    top: 3rem;
+    left: 3rem; */
+    background-color: rgba(245, 13, 13, 0.63);
+    color: white;
+    transform: rotateZ(0deg);
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 5px;
+    font-size: 2rem;
+}
+
+
+.tag-text{
+    margin: auto;
+}
+
+@media only screen and (max-width: 1024px){
+    .tag{
+        top: 3rem;
+        left: 5rem;
+    }
+}
+
+@media only screen and (max-width: 425px){
+    .tag{
+        top: 2rem;
+        left: 3rem;
+    }
+}

@@ -40,6 +40,9 @@ export class WineCardComponent implements OnInit {
       msg = this.wine.name + ' foi adicionado ao carrinho!';
     }
     this.addedToCart.emit(msg);
+    if (this.wine.price_promo > 0){
+      this.wine.pricesell = this.wine.price_promo;
+    }
     this.shopCartService.addLineToCart({id: this.wine.id, type: 1, name: this.wine.name, qty: 1, price: this.wine.pricesell});
   }
 

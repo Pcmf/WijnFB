@@ -49,7 +49,8 @@
                     <div class="list-line-text__type">{{line.winetype}}</div>
                 </div>
                 <div class="list-line__price">
-                    {{line.pricesell}}€
+                    <span *ngIf="!(line.price_promo > 0)">{{line.pricesell}}€</span>
+                    <span *ngIf="line.price_promo > 0">{{line.price_promo}}€</span>
                 </div>
                 <div class="list-line-actions">
                     <mat-icon class="list-line-actions__button"
@@ -60,8 +61,11 @@
                     <mat-icon class="list-line-actions__button" (click)="line.qty = line.qty+1; updateTotal(line);">
                         add_box</mat-icon>
                 </div>
-                <div class="list-line__price">
+                <div *ngIf="!(line.price_promo > 0)" class="list-line__price">
                     {{line.pricesell * line.qty | number: '1.2-2'}}€
+                </div>
+                <div *ngIf="line.price_promo > 0" class="list-line__price">
+                    {{line.price_promo * line.qty | number: '1.2-2'}}€
                 </div>
                 <mat-icon class="remove-button" color="warn" (click)="removeLine(line)">close</mat-icon>
             </div>

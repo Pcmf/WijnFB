@@ -36,6 +36,10 @@ import { LanguageService } from 'src/app/services/language.service';
         text = ' foi adicionado ao carrinho';
       }
       const msg = this.data.name + text;
+      console.log(this.data);
+      if (this.data.price_promo>0){
+        this.data.pricesell = this.data.price_promo;
+      }
       const obj = {id: this.data.id, type: 1, name: msg, qty: value.qty, price: this.data.pricesell};
       this.dialogRef.close(obj);
     }
