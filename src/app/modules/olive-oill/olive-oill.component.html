@@ -29,18 +29,18 @@
                         <p *ngIf="selectedLanguage=='PT'">Acidez:</p>
                         <p *ngIf="selectedLanguage=='NL'">Inpakken:</p>
                         <p *ngIf="selectedLanguage=='PT'">Embalagem:</p>
-                        <p *ngIf="selectedLanguage=='NL'">Peroxide-Index</p>
-                        <p *ngIf="selectedLanguage=='PT'">Peroxide-Index</p>
-                        <p *ngIf="selectedLanguage=='NL'">Wassen:</p>
-                        <p *ngIf="selectedLanguage=='PT'">Gordura:</p>
+                        <p *ngIf="selectedLanguage=='NL'">Peroxide-Index (megO2/Kg):</p>
+                        <p *ngIf="selectedLanguage=='PT'">Peroxide-Index (megO2/Kg):</p>
+                        <p *ngIf="selectedLanguage=='NL'">Vet (100Cl):</p>
+                        <p *ngIf="selectedLanguage=='PT'">Gordura (100Cl):</p>
                         <p *ngIf="selectedLanguage=='NL'">Energie:</p>
                         <p *ngIf="selectedLanguage=='PT'">Energia:</p>
                     </div>
                     <div class="product-tecnic-group__info">
                         <p>&le; {{product.acidez}} %</p>
                         <p>{{product.pack}} L</p>
-                        <p>(megO2/Kg) &le; {{product.preoxidos}}</p>
-                        <p>&le; {{product.gordura}} mg/Kg</p>
+                        <p> &le; {{product.preoxidos}}</p>
+                        <p>&le; {{product.gordura}} g</p>
                         <p>{{product.energie_cal}} cal | {{product.energie_kj}} Kj</p>
                     </div>
                 </div>
