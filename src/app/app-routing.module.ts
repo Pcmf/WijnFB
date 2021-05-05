@@ -6,7 +6,10 @@ import { CharcuterieComponent } from './modules/charcuterie/charcuterie.componen
 import { LikeurenComponent } from './modules/likeuren/likeuren.component';
 import { OliveOillComponent } from './modules/olive-oill/olive-oill.component';
 import { ShopListComponent } from './modules/shop-list/shop-list.component';
+import { FavoritsComponent } from './modules/favorits/favorits.component';
+
 const routes: Routes = [
+  {path: 'favorits', component: FavoritsComponent},
   {path: 'bewaren', component: BewarenComponent},
   {path: 'charcuterie', component: CharcuterieComponent},
   {path: 'likeuren', component: LikeurenComponent},
@@ -17,6 +20,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+
 
 exports: [RouterModule]
 })

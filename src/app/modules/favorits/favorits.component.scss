@@ -1,0 +1,48 @@
+.container {
+    width: 100%;
+    margin: auto;
+    color: #3d6c8d;
+
+    .title {
+        text-transform: uppercase;
+        font-size: 2.6rem;
+        font-weight: 400;
+        letter-spacing: -1px;
+        text-align: center;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+    }
+
+}
+
+section {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 4rem;
+
+}
+
+.wine-card{
+    margin-bottom: 2rem;
+}
+
+
+@media only screen and (max-width: 768px){
+
+    section{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2{
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+    }
+
+
+
+}

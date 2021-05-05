@@ -34,6 +34,7 @@ import { LikeurenComponent } from './modules/likeuren/likeuren.component';
 import { BewarenComponent } from './modules/bewaren/bewaren.component';
 import { CharcuterieComponent } from './modules/charcuterie/charcuterie.component';
 import { PromoPriceComponent } from './components/promo-price/promo-price.component';
+import { FavoritsComponent } from './modules/favorits/favorits.component';
 
 @NgModule({
   declarations: [
@@ -56,10 +57,11 @@ import { PromoPriceComponent } from './components/promo-price/promo-price.compon
     LikeurenComponent,
     BewarenComponent,
     CharcuterieComponent,
-    PromoPriceComponent
+    PromoPriceComponent,
+    FavoritsComponent
   ],
   imports: [
-  BrowserModule,
+BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
     MaterialModule,

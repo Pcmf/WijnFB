@@ -27,6 +27,13 @@
     <span *ngIf="selectedLanguage==='NL'">charcuterie</span>
     <span *ngIf="selectedLanguage==='PT'">enchidos e fumados</span>
   </a>
+
+  <a mat-list-item (click)="CloseSidenav()" routerLink="/favorits">
+    <mat-icon class="favorite-icon">favorites</mat-icon> 
+    <span *ngIf="selectedLanguage==='NL'">favorieten</span>
+    <span *ngIf="selectedLanguage==='PT'">favoritos</span>
+    
+  </a>
   <a mat-list-item (click)="CloseSidenav()" routerLink="/shopcart">
     <mat-icon class="shopcart">local_grocery_store</mat-icon> Shoppcart
     <span class="shopcart-load" *ngIf="shopcartLoad>0">{{shopcartLoad}}</span>

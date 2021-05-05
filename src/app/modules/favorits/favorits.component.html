@@ -1,0 +1,16 @@
+<section class="header-image" style="background-image: url('./assets/{{headerImage}}');"></section>
+
+<div class="container">
+    <h2 class="title" *ngIf="selectedLanguage=='NL'">Favoriten</h2>
+    <h2 class="title" *ngIf="selectedLanguage=='PT'">Favoritos</h2>
+    <section>
+
+        <app-wine-card *ngFor="let wine of favoritesWines; let i = index;" [wine]="wine" [selected]="true"
+            class="wine-card" (selectWine)="showDetail(wine)" (addedToCart)="openSnackBar($event, 'Shopping Cart')"
+            (toggleToFavorit)="toggleToFavorits($event)">
+        </app-wine-card>
+
+    </section>
+    <app-other-products-teaser></app-other-products-teaser>
+    <app-footer></app-footer>
+</div>
