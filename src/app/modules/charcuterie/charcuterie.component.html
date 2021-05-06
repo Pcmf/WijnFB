@@ -29,7 +29,8 @@
                     </app-promo-price>
                     <span class="price" [class]="product.price_promo>0? 'stroked': ''">{{product.pricesell}} €</span>
                     <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
-                    <button type="button" mat-flat-button class="add-button" (click)="addToCart(f.value, product)">add
+                    <button type="button" mat-flat-button class="add-button" [disabled]="product.tag_type==0"
+                        (click)="addToCart(f.value, product)">add
                         <mat-icon>add_shopping_cart</mat-icon>
                     </button>
                 </form>

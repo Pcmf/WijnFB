@@ -47,7 +47,7 @@ export class FavoritsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.headerImage = 'shop3_sm.jpg';
+    this.headerImage = 'salut.jpg';
     this.subscription = this.languageService.selectedLanguage.subscribe(
       res => this.selectedLanguage = res
     );

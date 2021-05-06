@@ -14,8 +14,8 @@
     <div class="menu" fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.lt-sm>
       <ul fxLayout fxLayoutGap="15px">
         <li><button mat-button routerLink="/winelist">
-          <span *ngIf="selectedLanguage==='NL'">wijnen</span>
-          <span *ngIf="selectedLanguage==='PT'">vinhos</span>
+            <span *ngIf="selectedLanguage==='NL'">wijnen</span>
+            <span *ngIf="selectedLanguage==='PT'">vinhos</span>
           </button></li>
         <li>
           <button mat-button [matMenuTriggerFor]="menu">
@@ -56,8 +56,10 @@
           </a>
         </li>
         <!--         <li><button mat-button routerLink="/contacts">opmerkingen</button></li> -->
-        <li (click)="changeLanguage('NL')"><img class="flag" [class]="selectedLanguage=='NL' ? 'flag-disabled': ''" src="./assets/img/flagBE.png" alt="Belgiun flag"></li>
-        <li (click)="changeLanguage('PT')"><img class="flag"  [class]="selectedLanguage=='PT' ? 'flag-disabled': ''"  src="./assets/img/flagPT.jpg" alt="Portugal flag"></li>
+        <li (click)="changeLanguage('NL')"><img class="flag" [class]="selectedLanguage=='NL' ? 'flag-disabled': ''"
+            src="./assets/img/flagBE.png" alt="Belgiun flag"></li>
+        <li (click)="changeLanguage('PT')"><img class="flag" [class]="selectedLanguage=='PT' ? 'flag-disabled': ''"
+            src="./assets/img/flagPT.jpg" alt="Portugal flag"></li>
 
       </ul>
     </div>
@@ -67,7 +69,9 @@
         <div>
           <a routerLink="/">
             <div class="shopcart">
-              <mat-icon class="favorit-icon" *ngIf="showFavorite">favorite</mat-icon>
+              <a routerLink="/favorits">
+                <mat-icon class="favorit-icon" *ngIf="showFavorite">favorite</mat-icon>
+              </a>
             </div>
           </a>
         </div>
