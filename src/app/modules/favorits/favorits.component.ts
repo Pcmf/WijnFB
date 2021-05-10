@@ -34,9 +34,10 @@ export class FavoritsComponent implements OnInit {
     private snackBar: MatSnackBar,
     private languageService: LanguageService
   ) {
-    this.favorites = this.getFavoritesFromCookies();
+    this.favoritsList = this.getFavoritesFromCookies();
 
-    this.favorites.forEach((element) => {
+    if (this.favoritsList.length > 0){
+    this.favoritsList.forEach((element) => {
         this.apiDataService.getData('wines/' + element).subscribe(
           (res: any) => {
             res[0].favorit = true;
@@ -44,6 +45,7 @@ export class FavoritsComponent implements OnInit {
           }
         );
     });
+    }
   }
 
   ngOnInit(): void {
@@ -57,7 +59,11 @@ export class FavoritsComponent implements OnInit {
 
   getFavoritesFromCookies(): any[] {
     if (this.cookieService.check('favorits')) {
-       return JSON.parse(this.cookieService.get('favorits'));
+      const favorits = this.cookieService.get('favorits');
+      if (favorits.length>0){
+        return JSON.parse(this.cookieService.get('favorits'));
+      }
+      return [];
     }
     return [];
   }
@@ -98,17 +104,25 @@ export class FavoritsComponent implements OnInit {
 
   toggleToFavorits(event: any): void {
     const index = this.favoritsList.indexOf(event);
-    if (index >= 0) {
+    if (index >=0 ){
       this.favoritsList.splice(index, 1);
     } else {
       this.favoritsList.push(event);
     }
-    this.cookieService.set('favorits', JSON.stringify(this.favoritsList), { expires: 30, path: '/', sameSite: 'Lax' });
+
+    if (this.favoritsList.length === 0){
+      this.cookieService.set('favorits', '', { expires: 1, path: '/', sameSite: 'Lax' });
+      this.cookieService.delete('favorits');
+    } else {
+      this.cookieService.set('favorits', JSON.stringify(this.favoritsList), { expires: 30, path: '/', sameSite: 'Lax' });
+    }
   }
 
   OnDestroy(): void {
     this.cookieService.set('favorits', JSON.stringify(this.favoritsList));
     this.subscription?.unsubscribe();
   }
+
+
 
 }

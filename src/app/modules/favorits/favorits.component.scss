@@ -3,6 +3,10 @@
     margin: auto;
     color: #3d6c8d;
 
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
     .title {
         text-transform: uppercase;
         font-size: 2.6rem;

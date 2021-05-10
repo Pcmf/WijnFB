@@ -3,12 +3,19 @@
 <div class="container">
     <h2 class="title" *ngIf="selectedLanguage=='NL'">Favoriten</h2>
     <h2 class="title" *ngIf="selectedLanguage=='PT'">Favoritos</h2>
-    <section>
-
+    <section *ngIf="favoritsList.length > 0">
         <app-wine-card *ngFor="let wine of favoritesWines; let i = index;" [wine]="wine" [selected]="true"
             class="wine-card" (selectWine)="showDetail(wine)" (addedToCart)="openSnackBar($event, 'Shopping Cart')"
             (toggleToFavorit)="toggleToFavorits($event)">
         </app-wine-card>
+    </section>
+    <section *ngIf="favoritsList.length <= 0">
+        <p>&nbsp;</p>
+        <h2 *ngIf="selectedLanguage=='NL'">Je hebt nog geen favorieten!</h2>
+        <h2 *ngIf="selectedLanguage=='PT'">Ainda não tem nenhum favorito!</h2>
+
+        <p>&nbsp;</p>
+        <a class="" type="button" routerLink="/">Voltar</a>
 
     </section>
     <app-other-products-teaser></app-other-products-teaser>

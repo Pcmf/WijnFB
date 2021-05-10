@@ -40,7 +40,7 @@
         <div *ngFor="let line of cart">
             <div class="list-line">
                 <div class="list-line-picture" (click)="showDetail(line)">
-                    <img class="list-line-picture__img" src="./assets/{{line.photobottle}}" alt="wine bottle picture">
+                    <img class="list-line-picture__img" src="./assets/{{line.photobottle}}" [alt]="line.name">
                 </div>
 
                 <div class="list-line-text">

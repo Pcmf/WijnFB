@@ -2,7 +2,7 @@
   <mat-toolbar-row class="nav" id="mainNavbar">
     <a routerLink="/dash">
       <div class="logo">
-        <img class="logo-image" src="./assets/logo.png">
+        <img class="logo-image" src="./assets/logo.png" alt="Wijn-fb">
         <div class="logo-title">
           <span class="logo-title__top">FB</span>
           <hr />
@@ -67,13 +67,11 @@
       <div class="mobile-menu">
 
         <div>
-          <a routerLink="/">
             <div class="shopcart">
               <a routerLink="/favorits">
                 <mat-icon class="favorit-icon" *ngIf="showFavorite">favorite</mat-icon>
               </a>
             </div>
-          </a>
         </div>
 
         <a routerLink="/shopcart">

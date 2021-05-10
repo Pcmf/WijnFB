@@ -57,7 +57,8 @@ export class ShoppingCartService {
   clearCart(): void {
     this.cart = [];
     this.Shopcart.next(0);
-    this.cookieService.delete('shopcart');
+    this.cookieService.set('shopcart', '', { expires: 1, path: '/', sameSite: 'Lax' });
+    this.cookieService.delete('shopcart', '/', 'Lax');
   }
 
   removeLineFromCart(line: ShopcartLine): void {
