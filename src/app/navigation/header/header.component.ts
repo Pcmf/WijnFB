@@ -28,11 +28,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) {   }
 
   ngOnInit(): void {
-    this.subscription = this.apiService.isLoged.subscribe(
+/*     this.subscription = this.apiService.isLoged.subscribe(
       res => {
         this.shownav = res;
       }
-    );
+    ); */
     this.subscription = this.languageService.selectedLanguage.subscribe(
       res => {
         this.selectedLanguage = res;

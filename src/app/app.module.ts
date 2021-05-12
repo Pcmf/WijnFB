@@ -35,6 +35,9 @@ import { BewarenComponent } from './modules/bewaren/bewaren.component';
 import { CharcuterieComponent } from './modules/charcuterie/charcuterie.component';
 import { PromoPriceComponent } from './components/promo-price/promo-price.component';
 import { FavoritsComponent } from './modules/favorits/favorits.component';
+import { AgeConfirmComponent } from './components/age-confirm/age-confirm.component';
+import { UnderAgeComponent } from './modules/under-age/under-age.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -58,10 +61,12 @@ import { FavoritsComponent } from './modules/favorits/favorits.component';
     BewarenComponent,
     CharcuterieComponent,
     PromoPriceComponent,
-    FavoritsComponent
+    FavoritsComponent,
+    AgeConfirmComponent,
+    UnderAgeComponent
   ],
   imports: [
-BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
     MaterialModule,
@@ -72,7 +77,7 @@ BrowserModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [ApiDataService, WineDetailDialog, ConfirmDialogComponent, ShoppingCartService, CookieService,
-              {provide: LocationStrategy, useClass: HashLocationStrategy}
+              AuthGuardService, {provide: LocationStrategy, useClass: HashLocationStrategy}
             ],
   bootstrap: [AppComponent]
 })

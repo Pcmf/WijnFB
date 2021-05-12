@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
 
@@ -9,17 +9,18 @@ import { environment } from './../../environments/environment';
 export class ApiDataService {
 
   private ADDRESS = environment.ADDRESS;
-  
-  private Loged = new BehaviorSubject(false);
-  isLoged = this.Loged.asObservable();
+
+  private Permited = new BehaviorSubject(false);
+  isPermited = this.Permited.asObservable();
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
   ) { }
 
 
-  changeLogged(value: boolean): void {
-    this.Loged.next(value);
+  changePermission(value: boolean): void {
+    console.log(value);
+    this.Permited.next(value);
   }
 
 
@@ -31,8 +32,5 @@ export class ApiDataService {
   setData(param: string, obj: any): any{
     return this.http.put( this.ADDRESS + param , obj );
   }
-
-
-
 
 }

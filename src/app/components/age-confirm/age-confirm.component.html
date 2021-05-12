@@ -1,0 +1,57 @@
+<div mat-dialog-title>
+    <header>
+        <div class="logo">
+            <img class="logo-image" src="./assets/logo.png" alt="Wijn-fb">
+            <div class="logo-title">
+                <span class="logo-title__top">FB</span>
+                <hr />
+                <span class="logo-title__bottom">representações</span>
+            </div>
+        </div>
+        <ul>
+            <li (click)="selectedLanguage = 'NL'"><img class="flag"
+                    [class]="selectedLanguage=='NL' ? 'flag-disabled': ''" src="./assets/img/flagBE.png"
+                    alt="Belgiun flag"></li>
+            <li (click)="selectedLanguage ='PT'"><img class="flag"
+                    [class]="selectedLanguage=='PT' ? 'flag-disabled': ''" src="./assets/img/flagPT.jpg"
+                    alt="Portugal flag"></li>
+        </ul>
+
+    </header>
+
+
+    <div class="title">
+        <span *ngIf="selectedLanguage==='NL'">
+            <p *ngIf="underAge" class="red">Je bent niet oud genoeg om deze inhoud te bekijken!</p>
+            Ben je 18 jaar of ouder?
+        </span>
+        <span *ngIf="selectedLanguage==='PT'">
+            <p *ngIf="underAge" class="red">Você não tem idade suficiente para ver este conteúdo!</p>
+            Você tem 18 anos ou mais?
+        </span>
+    </div>
+
+</div>
+<div mat-dialog-content>
+    <!--   {{data.subtitle}} -->
+
+</div>
+<div mat-dialog-actions>
+    <div class="actions_line">
+        <button mat-flat-button color="primary" (click)="onNoClick()">
+            <span *ngIf="selectedLanguage==='NL'">Nee</span>
+            <span *ngIf="selectedLanguage==='PT'">Não</span>
+        </button>
+        <button mat-flat-button color="primary" (click)="onClose()">
+            <span *ngIf="selectedLanguage==='NL'">Ja</span>
+            <span *ngIf="selectedLanguage==='PT'">Sim</span>
+        </button>
+    </div>
+    <div class="actions_line">
+        <mat-checkbox name="checked" [(ngModel)]="checked" (change)="toggle()">
+            <span *ngIf="selectedLanguage==='NL'">niet opnieuw vragen</span>
+            <span *ngIf="selectedLanguage==='PT'">Não perguntar novamente</span>
+        </mat-checkbox>
+    </div>
+
+</div>

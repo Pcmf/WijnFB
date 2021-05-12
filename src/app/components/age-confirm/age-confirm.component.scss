@@ -1,0 +1,88 @@
+.mat-dialog-title {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+        font-size: 2.6rem;
+        font-weight: 500;
+        text-align: center;
+        p{
+            font-size: 1.8rem;
+            color: red;
+        }
+    }
+}
+
+.mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+
+    .actions_line {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+}
+
+ul {
+    display: flex;
+    li {
+        list-style: none;
+
+        span {
+            text-transform: uppercase;
+        }
+    }
+}
+
+.flag {
+    height: 1.7rem;
+    cursor: pointer;
+    margin: .51rem;
+    &-disabled {
+        opacity: 0.5;
+        cursor: default;
+    }
+}
+
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+.logo {
+    width: 60px;
+    display: flex;
+    justify-content: space-between;
+
+    &-image {
+      width: 10rem;
+    }
+    hr {
+      width: 100%;
+    }
+
+    &-title {
+      color: rgb(0, 0, 0);
+      width: 20rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &__top {
+        font-size: 3rem;
+        font-weight: 900;
+        letter-spacing: 1rem;
+        margin-bottom: -1.1rem;
+        margin-top: 1.5rem;
+        text-align: right;
+      }
+      &__bottom {
+        margin-top: -1.8rem !important;
+        font-size: 1.6rem;
+        font-weight: 200;
+      }
+    }
+  }

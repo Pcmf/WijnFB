@@ -7,19 +7,23 @@ import { LikeurenComponent } from './modules/likeuren/likeuren.component';
 import { OliveOillComponent } from './modules/olive-oill/olive-oill.component';
 import { ShopListComponent } from './modules/shop-list/shop-list.component';
 import { FavoritsComponent } from './modules/favorits/favorits.component';
+import { UnderAgeComponent } from './modules/under-age/under-age.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
-  {path: 'favorits', component: FavoritsComponent},
-  {path: 'bewaren', component: BewarenComponent},
-  {path: 'charcuterie', component: CharcuterieComponent},
-  {path: 'likeuren', component: LikeurenComponent},
-  {path: 'oliveoil', component: OliveOillComponent},
-  {path: 'shopcart', component: ShopListComponent},
+  {path: 'under', component: UnderAgeComponent},
+  {path: 'favorits', component: FavoritsComponent, canActivate: [AuthGuardService]},
+  {path: 'bewaren', component: BewarenComponent, canActivate: [AuthGuardService]},
+  {path: 'charcuterie', component: CharcuterieComponent, canActivate: [AuthGuardService]},
+  {path: 'likeuren', component: LikeurenComponent, canActivate: [AuthGuardService]},
+  {path: 'oliveoil', component: OliveOillComponent, canActivate: [AuthGuardService]},
+  {path: 'shopcart', component: ShopListComponent, canActivate: [AuthGuardService]},
   {path: '**', component: HomeComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+
 
 
 exports: [RouterModule]
