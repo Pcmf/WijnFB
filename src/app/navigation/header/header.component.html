@@ -12,12 +12,34 @@
     </a>
     <span class="spacer"></span>
     <div class="menu" fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.lt-sm>
-      <ul fxLayout fxLayoutGap="15px">
+      <ul class="menu-ul">
         <li><button mat-button routerLink="/winelist">
             <span *ngIf="selectedLanguage==='NL'">wijnen</span>
             <span *ngIf="selectedLanguage==='PT'">vinhos</span>
-          </button></li>
-        <li>
+          </button>
+        </li>
+        <li><button mat-button routerLink="/oliveoil">
+            <span *ngIf="selectedLanguage==='NL'">oliveoil</span>
+            <span *ngIf="selectedLanguage==='PT'">Azeites</span>
+          </button>
+        </li>
+        <li><button mat-button routerLink="/likeuren">
+            <span *ngIf="selectedLanguage==='NL'">likeuren en sterke dranken</span>
+            <span *ngIf="selectedLanguage==='PT'">licores e aguardentes</span>
+          </button>
+        </li>
+        <li><button mat-button routerLink="/bewaren">
+            <span *ngIf="selectedLanguage==='NL'">bewaren</span>
+            <span *ngIf="selectedLanguage==='PT'">conservas e compotas</span>
+          </button>
+        </li>
+        <li><button mat-button routerLink="/charcuterie">
+            <span *ngIf="selectedLanguage==='NL'">charcuterie</span>
+            <span *ngIf="selectedLanguage==='PT'">enchidos e fumados</span>
+          </button>
+        </li>
+        </ul>
+        <!--         <li>
           <button mat-button [matMenuTriggerFor]="menu">
             <span *ngIf="selectedLanguage==='NL'">andere produten</span>
             <span *ngIf="selectedLanguage==='PT'">outros produtos</span>
@@ -40,8 +62,8 @@
               <span *ngIf="selectedLanguage==='PT'">enchidos e fumados</span>
             </button>
           </mat-menu>
-        </li>
-        <!-- <li><button mat-button routerLink="/shopcart"><span>shopcart</span></button></li> -->
+        </li> -->
+        <ul class="icons-ul">
         <li>
           <a routerLink="/shopcart">
             <div class="shopcart">
@@ -67,11 +89,11 @@
       <div class="mobile-menu">
 
         <div>
-            <div class="shopcart">
-              <a routerLink="/favorits">
-                <mat-icon class="favorit-icon" *ngIf="showFavorite">favorite</mat-icon>
-              </a>
-            </div>
+          <div class="shopcart">
+            <a routerLink="/favorits">
+              <mat-icon class="favorit-icon" *ngIf="showFavorite">favorite</mat-icon>
+            </a>
+          </div>
         </div>
 
         <a routerLink="/shopcart">

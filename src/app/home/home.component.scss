@@ -5,6 +5,13 @@
     flex-direction: column;
     align-items: stretch;
 
+    h1{
+        text-align: center;
+        color: #812547;
+        margin-bottom: -2rem;
+        margin-top: 1.4rem;
+    }
+
     .slide-show{
         background-color: rgba(255, 255, 255, 0.25);
         &__carousel{

@@ -18,9 +18,9 @@ mat-toolbar {
   }
   
   
-    button{
+ /*    button{
       background-color: rgba(255, 255, 255, 0.212);
-    }
+    } */
   
 
   .logo {
@@ -64,9 +64,20 @@ mat-toolbar {
   .menu {
     color: #86303baa;
     font-size: 1.2rem;
+
+    .menu-ul{
+      width: 60rem;
+      margin-bottom: -1rem;
+      align-items: flex-end;
+    }
+    .icons-ul{
+      width: 20rem;
+      margin-left: 2rem;
+    }
     
     ul {
-      /* display: inline; */
+      display: flex;
+      justify-content: space-evenly;
 
       li {
         list-style: none;
@@ -127,7 +138,10 @@ a:link {
 }
 
 .mat-button:hover {
-  background-color: rgba(245, 245, 245, 0.192);
+  background-color: rgb(255, 255, 255) !important;
+  font-weight: 600;
+  border-radius: 0;
+  border-bottom: 1px #b35252 solid;
 }
 
 .shopcart {

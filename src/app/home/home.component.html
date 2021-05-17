@@ -3,10 +3,13 @@
 <!--     <div class="slide-show">
         <app-slide-show class="slide-show_carousel"></app-slide-show>
     </div> -->
-    <div class="list-menu">
-        <app-selection-menu></app-selection-menu>
-    </div>
+
     <div class="wines-list">
+        <h1 *ngIf="selectedLanguage=='PT'">Vinhos de Portugal!</h1>
+        <h1 *ngIf="selectedLanguage=='NL'">Wijn uit Portugal!</h1>
+        <div class="list-menu">
+            <app-selection-menu></app-selection-menu>
+        </div>
         <app-wine-list></app-wine-list>
     </div>
     <div class="suport">
