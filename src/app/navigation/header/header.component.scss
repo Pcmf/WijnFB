@@ -8,20 +8,13 @@ mat-toolbar {
   mat-toolbar-row {
     width: 100%;
     padding-left: 5%;
-    padding-right: 5%;
-    margin: auto;
+    margin: auto 5px;
   }
 
   #mainNavbar{
     position: sticky !important;
     top: 0 !important;
   }
-  
-  
- /*    button{
-      background-color: rgba(255, 255, 255, 0.212);
-    } */
-  
 
   .logo {
     width: 60px;
@@ -61,18 +54,24 @@ mat-toolbar {
     flex: 1;
   }
 
-  .menu {
+  .desktop-menu {
+    width: 74rem;
     color: #86303baa;
     font-size: 1.2rem;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
 
     .menu-ul{
-      width: 60rem;
-      margin-bottom: -1rem;
+      width: 72rem;
+      margin-top: 0;
+      margin-bottom: -.2rem;
       align-items: flex-end;
+      padding-left: 0;
     }
     .icons-ul{
       width: 20rem;
-      margin-left: 2rem;
+      margin-bottom: 0;
     }
     
     ul {
@@ -89,6 +88,10 @@ mat-toolbar {
     }
   }
 
+  .mobile-menu{
+    display: none;
+  }
+
   .flag {
     height: 1.7rem;
     cursor: pointer;
@@ -100,31 +103,6 @@ mat-toolbar {
 
 }
 
-.header-title {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-
-  h1 {
-    font-family: Roboto, sans-serif;
-    font-weight: 700;
-    font-size: 6rem;
-    letter-spacing: -1px;
-    margin-top: -12rem;
-    text-shadow: 0px 4px 1px #081402;
-  }
-  h2 {
-    font-family: Roboto, sans-serif;
-    font-weight: 300;
-    font-size: 3rem;
-    margin-top: 2.5rem;
-    text-shadow: 0px 2px 0px #081402;
-    
-  }
-}
 
 a,
 a:visited,
@@ -142,6 +120,8 @@ a:link {
   font-weight: 600;
   border-radius: 0;
   border-bottom: 1px #b35252 solid;
+  margin-top: -.1rem;
+  
 }
 
 .shopcart {
@@ -172,39 +152,27 @@ a:link {
 
 
 
-@media only screen and (max-width: 1024px) {
-  .logo {
-    width: 16rem !important;
-    &-image {
-      width: 8rem !important;
-    }
 
-    &-title {
-      &__top {
-        font-size: 2.8rem !important;
-
-      }
-      &__bottom {
-        margin-top: -1.8rem !important;
-        font-size: 1.4rem !important;
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1023px) {
   mat-toolbar {
     height: 65px;
     margin-top: 0;
   }
 
   .menu {
+    height: 4rem;
+    width: 4rem;
+    font-size: 4rem !important;
     color: #000000aa !important;
   }
 
+  .desktop-menu{
+    display: none !important;
+  }
+
   .mobile-menu{
+    display: flex !important;
     width: 12rem;
-    display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2px;
@@ -255,33 +223,4 @@ a:link {
     }
   }
 
-  .menu {
-    height: 4rem;
-    width: 4rem;
-    font-size: 4rem !important;
-  }
-
-  .header-title {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: rgba(255, 255, 255, 0.815);
-
-
-    h1 {
-      font-family: Roboto, sans-serif;
-      font-weight: 600;
-      font-size: 2.6rem;
-      letter-spacing: -1.5px;
-      margin-top: -2rem;
-    }
-    h2 {
-      font-family: Roboto, sans-serif;
-      font-weight: 300;
-      font-size: 1.5rem;
-      margin-top: -0.5rem;
-    }
-  }
 }

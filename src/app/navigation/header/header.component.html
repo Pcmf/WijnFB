@@ -2,7 +2,7 @@
   <mat-toolbar-row class="nav" id="mainNavbar">
     <a routerLink="/dash">
       <div class="logo">
-        <img class="logo-image" src="./assets/logo.png" alt="Wijn-fb">
+        <img class="logo-image" src="./assets/logo.png" alt="Wijn-fb" />
         <div class="logo-title">
           <span class="logo-title__top">FB</span>
           <hr />
@@ -10,104 +10,111 @@
         </div>
       </div>
     </a>
+
     <span class="spacer"></span>
-    <div class="menu" fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.lt-sm>
+
+    <!-- screen lt md-->
+    <div class="desktop-menu">
       <ul class="menu-ul">
-        <li><button mat-button routerLink="/winelist">
-            <span *ngIf="selectedLanguage==='NL'">wijnen</span>
-            <span *ngIf="selectedLanguage==='PT'">vinhos</span>
+        <li>
+          <button mat-button routerLink="/winelist">
+            <span *ngIf="selectedLanguage === 'NL'">wijnen</span>
+            <span *ngIf="selectedLanguage === 'PT'">vinhos</span>
           </button>
         </li>
-        <li><button mat-button routerLink="/oliveoil">
-            <span *ngIf="selectedLanguage==='NL'">oliveoil</span>
-            <span *ngIf="selectedLanguage==='PT'">Azeites</span>
+        <li>
+          <button mat-button routerLink="/oliveoil">
+            <span *ngIf="selectedLanguage === 'NL'">oliveoil</span>
+            <span *ngIf="selectedLanguage === 'PT'">Azeites</span>
           </button>
         </li>
-        <li><button mat-button routerLink="/likeuren">
-            <span *ngIf="selectedLanguage==='NL'">likeuren en sterke dranken</span>
-            <span *ngIf="selectedLanguage==='PT'">licores e aguardentes</span>
+        <li>
+          <button mat-button routerLink="/likeuren">
+            <span *ngIf="selectedLanguage === 'NL'"
+              >likeuren en sterke dranken</span
+            >
+            <span *ngIf="selectedLanguage === 'PT'">licores e aguardentes</span>
           </button>
         </li>
-        <li><button mat-button routerLink="/bewaren">
-            <span *ngIf="selectedLanguage==='NL'">bewaren</span>
-            <span *ngIf="selectedLanguage==='PT'">conservas e compotas</span>
+        <li>
+          <button mat-button routerLink="/bewaren">
+            <span *ngIf="selectedLanguage === 'NL'">bewaren</span>
+            <span *ngIf="selectedLanguage === 'PT'">conservas e compotas</span>
           </button>
         </li>
-        <li><button mat-button routerLink="/charcuterie">
-            <span *ngIf="selectedLanguage==='NL'">charcuterie</span>
-            <span *ngIf="selectedLanguage==='PT'">enchidos e fumados</span>
+        <li>
+          <button mat-button routerLink="/charcuterie">
+            <span *ngIf="selectedLanguage === 'NL'">charcuterie</span>
+            <span *ngIf="selectedLanguage === 'PT'">enchidos e fumados</span>
           </button>
         </li>
-        </ul>
-        <!--         <li>
-          <button mat-button [matMenuTriggerFor]="menu">
-            <span *ngIf="selectedLanguage==='NL'">andere produten</span>
-            <span *ngIf="selectedLanguage==='PT'">outros produtos</span>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/oliveoil">
-              <span *ngIf="selectedLanguage==='NL'">olijfolie</span>
-              <span *ngIf="selectedLanguage==='PT'">azeites</span>
-            </button>
-            <button mat-menu-item routerLink="/likeuren">
-              <span *ngIf="selectedLanguage==='NL'">likeuren en sterke dranken</span>
-              <span *ngIf="selectedLanguage==='PT'">licores e aguardentes</span>
-            </button>
-            <button mat-menu-item routerLink="/bewaren">
-              <span *ngIf="selectedLanguage==='NL'">bewaren</span>
-              <span *ngIf="selectedLanguage==='PT'">conservas</span>
-            </button>
-            <button mat-menu-item routerLink="/charcuterie">
-              <span *ngIf="selectedLanguage==='NL'">charcuterie</span>
-              <span *ngIf="selectedLanguage==='PT'">enchidos e fumados</span>
-            </button>
-          </mat-menu>
-        </li> -->
-        <ul class="icons-ul">
+      </ul>
+
+      <ul class="icons-ul">
         <li>
           <a routerLink="/shopcart">
             <div class="shopcart">
               <mat-icon class="shopcart-icon">shopping_cart</mat-icon>
-              <span class="shopcart-load" *ngIf="shopcartLoad>0">{{shopcartLoad}}</span>
+              <span class="shopcart-load" *ngIf="shopcartLoad > 0">{{
+                shopcartLoad
+              }}</span>
             </div>
           </a>
         </li>
         <li *ngIf="showFavorite">
           <a routerLink="/favorits">
-            <mat-icon class="favorite-icon" title="Bladwijzers">favorites</mat-icon>
+            <mat-icon class="favorite-icon" title="Bladwijzers"
+              >favorites</mat-icon
+            >
           </a>
         </li>
         <!--         <li><button mat-button routerLink="/contacts">opmerkingen</button></li> -->
-        <li (click)="changeLanguage('NL')"><img class="flag" [class]="selectedLanguage=='NL' ? 'flag-disabled': ''"
-            src="./assets/img/flagBE.png" alt="Belgiun flag"></li>
-        <li (click)="changeLanguage('PT')"><img class="flag" [class]="selectedLanguage=='PT' ? 'flag-disabled': ''"
-            src="./assets/img/flagPT.jpg" alt="Portugal flag"></li>
-
+        <li (click)="changeLanguage('NL')">
+          <img
+            class="flag"
+            [class]="selectedLanguage == 'NL' ? 'flag-disabled' : ''"
+            src="./assets/img/flagBE.png"
+            alt="Belgiun flag"
+          />
+        </li>
+        <li (click)="changeLanguage('PT')">
+          <img
+            class="flag"
+            [class]="selectedLanguage == 'PT' ? 'flag-disabled' : ''"
+            src="./assets/img/flagPT.jpg"
+            alt="Portugal flag"
+          />
+        </li>
       </ul>
     </div>
-    <div fxHide.gt-xs>
-      <div class="mobile-menu">
 
-        <div>
-          <div class="shopcart">
-            <a routerLink="/favorits">
-              <mat-icon class="favorit-icon" *ngIf="showFavorite">favorite</mat-icon>
-            </a>
-          </div>
+    <!-- screen great then MD-->
+    <div class="mobile-menu">
+        <div class="shopcart">
+          <a routerLink="/favorits">
+            <mat-icon class="favorit-icon" *ngIf="showFavorite"
+              >favorite</mat-icon
+            >
+          </a>
         </div>
 
-        <a routerLink="/shopcart">
-          <div class="shopcart">
-            <mat-icon class="shopcart-icon">shopping_cart</mat-icon>
-            <span class="shopcart-load" *ngIf="shopcartLoad>0">{{shopcartLoad}}</span>
-          </div>
-        </a>
+      <a routerLink="/shopcart">
+        <div class="shopcart">
+          <mat-icon class="shopcart-icon">shopping_cart</mat-icon>
+          <span class="shopcart-load" *ngIf="shopcartLoad > 0">{{
+            shopcartLoad
+          }}</span>
+        </div>
+      </a>
 
-
-        <mat-icon class="menu" fxLayout fxShow.xs (click)="ToggleSidenav()" aria-hidden="false" aria-label="menu icon">
-          menu</mat-icon>
-      </div>
+      <mat-icon
+        class="menu"
+        (click)="ToggleSidenav()"
+        aria-hidden="false"
+        aria-label="menu icon"
+      >
+        menu</mat-icon
+      >
     </div>
   </mat-toolbar-row>
-
 </mat-toolbar>

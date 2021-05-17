@@ -121,6 +121,22 @@
         }
         
     }
+    .whatsapp-button{
+        position:fixed;
+        bottom:20px;
+        right:30px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .whatsapp-label{
+        font-size: .9rem;
+        font-weight: 300;
+    }
+    .whatsapp-button:visited, .whatsapp-button:hover, .whatsapp-button:link, .whatsapp-button:active{
+        text-decoration: none;
+    }
+
 }
 
 ::ng-deep{
