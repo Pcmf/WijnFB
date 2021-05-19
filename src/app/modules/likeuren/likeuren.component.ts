@@ -28,7 +28,7 @@ export class LikeurenComponent implements OnInit, OnDestroy {
       this.apiDataService.getData('products/3').subscribe(
         (resp: any[]) => {
           this.products = resp.filter(object => {
-            return object.active === 1;
+            return object.active == 1;
           });
         }
       );

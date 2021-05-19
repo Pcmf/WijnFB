@@ -41,8 +41,7 @@
             <div class="shoppcart">
                 <form #f="ngForm">
                     <app-promo-price *ngIf="product.price_promo > 0" [promoPrice]="product.price_promo"></app-promo-price>
-                    <span class="price"  [class]="product.price_promo>0? 'stroked': ''">{{product.pricesell}} €</span>
-                    <span class="price">{{product.pricesell}} €</span>
+                    <span class="price"  [class]="product.price_promo >0 ? 'stroked': ''">{{product.pricesell}} €</span>
                     <input class="qty" type="number" min="0" name="qty" [ngModel]="qty">
                     <button type="button" mat-flat-button class="add-button" [disabled]="product.tag_type==0"
                          (click)="addToCart(f.value, product)">add

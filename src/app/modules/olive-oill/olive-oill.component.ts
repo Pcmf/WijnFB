@@ -28,7 +28,7 @@ export class OliveOillComponent implements OnInit, OnDestroy {
       this.apiDataService.getData('products/2').subscribe(
         (resp: any[]) => {
           this.products = resp.filter(object => {
-            return object.active === 1;
+            return object.active == 1;
           });
         }
       );

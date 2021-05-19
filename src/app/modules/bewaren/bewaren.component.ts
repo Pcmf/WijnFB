@@ -28,7 +28,7 @@ export class BewarenComponent implements OnInit {
       this.apiDataService.getData('products/4').subscribe(
         (resp: any[]) => {
           this.products = resp.filter(object => {
-            return object.active === 1;
+            return object.active == 1;
           });
         }
       );
