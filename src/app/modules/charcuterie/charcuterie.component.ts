@@ -26,7 +26,11 @@ export class CharcuterieComponent implements OnInit, OnDestroy {
     private languageService: LanguageService
   ) {
     this.apiDataService.getData('products/5').subscribe(
-      (resp: any[]) => this.products = resp
+      (resp: any[]) => {
+        this.products = resp.filter(object => {
+          return object.active === 1;
+        });
+      }
     );
   }
 
