@@ -31,6 +31,11 @@
     <span *ngIf="selectedLanguage==='NL'">charcuterie</span>
     <span *ngIf="selectedLanguage==='PT'">enchidos e fumados</span>
   </a>
+  <a mat-list-item (click)="CloseSidenav()" routerLink="/about">
+    <mat-icon>info</mat-icon> 
+    <span *ngIf="selectedLanguage==='NL'">about</span>
+    <span *ngIf="selectedLanguage==='PT'">about</span>
+  </a>
 
   <a mat-list-item (click)="CloseSidenav()" routerLink="/favorits">
     <mat-icon class="favorite-icon">favorites</mat-icon> 

@@ -9,6 +9,7 @@ import { ShopListComponent } from './modules/shop-list/shop-list.component';
 import { FavoritsComponent } from './modules/favorits/favorits.component';
 import { UnderAgeComponent } from './modules/under-age/under-age.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { AboutComponent } from './modules/about/about.component';
 
 const routes: Routes = [
   {path: 'under', component: UnderAgeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'likeuren', component: LikeurenComponent, canActivate: [AuthGuardService]},
   {path: 'oliveoil', component: OliveOillComponent, canActivate: [AuthGuardService]},
   {path: 'shopcart', component: ShopListComponent, canActivate: [AuthGuardService]},
+  {path: 'about', component: AboutComponent, canActivate: [AuthGuardService]},
   {path: '**', component: HomeComponent}
 ];
 
